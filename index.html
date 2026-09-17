@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+    content="Каталог напоїв і десертів кав'ярні: кава, чай, сезонне меню та форма додавання нової позиції.">
+  <title>Кав'ярня — меню напоїв</title>
+</head>
+
+<body>
+  <a href="#menu">Перейти до меню</a>
+
+  <header>
+    <p>
+      <a href="#menu">
+        <img src="images/logo.svg" width="40" height="40" alt="">
+        Кав'ярня
+      </a>
+    </p>
+
+    <nav aria-label="Основна навігація">
+      <ul>
+        <li><a href="#menu">Меню</a></li>
+        <li><a href="#item">Позиція</a></li>
+        <li><a href="#add">Додати позицію</a></li>
+      </ul>
+    </nav>
+    <search>
+      <form action="#menu" method="get" role="search">
+        <label for="search">Пошук напою</label>
+        <input id="search" name="q" type="search" placeholder="Пошук напою..." maxlength="80">
+        <button type="submit">Знайти</button>
+      </form>
+    </search>
+
+  </header>
+
+  <main>
+    <section id="menu" aria-labelledby="menu-title">
+      <h1 id="menu-title">Меню кав'ярні</h1>
+
+      <nav aria-label="Категорії меню">
+        <ul>
+          <li><a href="#menu" aria-current="page">Кава</a></li>
+          <li><a href="#menu">Чай</a></li>
+          <li><a href="#menu">Десерт</a></li>
+          <li><a href="#menu">Сезонне</a></li>
+        </ul>
+      </nav>
+
+      <form action="#menu" method="get">
+        <label for="sort">Сортувати</label>
+        <select id="sort" name="sort">
+          <option value="name" selected>за назвою</option>
+          <option value="price-asc">за ціною: спочатку дешевші</option>
+          <option value="price-desc">за ціною: спочатку дорожчі</option>
+        </select>
+        <button type="submit">Застосувати</button>
+      </form>
+
+      <ul>
+        <li>
+          <article>
+            <h2>
+              <a href="#item">Еспресо</a>
+            </h2>
+            <p>
+              <img src="images/espresso.svg" width="320" height="210" alt="Чашка чорного еспресо на дерев'яному столі">
+            </p>
+            <p>Кава</p>
+            <p>є в наявності</p>
+            <p>Класичний еспресо з насиченим смаком та щільною кремою.</p>
+            <p>
+              <data value="45">45 ₴</data>
+              <data value="40">40 мл</data>
+            </p>
+            <p>
+              <a href="#item">Відкрити позицію</a>
+              <button type="button">Додати Еспресо в обране</button>
+            </p>
+          </article>
+        </li>
+        <li>
+          <article>
+            <h2>
+              <a href="#item">Капучино</a>
+            </h2>
+            <p>
+              <img src="images/cappuccino.svg" width="320" height="210" alt="Капучино з малюнком латте-арт у чашці">
+            </p>
+            <p>Кава</p>
+            <p>є в наявності</p>
+            <p>Еспресо з ніжною молочною пінкою та легкою солодкістю.</p>
+            <p>
+              <data value="75">75 ₴</data>
+              <data value="300">300 мл</data>
+            </p>
+            <p>
+              <a href="#item">Відкрити позицію</a>
+              <button type="button">Додати Капучино в обране</button>
+            </p>
+          </article>
+        </li>
+        <li>
+          <article>
+            <h2>
+              <a href="#item">Лате</a>
+            </h2>
+            <p>
+              <img src="images/latte.svg" width="320" height="210" alt="Висока склянка лате зі спіненим молоком">
+            </p>
+            <p>Кава</p>
+            <p>є в наявності</p>
+            <p>М'який кавовий напій з великою порцією спіненого молока.</p>
+            <p>
+              <data value="80">80 ₴</data>
+              <data value="350">350 мл</data>
+            </p>
+            <p>
+              <a href="#item">Відкрити позицію</a>
+              <button type="button">Додати Лате в обране</button>
+            </p>
+          </article>
+        </li>
+        <li>
+          <article>
+            <h2>
+              <a href="#item">Матча Лате</a>
+            </h2>
+            <p>
+              <img src="images/matcha-latte.svg" width="320" height="210"
+                alt="Матча лате з зеленим візерунком на пінці">
+            </p>
+            <p>Чай</p>
+            <p>є в наявності</p>
+            <p>Японський зелений чай матча з вершковим молоком.</p>
+            <p>
+              <data value="95">95 ₴</data>
+              <data value="300">300 мл</data>
+            </p>
+            <p>
+              <a href="#item">Відкрити позицію</a>
+              <button type="button">Додати Матча Лате в обране</button>
+            </p>
+          </article>
+        </li>
+        <li>
+          <article>
+            <h2>
+              <a href="#item">Чізкейк Нью-Йорк</a>
+            </h2>
+            <p>
+              <img src="images/cheesecake.svg" width="320" height="210" alt="Шматочок чізкейка Нью-Йорк з ягодами">
+            </p>
+            <p>Десерт</p>
+            <p>є в наявності</p>
+            <p>Класичний вершковий чізкейк із хрусткою піщаною основою.</p>
+            <p>
+              <data value="120">120 ₴</data>
+              <data value="150">150 г</data>
+            </p>
+            <p>
+              <a href="#item">Відкрити позицію</a>
+              <button type="button">Додати чізкейк Нью-Йорк в обране</button>
+            </p>
+          </article>
+        </li>
+        <li>
+          <article>
+            <h2>
+              <a href="#item">Сезонний гарбузовий лате</a>
+            </h2>
+            <p>
+              <img src="images/pumpkin-latte.svg" width="320" height="210" alt="Гарбузовий лате зі збитими вершками">
+            </p>
+            <p>Сезонне</p>
+            <p>є в наявності</p>
+            <p>Лате з гарбузовим пюре, корицею та мускатним горіхом.</p>
+            <p>
+              <data value="110">110 ₴</data>
+              <data value="450">450 мл</data>
+            </p>
+            <p>
+              <a href="#item">Відкрити позицію</a>
+              <button type="button">Додати сезонний гарбузовий лате в обране</button>
+            </p>
+          </article>
+        </li>
+        <li>
+          <article>
+            <h2>
+              <a href="#item">Ромашковий чай</a>
+            </h2>
+            <p>
+              <img src="images/chamomile.svg" width="320" height="210" alt="Чашка ромашкового чаю з квітами ромашки">
+            </p>
+            <p>Чай</p>
+            <p>немає в наявності</p>
+            <p>Ніжний трав'яний чай з квітів ромашки для спокою.</p>
+            <p>
+              <data value="55">55 ₴</data>
+              <data value="250">250 мл</data>
+            </p>
+            <p>
+              <a href="#item">Відкрити позицію</a>
+              <button type="button">Додати ромашковий чай в обране</button>
+            </p>
+          </article>
+        </li>
+        <li>
+          <article>
+            <h2>
+              <a href="#item">Tiramisu</a>
+            </h2>
+            <p>
+              <img src="images/tiramisu.svg" width="320" height="210" alt="Десерт тірамісу з какао в прозорій склянці">
+            </p>
+            <p>Десерт</p>
+            <p>є в наявності</p>
+            <p>Італійський десерт з маскарпоне, кавою та какао.</p>
+            <p>
+              <data value="115">115 ₴</data>
+              <data value="180">180 г</data>
+            </p>
+            <p>
+              <a href="#item">Відкрити позицію</a>
+              <button type="button">Додати Tiramisu в обране</button>
+            </p>
+          </article>
+        </li>
+      </ul>
+    </section>
+
+    <section id="item" aria-labelledby="item-title">
+      <h2 id="item-title">Деталі позиції</h2>
+      <p>
+        <a href="#menu">Назад до меню</a>
+      </p>
+      <nav aria-label="Навігаційний ланцюжок">
+        <ol>
+          <li><a href="#menu">Кава</a></li>
+          <li>Капучино</li>
+        </ol>
+      </nav>
+
+      <article>
+        <h3>Капучино</h3>
+        <p>
+          <img src="images/cappuccino.svg" width="480" height="315"
+            alt="Капучино з малюнком латте-арт на дерев'яному столі біля крісла">
+        </p>
+        <p>Кава</p>
+        <p>є в наявності</p>
+        <p>Об'єм: <data value="300">300 мл</data></p>
+        <p>Ціна: <data value="75">75 ₴</data></p>
+        <h4>Опис та склад</h4>
+        <p>
+          Еспресо на основі класичного обсмаження з ніжною молочною пінкою
+          та легкою солодкістю.
+        </p>
+        <p>
+          <button type="button">Замовити</button>
+          <button type="button">Редагувати</button>
+          <button type="button">Видалити</button>
+        </p>
+      </article>
+    </section>
+
+    <section id="add" aria-labelledby="add-title">
+      <h2 id="add-title">Додати нову позицію</h2>
+      <p>Заповніть поля, щоб додати напій або десерт до меню кав'ярні.</p>
+
+      <form action="#add" method="post">
+        <fieldset>
+          <legend>Дані позиції</legend>
+
+          <p>
+            <label for="name">Назва</label>
+            <input id="name" name="name" type="text" required maxlength="80" autocomplete="off"
+              placeholder="Наприклад, Фрапе">
+          </p>
+
+          <p>
+            <label for="category">Категорія</label>
+            <select id="category" name="category" required>
+              <option value="">Оберіть категорію</option>
+              <option value="coffee">Кава</option>
+              <option value="tea">Чай</option>
+              <option value="dessert">Десерт</option>
+              <option value="seasonal">Сезонне</option>
+            </select>
+          </p>
+
+          <p>
+            <label for="price">Ціна, ₴</label>
+            <input id="price" name="price" type="number" required min="1" max="9999" step="1" inputmode="numeric"
+              placeholder="75">
+          </p>
+
+          <p>
+            <label for="volume">Об'єм або вага</label>
+            <input id="volume" name="volume" type="text" required maxlength="20" placeholder="300 мл або 150 г"
+              pattern="^[0-9]{1,4}\s?(мл|г)$" title="Вкажіть значення у форматі 300 мл або 150 г">
+          </p>
+
+          <p>
+            <label for="image">Посилання на зображення</label>
+            <input id="image" name="image" type="url" maxlength="2048" placeholder="https://">
+          </p>
+
+          <p>
+            <label for="description">Опис</label>
+            <textarea id="description" name="description" required maxlength="300" rows="4"
+              placeholder="Короткий опис смаку та складу"></textarea>
+          </p>
+
+          <p>
+            <label>
+              <input id="available" name="available" type="checkbox" checked>
+              В наявності
+            </label>
+          </p>
+        </fieldset>
+
+        <p>
+          <button type="submit">Зберегти</button>
+          <button type="reset">Скасувати</button>
+        </p>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>Кав'ярня</p>
+    <nav aria-label="Навігація в підвалі">
+      <ul>
+        <li><a href="#menu">Меню</a></li>
+        <li><a href="#item">Позиція</a></li>
+        <li><a href="#add">Додати позицію</a></li>
+      </ul>
+    </nav>
+    <p>
+      <small>© 2026 Кав'ярня. Сторінка каталогу.</small>
+    </p>
+  </footer>
+</body>
+
+</html>
