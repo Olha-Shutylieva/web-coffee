@@ -7,14 +7,15 @@
   <meta name="description"
     content="Каталог напоїв і десертів кав'ярні: кава, чай, сезонне меню та форма додавання нової позиції.">
   <title>Кав'ярня — меню напоїв</title>
+  <link rel="icon" href="favicon.ico" sizes="any">
 </head>
 
 <body>
-  <a href="#menu">Перейти до меню</a>
+  <a href="#content">Перейти до вмісту</a>
 
   <header>
     <p>
-      <a href="#menu">
+      <a href="index.html">
         <img src="images/logo.svg" width="40" height="40" alt="">
         Кав'ярня
       </a>
@@ -22,28 +23,27 @@
 
     <nav aria-label="Основна навігація">
       <ul>
-        <li><a href="#menu">Меню</a></li>
-        <li><a href="#item">Позиція</a></li>
-        <li><a href="#add">Додати позицію</a></li>
+        <li><a href="index.html" aria-current="page">Меню</a></li>
+        <li><a href="about.html">Про кав'ярню</a></li>
       </ul>
     </nav>
+
     <search>
-      <form action="#menu" method="get" role="search">
+      <form action="index.html" method="get" role="search">
         <label for="search">Пошук напою</label>
         <input id="search" name="q" type="search" placeholder="Пошук напою..." maxlength="80">
         <button type="submit">Знайти</button>
       </form>
     </search>
-
   </header>
 
-  <main>
+  <main id="content">
     <section id="menu" aria-labelledby="menu-title">
       <h1 id="menu-title">Меню кав'ярні</h1>
 
       <nav aria-label="Категорії меню">
         <ul>
-          <li><a href="#menu" aria-current="page">Кава</a></li>
+          <li><a href="#menu">Кава</a></li>
           <li><a href="#menu">Чай</a></li>
           <li><a href="#menu">Десерт</a></li>
           <li><a href="#menu">Сезонне</a></li>
@@ -64,10 +64,10 @@
         <li>
           <article>
             <h2>
-              <a href="#item">Еспресо</a>
+              <a href="details.html">Еспресо</a>
             </h2>
             <p>
-              <img src="images/espresso.svg" width="320" height="210" alt="Чашка чорного еспресо на дерев'яному столі">
+              <img src="images/espresso.svg" width="320" height="210" loading="lazy" alt="Чашка чорного еспресо на дерев'яному столі">
             </p>
             <p>Кава</p>
             <p>є в наявності</p>
@@ -77,7 +77,6 @@
               <data value="40">40 мл</data>
             </p>
             <p>
-              <a href="#item">Відкрити позицію</a>
               <button type="button">Додати Еспресо в обране</button>
             </p>
           </article>
@@ -85,10 +84,10 @@
         <li>
           <article>
             <h2>
-              <a href="#item">Капучино</a>
+              <a href="details.html">Капучино</a>
             </h2>
             <p>
-              <img src="images/cappuccino.svg" width="320" height="210" alt="Капучино з малюнком латте-арт у чашці">
+              <img src="images/cappuccino.svg" width="320" height="210" loading="lazy" alt="Капучино з малюнком латте-арт у чашці">
             </p>
             <p>Кава</p>
             <p>є в наявності</p>
@@ -98,7 +97,6 @@
               <data value="300">300 мл</data>
             </p>
             <p>
-              <a href="#item">Відкрити позицію</a>
               <button type="button">Додати Капучино в обране</button>
             </p>
           </article>
@@ -106,10 +104,10 @@
         <li>
           <article>
             <h2>
-              <a href="#item">Лате</a>
+              <a href="details.html">Лате</a>
             </h2>
             <p>
-              <img src="images/latte.svg" width="320" height="210" alt="Висока склянка лате зі спіненим молоком">
+              <img src="images/latte.svg" width="320" height="210" loading="lazy" alt="Висока склянка лате зі спіненим молоком">
             </p>
             <p>Кава</p>
             <p>є в наявності</p>
@@ -119,7 +117,6 @@
               <data value="350">350 мл</data>
             </p>
             <p>
-              <a href="#item">Відкрити позицію</a>
               <button type="button">Додати Лате в обране</button>
             </p>
           </article>
@@ -127,10 +124,10 @@
         <li>
           <article>
             <h2>
-              <a href="#item">Матча Лате</a>
+              <a href="details.html">Матча Лате</a>
             </h2>
             <p>
-              <img src="images/matcha-latte.svg" width="320" height="210"
+              <img src="images/matcha-latte.svg" width="320" height="210" loading="lazy"
                 alt="Матча лате з зеленим візерунком на пінці">
             </p>
             <p>Чай</p>
@@ -141,7 +138,6 @@
               <data value="300">300 мл</data>
             </p>
             <p>
-              <a href="#item">Відкрити позицію</a>
               <button type="button">Додати Матча Лате в обране</button>
             </p>
           </article>
@@ -149,10 +145,10 @@
         <li>
           <article>
             <h2>
-              <a href="#item">Чізкейк Нью-Йорк</a>
+              <a href="details.html">Чізкейк Нью-Йорк</a>
             </h2>
             <p>
-              <img src="images/cheesecake.svg" width="320" height="210" alt="Шматочок чізкейка Нью-Йорк з ягодами">
+              <img src="images/cheesecake.svg" width="320" height="210" loading="lazy" alt="Шматочок чізкейка Нью-Йорк з ягодами">
             </p>
             <p>Десерт</p>
             <p>є в наявності</p>
@@ -162,7 +158,6 @@
               <data value="150">150 г</data>
             </p>
             <p>
-              <a href="#item">Відкрити позицію</a>
               <button type="button">Додати чізкейк Нью-Йорк в обране</button>
             </p>
           </article>
@@ -170,10 +165,10 @@
         <li>
           <article>
             <h2>
-              <a href="#item">Сезонний гарбузовий лате</a>
+              <a href="details.html">Сезонний гарбузовий лате</a>
             </h2>
             <p>
-              <img src="images/pumpkin-latte.svg" width="320" height="210" alt="Гарбузовий лате зі збитими вершками">
+              <img src="images/pumpkin-latte.svg" width="320" height="210" loading="lazy" alt="Гарбузовий лате зі збитими вершками">
             </p>
             <p>Сезонне</p>
             <p>є в наявності</p>
@@ -183,7 +178,6 @@
               <data value="450">450 мл</data>
             </p>
             <p>
-              <a href="#item">Відкрити позицію</a>
               <button type="button">Додати сезонний гарбузовий лате в обране</button>
             </p>
           </article>
@@ -191,10 +185,10 @@
         <li>
           <article>
             <h2>
-              <a href="#item">Ромашковий чай</a>
+              <a href="details.html">Ромашковий чай</a>
             </h2>
             <p>
-              <img src="images/chamomile.svg" width="320" height="210" alt="Чашка ромашкового чаю з квітами ромашки">
+              <img src="images/chamomile.svg" width="320" height="210" loading="lazy" alt="Чашка ромашкового чаю з квітами ромашки">
             </p>
             <p>Чай</p>
             <p>немає в наявності</p>
@@ -204,7 +198,6 @@
               <data value="250">250 мл</data>
             </p>
             <p>
-              <a href="#item">Відкрити позицію</a>
               <button type="button">Додати ромашковий чай в обране</button>
             </p>
           </article>
@@ -212,10 +205,10 @@
         <li>
           <article>
             <h2>
-              <a href="#item">Tiramisu</a>
+              <a href="details.html">Tiramisu</a>
             </h2>
             <p>
-              <img src="images/tiramisu.svg" width="320" height="210" alt="Десерт тірамісу з какао в прозорій склянці">
+              <img src="images/tiramisu.svg" width="320" height="210" loading="lazy" alt="Десерт тірамісу з какао в прозорій склянці">
             </p>
             <p>Десерт</p>
             <p>є в наявності</p>
@@ -225,47 +218,11 @@
               <data value="180">180 г</data>
             </p>
             <p>
-              <a href="#item">Відкрити позицію</a>
               <button type="button">Додати Tiramisu в обране</button>
             </p>
           </article>
         </li>
       </ul>
-    </section>
-
-    <section id="item" aria-labelledby="item-title">
-      <h2 id="item-title">Деталі позиції</h2>
-      <p>
-        <a href="#menu">Назад до меню</a>
-      </p>
-      <nav aria-label="Навігаційний ланцюжок">
-        <ol>
-          <li><a href="#menu">Кава</a></li>
-          <li>Капучино</li>
-        </ol>
-      </nav>
-
-      <article>
-        <h3>Капучино</h3>
-        <p>
-          <img src="images/cappuccino.svg" width="480" height="315"
-            alt="Капучино з малюнком латте-арт на дерев'яному столі біля крісла">
-        </p>
-        <p>Кава</p>
-        <p>є в наявності</p>
-        <p>Об'єм: <data value="300">300 мл</data></p>
-        <p>Ціна: <data value="75">75 ₴</data></p>
-        <h4>Опис та склад</h4>
-        <p>
-          Еспресо на основі класичного обсмаження з ніжною молочною пінкою
-          та легкою солодкістю.
-        </p>
-        <p>
-          <button type="button">Замовити</button>
-          <button type="button">Редагувати</button>
-          <button type="button">Видалити</button>
-        </p>
-      </article>
     </section>
 
     <section id="add" aria-labelledby="add-title">
@@ -336,13 +293,12 @@
     <p>Кав'ярня</p>
     <nav aria-label="Навігація в підвалі">
       <ul>
-        <li><a href="#menu">Меню</a></li>
-        <li><a href="#item">Позиція</a></li>
-        <li><a href="#add">Додати позицію</a></li>
+        <li><a href="index.html" aria-current="page">Меню</a></li>
+        <li><a href="about.html">Про кав'ярню</a></li>
       </ul>
     </nav>
     <p>
-      <small>© 2026 Кав'ярня. Сторінка каталогу.</small>
+      <small>© 2026 Кав'ярня.</small>
     </p>
   </footer>
 </body>
