@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+    content="Капучино в меню кав'ярні: опис смаку, склад, наявність, дата додавання та порції з цінами.">
+  <title>Капучино — Кав'ярня</title>
+  <link rel="icon" href="favicon.ico" sizes="any">
+</head>
+
+<body>
+  <a href="#content">Перейти до вмісту</a>
+
+  <header>
+    <p>
+      <a href="index.html">
+        <img src="images/logo.svg" width="40" height="40" alt="">
+        Кав'ярня
+      </a>
+    </p>
+
+    <nav aria-label="Основна навігація">
+      <ul>
+        <li><a href="index.html">Меню</a></li>
+        <li><a href="about.html">Про кав'ярню</a></li>
+      </ul>
+    </nav>
+
+    <search>
+      <form action="index.html" method="get" role="search">
+        <label for="search">Пошук напою</label>
+        <input id="search" name="q" type="search" placeholder="Пошук напою..." maxlength="80">
+        <button type="submit">Знайти</button>
+      </form>
+    </search>
+  </header>
+
+  <main id="content">
+    <nav aria-label="Навігаційний ланцюжок">
+      <ol>
+        <li><a href="index.html">Меню</a></li>
+        <li><a href="details.html" aria-current="page">Капучино</a></li>
+      </ol>
+    </nav>
+
+    <article>
+      <h1>Капучино</h1>
+
+      <nav aria-label="На цій сторінці">
+        <h2>На цій сторінці</h2>
+        <ul>
+          <li><a href="#photo">Фото</a></li>
+          <li><a href="#description">Опис</a></li>
+          <li><a href="#specs">Характеристики</a></li>
+          <li><a href="#portions">Порції та ціни</a></li>
+        </ul>
+      </nav>
+
+      <section id="photo" aria-labelledby="photo-title">
+        <h2 id="photo-title">Фото</h2>
+        <figure>
+          <picture>
+            <source srcset="images/cappuccino.webp" type="image/webp">
+            <img src="images/cappuccino.svg" width="640" height="420" fetchpriority="high"
+              alt="Чашка капучино з молочною пінкою та латте-артом">
+          </picture>
+          <figcaption>Капучино подають із щільною молочною пінкою.</figcaption>
+        </figure>
+      </section>
+
+      <section id="description" aria-labelledby="description-title">
+        <h2 id="description-title">Опис</h2>
+        <p>
+          <dfn>Капучино</dfn> — це еспресо з гарячим молоком і високою молочною пінкою.
+          У меню кав'ярні позиція належить до категорії <strong>кава</strong>
+          і має м'який, злегка солодкий смак.
+        </p>
+        <p>
+          Напій готують із <em>класичного обсмаження</em> та збитого молока.
+          Стандартна чашка вміщує 300 <abbr title="мілілітрів">мл</abbr>,
+          тому пінка лишається щільною до останнього ковтка.
+        </p>
+        <p>
+          Бариста описують смак так:
+          <q>ніжна пінка, гіркуватий еспресо і м'яке молоко</q>.
+          Капучино зручно пити після обіду або разом із десертом із меню.
+        </p>
+      </section>
+
+      <section id="specs" aria-labelledby="specs-title">
+        <h2 id="specs-title">Характеристики</h2>
+        <dl>
+          <dt>Категорія</dt>
+          <dd>Кава</dd>
+          <dt>Ціна</dt>
+          <dd><data value="75">75 ₴</data></dd>
+          <dt>Об'єм</dt>
+          <dd><data value="300">300 мл</data></dd>
+          <dt>Дата додавання</dt>
+          <dd><time datetime="2026-03-12">12 березня 2026</time></dd>
+          <dt>Наявність</dt>
+          <dd>є в наявності</dd>
+        </dl>
+      </section>
+
+      <section id="portions" aria-labelledby="portions-title">
+        <h2 id="portions-title">Порції та ціни</h2>
+        <table>
+          <caption>Порції капучино в меню кав'ярні</caption>
+          <thead>
+            <tr>
+              <th scope="col">Порція</th>
+              <th scope="col">Об'єм</th>
+              <th scope="col">Ціна</th>
+              <th scope="col">Калорійність</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Мала</th>
+              <td>200 мл</td>
+              <td>60 ₴</td>
+              <td>90 ккал</td>
+            </tr>
+            <tr>
+              <th scope="row">Середня</th>
+              <td>300 мл</td>
+              <td>75 ₴</td>
+              <td>120 ккал</td>
+            </tr>
+            <tr>
+              <th scope="row">Велика</th>
+              <td>400 мл</td>
+              <td>95 ₴</td>
+              <td>160 ккал</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <p>
+        <a href="index.html">Назад до меню</a>
+      </p>
+    </article>
+  </main>
+
+  <footer>
+    <p>Кав'ярня</p>
+    <nav aria-label="Навігація в підвалі">
+      <ul>
+        <li><a href="index.html">Меню</a></li>
+        <li><a href="about.html">Про кав'ярню</a></li>
+      </ul>
+    </nav>
+    <p>
+      <small>© 2026 Кав'ярня.</small>
+    </p>
+  </footer>
+</body>
+
+</html>
