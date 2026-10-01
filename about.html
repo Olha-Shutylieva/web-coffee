@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+    content="Про проєкт каталогу кав'ярні: як користуватися меню, майбутні можливості, відео про сезонні новинки та відповіді на часті запитання.">
+  <title>Про кав'ярню — Кав'ярня</title>
+  <link rel="icon" href="favicon.ico" sizes="any">
+</head>
+
+<body>
+  <a href="#content">Перейти до вмісту</a>
+
+  <header>
+    <p>
+      <a href="index.html">
+        <img src="images/logo.svg" width="40" height="40" alt="">
+        Кав'ярня
+      </a>
+    </p>
+
+    <nav aria-label="Основна навігація">
+      <ul>
+        <li><a href="index.html">Меню</a></li>
+        <li><a href="about.html" aria-current="page">Про кав'ярню</a></li>
+      </ul>
+    </nav>
+
+    <search>
+      <form action="index.html" method="get" role="search">
+        <label for="search">Пошук напою</label>
+        <input id="search" name="q" type="search" placeholder="Пошук напою..." maxlength="80">
+        <button type="submit">Знайти</button>
+      </form>
+    </search>
+  </header>
+
+  <main id="content">
+    <h1>Про кав'ярню</h1>
+    <p>
+      Цей проєкт збирає каталог напоїв і десертів кав'ярні: каву, чай, десерти та сезонні позиції.
+      Мета каталогу — показати склад меню, відкрити опис кожної позиції
+      і порівняти порції, ціну та наявність в одному місці.
+    </p>
+
+    <section aria-labelledby="howto-title">
+      <h2 id="howto-title">Як користуватися каталогом</h2>
+      <ol>
+        <li>Відкрийте сторінку меню і перегляньте картки напоїв та десертів.</li>
+        <li>Оберіть категорію або знайдіть позицію за назвою в полі пошуку.</li>
+        <li>За потреби змініть порядок карток: за назвою або за ціною.</li>
+        <li>Перейдіть на сторінку позиції, натиснувши її назву в картці.</li>
+        <li>Прочитайте опис, характеристики й таблицю порцій, а потім поверніться до меню.</li>
+      </ol>
+    </section>
+
+    <section aria-labelledby="next-title">
+      <h2 id="next-title">Можливості наступних робіт</h2>
+      <ul>
+        <li>Стильове оформлення сторінок за макетом кав'ярні.</li>
+        <li>Динамічне наповнення сторінки деталей даними обраної позиції.</li>
+        <li>Фільтрація і сортування меню без перезавантаження сторінки.</li>
+        <li>Збереження обраних напоїв і десертів у браузері.</li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="video-title">
+      <h2 id="video-title">Відео про сезонне меню</h2>
+      <figure>
+        <video controls preload="metadata" width="640" height="360" poster="images/pumpkin-latte.svg">
+          <source src="media/seasonal-menu.webm" type="video/webm">
+          <source src="media/seasonal-menu.mp4" type="video/mp4">
+          <track kind="subtitles" src="media/seasonal-menu.uk.vtt" srclang="uk" label="Українські субтитри" default>
+          <p>
+            Браузер не відтворює відео.
+            Прочитайте <a href="#transcript">текстову версію туторіалу</a>.
+          </p>
+        </video>
+        <figcaption>Повноекранний відео-туторіал про новинки сезонного меню.</figcaption>
+      </figure>
+    </section>
+
+    <section id="transcript" aria-labelledby="transcript-title">
+      <h2 id="transcript-title">Текстова версія туторіалу</h2>
+      <p>
+        Сезонне меню кав'ярні зараз представляє <strong>гарбузовий лате</strong>
+        з корицею та мускатним горіхом.
+      </p>
+      <p>
+        У каталозі оберіть категорію <em>Сезонне</em>, щоб побачити новинки.
+        Далі відкрийте назву позиції й порівняйте об'єм, ціну та наявність.
+      </p>
+    </section>
+
+    <section aria-labelledby="faq-title">
+      <h2 id="faq-title">Часті запитання</h2>
+      <details name="faq">
+        <summary>Як відкрити опис позиції?</summary>
+        <p>На сторінці меню натисніть назву напою або десерту в картці. Відкриється сторінка з фото, описом і таблицею порцій.</p>
+      </details>
+      <details name="faq">
+        <summary>Чому зараз усі картки ведуть на один опис?</summary>
+        <p>На цьому етапі сторінка деталей спільна для каталогу. У наступній роботі з JavaScript її вміст підставлятиметься для кожної позиції окремо.</p>
+      </details>
+      <details name="faq">
+        <summary>Чи можна додати власну позицію?</summary>
+        <p>Так. Унизу сторінки меню є форма «Додати нову позицію». Заповніть назву, категорію, ціну, об'єм і опис.</p>
+      </details>
+      <details name="faq">
+        <summary>Коли з'явиться оформлення?</summary>
+        <p>Стилі підключать у наступних роботах. Зараз сторінки містять лише семантичну розмітку, щоб структура лишалася доступною без оформлення.</p>
+      </details>
+    </section>
+
+    <section aria-labelledby="contact-title">
+      <h2 id="contact-title">Контакт</h2>
+      <address>
+        <p>Автор проєкту: Ольга Шутелева</p>
+        <p>
+          Навчальний контакт:
+          <a href="mailto:olya.shutileva@gmail.com">olya.shutileva@gmail.com</a>
+        </p>
+      </address>
+    </section>
+  </main>
+
+  <footer>
+    <p>Кав'ярня</p>
+    <nav aria-label="Навігація в підвалі">
+      <ul>
+        <li><a href="index.html">Меню</a></li>
+        <li><a href="about.html" aria-current="page">Про кав'ярню</a></li>
+      </ul>
+    </nav>
+    <p>
+      <small>© 2026 Кав'ярня.</small>
+    </p>
+  </footer>
+</body>
+
+</html>
