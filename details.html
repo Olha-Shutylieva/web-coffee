@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description"
-    content="Капучино в меню кав'ярні: опис смаку, склад, наявність, дата додавання та порції з цінами.">
+    content="Капучино в меню кав'ярні: опис смаку, склад, порції з цінами та форма відгуку відвідувача.">
   <title>Капучино — Кав'ярня</title>
   <link rel="icon" href="favicon.ico" sizes="any">
 </head>
@@ -55,6 +55,7 @@
           <li><a href="#description">Опис</a></li>
           <li><a href="#specs">Характеристики</a></li>
           <li><a href="#portions">Порції та ціни</a></li>
+          <li><a href="#review">Відгук</a></li>
         </ul>
       </nav>
 
@@ -144,6 +145,73 @@
         <a href="index.html">Назад до меню</a>
       </p>
     </article>
+
+    <section id="review" aria-labelledby="review-title">
+      <h2 id="review-title">Відгук</h2>
+      <p>Розкажіть, яким був капучино. Форма надсилається методом get, тож відповіді видно в адресному рядку.</p>
+      <form id="review" action="details.html#review" method="get">
+        <p>
+          <label for="review-author">Ім'я</label>
+          <input id="review-author" name="authorName" type="text" autocomplete="name" minlength="2" maxlength="80">
+        </p>
+
+        <p>
+          <label for="review-email">Електронна пошта</label>
+          <input id="review-email" name="email" type="email" autocomplete="email" required maxlength="80">
+        </p>
+
+        <p>
+          <label for="review-phone">Телефон</label>
+          <input id="review-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="13"
+            pattern="^\+380\d{9}$" aria-describedby="phone-hint">
+        </p>
+        <p id="phone-hint">Необов'язково. Формат: +380 і 9 цифр, наприклад +380501112233.</p>
+
+        <fieldset>
+          <legend>Оцінка</legend>
+          <p>
+            <label><input type="radio" name="rating" value="1" required> 1</label>
+          </p>
+          <p>
+            <label><input type="radio" name="rating" value="2"> 2</label>
+          </p>
+          <p>
+            <label><input type="radio" name="rating" value="3"> 3</label>
+          </p>
+          <p>
+            <label><input type="radio" name="rating" value="4"> 4</label>
+          </p>
+          <p>
+            <label><input type="radio" name="rating" value="5"> 5</label>
+          </p>
+        </fieldset>
+
+        <p>
+          <label for="sweetness">Солодкість</label>
+          <input id="sweetness" name="sweetness" type="range" min="0" max="5" step="1" value="2"
+            aria-describedby="sweetness-hint">
+        </p>
+        <p id="sweetness-hint">Від 0 (без цукру) до 5 (дуже солодко). Повзунок завжди передає число.</p>
+
+        <p>
+          <label for="review-comment">Коментар</label>
+          <textarea id="review-comment" name="comment" minlength="10" maxlength="500" rows="4"
+            aria-describedby="comment-hint"></textarea>
+        </p>
+        <p id="comment-hint">Необов'язково. Якщо пишете коментар, залиште від 10 до 500 символів.</p>
+
+        <p>
+          <label>
+            <input id="review-consent" name="consent" type="checkbox" value="yes" required>
+            Погоджуюся з правилами публікації відгуку
+          </label>
+        </p>
+
+        <p>
+          <button type="submit">Надіслати відгук</button>
+        </p>
+      </form>
+    </section>
   </main>
 
   <footer>
@@ -152,6 +220,7 @@
       <ul>
         <li><a href="index.html">Меню</a></li>
         <li><a href="about.html">Про кав'ярню</a></li>
+        <li><a href="admin.html">Адміністрування</a></li>
       </ul>
     </nav>
     <p>
