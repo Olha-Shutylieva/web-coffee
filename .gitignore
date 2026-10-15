@@ -1,0 +1,12 @@
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Qodo
+.qodo/
+
+# VS Code
+.vscode/
+*.code-workspace
