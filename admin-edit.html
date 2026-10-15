@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+    content="Навчальна форма редагування позиції «Капучино»: ті самі поля моделі, заповнені поточними значеннями.">
+  <title>Редагування: Капучино — Кав'ярня</title>
+  <link rel="icon" href="favicon.ico" sizes="any">
+</head>
+
+<body>
+  <a href="#content">Перейти до вмісту</a>
+
+  <header>
+    <p>
+      <a href="index.html">
+        <img src="images/logo.svg" width="40" height="40" alt="">
+        Кав'ярня
+      </a>
+    </p>
+
+    <nav aria-label="Основна навігація">
+      <ul>
+        <li><a href="index.html">Меню</a></li>
+        <li><a href="about.html">Про кав'ярню</a></li>
+      </ul>
+    </nav>
+
+    <search>
+      <form action="index.html" method="get" role="search">
+        <label for="search">Пошук напою</label>
+        <input id="search" name="q" type="search" placeholder="Пошук напою..." maxlength="80">
+        <button type="submit">Знайти</button>
+      </form>
+    </search>
+  </header>
+
+  <main id="content">
+    <nav aria-label="Навігаційний ланцюжок">
+      <ol>
+        <li><a href="admin.html">Адміністрування</a></li>
+        <li><a href="admin-edit.html" aria-current="page">Редагування: Капучино</a></li>
+      </ol>
+    </nav>
+
+    <h1>Редагування: Капучино</h1>
+    <p>Форма заповнена поточними даними позиції. Скидання повертає ці початкові значення, а не порожні поля.</p>
+
+    <form id="edit-item" action="admin-edit.html" method="get">
+      <input type="hidden" name="id" value="cappuccino">
+
+      <fieldset>
+        <legend>Основні дані</legend>
+
+        <p>
+          <label for="title">Назва</label>
+          <input id="title" name="title" type="text" required minlength="2" maxlength="80" autocomplete="off"
+            value="Капучино">
+        </p>
+
+        <p>
+          <label for="sku">Артикул</label>
+          <input id="sku" name="sku" type="text" required maxlength="6" pattern="^[A-Z]{2}-\d{3}$"
+            aria-describedby="sku-hint" title="Дві великі латинські літери, дефіс і три цифри" autocomplete="off"
+            value="CF-002">
+        </p>
+        <p id="sku-hint">Формат: дві великі латинські літери, дефіс і три цифри, наприклад CF-014.</p>
+
+        <p>
+          <label for="category">Категорія</label>
+          <select id="category" name="category" required>
+            <option value="">Оберіть категорію</option>
+            <option value="coffee" selected>Кава</option>
+            <option value="tea">Чай</option>
+            <option value="dessert">Десерт</option>
+            <option value="seasonal">Сезонне</option>
+          </select>
+        </p>
+
+        <p>
+          <label for="price">Ціна, ₴</label>
+          <input id="price" name="price" type="number" required min="1" max="9999" step="1" inputmode="numeric"
+            value="75">
+        </p>
+
+        <p>
+          <label for="volume">Об'єм або вага</label>
+          <input id="volume" name="volume" type="number" required min="1" max="1000" step="1" inputmode="numeric"
+            aria-describedby="volume-hint" value="300">
+        </p>
+        <p id="volume-hint">Ціле число без одиниць: мілілітри для напоїв або грами для десертів.</p>
+
+        <p>
+          <label for="addedAt">Дата додавання</label>
+          <input id="addedAt" name="addedAt" type="date" required min="2024-01-01" max="2027-12-31"
+            aria-describedby="added-at-hint" value="2026-03-12">
+        </p>
+        <p id="added-at-hint">Дата від 2024-01-01 до 2027-12-31.</p>
+      </fieldset>
+
+      <fieldset>
+        <legend>Опис і наявність</legend>
+
+        <p>Поточне зображення: images/cappuccino.svg. Новий файл можна обрати нижче.</p>
+        <p>
+          <label for="image">Зображення</label>
+          <input id="image" name="image" type="file" accept="image/svg+xml,image/webp,image/png"
+            aria-describedby="image-hint">
+        </p>
+        <p id="image-hint">Файл SVG, WebP або PNG. Поле файлу не зберігає попереднє значення.</p>
+
+        <p>
+          <label for="description">Опис</label>
+          <textarea id="description" name="description" required maxlength="300" rows="4">Еспресо з ніжною молочною пінкою та легкою солодкістю.</textarea>
+        </p>
+
+        <p>
+          <label>
+            <input id="inStock" name="inStock" type="checkbox" value="true" checked>
+            Є в наявності
+          </label>
+        </p>
+      </fieldset>
+
+      <p>
+        <button type="submit">Зберегти зміни</button>
+        <button type="reset">Скасувати зміни</button>
+        <a href="admin.html">Повернутися до адміністрування</a>
+      </p>
+    </form>
+  </main>
+
+  <footer>
+    <p>Кав'ярня</p>
+    <nav aria-label="Навігація в підвалі">
+      <ul>
+        <li><a href="index.html">Меню</a></li>
+        <li><a href="about.html">Про кав'ярню</a></li>
+        <li><a href="admin.html">Адміністрування</a></li>
+      </ul>
+    </nav>
+    <p>
+      <small>© 2026 Кав'ярня.</small>
+    </p>
+  </footer>
+</body>
+
+</html>
