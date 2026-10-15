@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+    content="Навчальна сторінка адміністрування меню кав'ярні: словник полів, таблиця позицій і форма додавання.">
+  <title>Адміністрування — Кав'ярня</title>
+  <link rel="icon" href="favicon.ico" sizes="any">
+</head>
+
+<body>
+  <a href="#content">Перейти до вмісту</a>
+
+  <header>
+    <p>
+      <a href="index.html">
+        <img src="images/logo.svg" width="40" height="40" alt="">
+        Кав'ярня
+      </a>
+    </p>
+
+    <nav aria-label="Основна навігація">
+      <ul>
+        <li><a href="index.html">Меню</a></li>
+        <li><a href="about.html">Про кав'ярню</a></li>
+      </ul>
+    </nav>
+
+    <search>
+      <form action="index.html" method="get" role="search">
+        <label for="search">Пошук напою</label>
+        <input id="search" name="q" type="search" placeholder="Пошук напою..." maxlength="80">
+        <button type="submit">Знайти</button>
+      </form>
+    </search>
+  </header>
+
+  <main id="content">
+    <h1>Адміністрування меню</h1>
+    <p>
+      Ця сторінка — навчальна імітація адміністративного інтерфейсу.
+      Посилання в підвалі і перевірка полів у браузері не захищають дані:
+      контроль доступу та остаточна перевірка виконуються на сервері.
+    </p>
+
+    <section aria-labelledby="dictionary-title">
+      <h2 id="dictionary-title">Словник полів</h2>
+      <table>
+        <caption>Словник полів моделі позиції</caption>
+        <thead>
+          <tr>
+            <th scope="col">Поле</th>
+            <th scope="col">name</th>
+            <th scope="col">Тип даних</th>
+            <th scope="col">Елемент</th>
+            <th scope="col">Обмеження</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Назва</th>
+            <td><code>title</code></td>
+            <td>рядок</td>
+            <td>text</td>
+            <td>required, minlength 2, maxlength 80</td>
+          </tr>
+          <tr>
+            <th scope="row">Артикул</th>
+            <td><code>sku</code></td>
+            <td>рядок</td>
+            <td>text</td>
+            <td>required, pattern <code>^[A-Z]{2}-\d{3}$</code>, maxlength 6</td>
+          </tr>
+          <tr>
+            <th scope="row">Зображення</th>
+            <td><code>image</code></td>
+            <td>файл</td>
+            <td>file</td>
+            <td>accept SVG, WebP, PNG</td>
+          </tr>
+          <tr>
+            <th scope="row">Категорія</th>
+            <td><code>category</code></td>
+            <td>рядок</td>
+            <td>select</td>
+            <td>required; coffee, tea, dessert, seasonal</td>
+          </tr>
+          <tr>
+            <th scope="row">Ціна</th>
+            <td><code>price</code></td>
+            <td>число</td>
+            <td>number</td>
+            <td>required, min 1, max 9999, step 1</td>
+          </tr>
+          <tr>
+            <th scope="row">Об'єм або вага</th>
+            <td><code>volume</code></td>
+            <td>число</td>
+            <td>number</td>
+            <td>required, min 1, max 1000, step 1</td>
+          </tr>
+          <tr>
+            <th scope="row">Дата додавання</th>
+            <td><code>addedAt</code></td>
+            <td>дата</td>
+            <td>date</td>
+            <td>required, min 2024-01-01, max 2027-12-31</td>
+          </tr>
+          <tr>
+            <th scope="row">Опис</th>
+            <td><code>description</code></td>
+            <td>рядок</td>
+            <td>textarea</td>
+            <td>required, maxlength 300</td>
+          </tr>
+          <tr>
+            <th scope="row">Наявність</th>
+            <td><code>inStock</code></td>
+            <td>логічне</td>
+            <td>checkbox</td>
+            <td>value true; знятий прапорець не надсилається</td>
+          </tr>
+          <tr>
+            <th scope="row">Ідентифікатор</th>
+            <td><code>id</code></td>
+            <td>рядок</td>
+            <td>hidden</td>
+            <td>лише форма редагування</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section aria-labelledby="items-title">
+      <h2 id="items-title">Позиції каталогу</h2>
+      <p>На цьому етапі кожне посилання «Редагувати» відкриває одну навчальну форму — для капучино.</p>
+      <table>
+        <caption>Позиції меню кав'ярні</caption>
+        <thead>
+          <tr>
+            <th scope="col">Назва</th>
+            <th scope="col">Категорія</th>
+            <th scope="col">Ціна, ₴</th>
+            <th scope="col">Наявність</th>
+            <th scope="col">Дії</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Еспресо</th>
+            <td>Кава</td>
+            <td><data value="45">45</data></td>
+            <td>є в наявності</td>
+            <td><a href="admin-edit.html">Редагувати Еспресо</a></td>
+          </tr>
+          <tr>
+            <th scope="row">Капучино</th>
+            <td>Кава</td>
+            <td><data value="75">75</data></td>
+            <td>є в наявності</td>
+            <td><a href="admin-edit.html">Редагувати Капучино</a></td>
+          </tr>
+          <tr>
+            <th scope="row">Лате</th>
+            <td>Кава</td>
+            <td><data value="80">80</data></td>
+            <td>є в наявності</td>
+            <td><a href="admin-edit.html">Редагувати Лате</a></td>
+          </tr>
+          <tr>
+            <th scope="row">Матча Лате</th>
+            <td>Чай</td>
+            <td><data value="95">95</data></td>
+            <td>є в наявності</td>
+            <td><a href="admin-edit.html">Редагувати Матча Лате</a></td>
+          </tr>
+          <tr>
+            <th scope="row">Чізкейк Нью-Йорк</th>
+            <td>Десерт</td>
+            <td><data value="120">120</data></td>
+            <td>є в наявності</td>
+            <td><a href="admin-edit.html">Редагувати Чізкейк Нью-Йорк</a></td>
+          </tr>
+          <tr>
+            <th scope="row">Сезонний гарбузовий лате</th>
+            <td>Сезонне</td>
+            <td><data value="110">110</data></td>
+            <td>є в наявності</td>
+            <td><a href="admin-edit.html">Редагувати сезонний гарбузовий лате</a></td>
+          </tr>
+          <tr>
+            <th scope="row">Ромашковий чай</th>
+            <td>Чай</td>
+            <td><data value="55">55</data></td>
+            <td>немає в наявності</td>
+            <td><a href="admin-edit.html">Редагувати ромашковий чай</a></td>
+          </tr>
+          <tr>
+            <th scope="row">Tiramisu</th>
+            <td>Десерт</td>
+            <td><data value="115">115</data></td>
+            <td>є в наявності</td>
+            <td><a href="admin-edit.html">Редагувати Tiramisu</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section aria-labelledby="add-title">
+      <h2 id="add-title">Додати позицію</h2>
+      <form id="add-item" action="admin.html" method="get">
+        <fieldset>
+          <legend>Основні дані</legend>
+
+          <p>
+            <label for="title">Назва</label>
+            <input id="title" name="title" type="text" required minlength="2" maxlength="80" autocomplete="off">
+          </p>
+
+          <p>
+            <label for="sku">Артикул</label>
+            <input id="sku" name="sku" type="text" required maxlength="6" pattern="^[A-Z]{2}-\d{3}$"
+              aria-describedby="sku-hint" title="Дві великі латинські літери, дефіс і три цифри" autocomplete="off">
+          </p>
+          <p id="sku-hint">Формат: дві великі латинські літери, дефіс і три цифри, наприклад CF-014.</p>
+
+          <p>
+            <label for="category">Категорія</label>
+            <select id="category" name="category" required>
+              <option value="">Оберіть категорію</option>
+              <option value="coffee">Кава</option>
+              <option value="tea">Чай</option>
+              <option value="dessert">Десерт</option>
+              <option value="seasonal">Сезонне</option>
+            </select>
+          </p>
+
+          <p>
+            <label for="price">Ціна, ₴</label>
+            <input id="price" name="price" type="number" required min="1" max="9999" step="1" inputmode="numeric">
+          </p>
+
+          <p>
+            <label for="volume">Об'єм або вага</label>
+            <input id="volume" name="volume" type="number" required min="1" max="1000" step="1" inputmode="numeric"
+              aria-describedby="volume-hint">
+          </p>
+          <p id="volume-hint">Ціле число без одиниць: мілілітри для напоїв або грами для десертів.</p>
+
+          <p>
+            <label for="addedAt">Дата додавання</label>
+            <input id="addedAt" name="addedAt" type="date" required min="2024-01-01" max="2027-12-31"
+              aria-describedby="added-at-hint">
+          </p>
+          <p id="added-at-hint">Дата від 2024-01-01 до 2027-12-31.</p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Опис і наявність</legend>
+
+          <p>
+            <label for="image">Зображення</label>
+            <input id="image" name="image" type="file" accept="image/svg+xml,image/webp,image/png"
+              aria-describedby="image-hint">
+          </p>
+          <p id="image-hint">Файл SVG, WebP або PNG. Поле не обов'язкове.</p>
+
+          <p>
+            <label for="description">Опис</label>
+            <textarea id="description" name="description" required maxlength="300" rows="4"></textarea>
+          </p>
+
+          <p>
+            <label>
+              <input id="inStock" name="inStock" type="checkbox" value="true">
+              Є в наявності
+            </label>
+          </p>
+        </fieldset>
+
+        <p>
+          <button type="submit">Додати</button>
+          <button type="reset">Очистити</button>
+        </p>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>Кав'ярня</p>
+    <nav aria-label="Навігація в підвалі">
+      <ul>
+        <li><a href="index.html">Меню</a></li>
+        <li><a href="about.html">Про кав'ярню</a></li>
+        <li><a href="admin.html" aria-current="page">Адміністрування</a></li>
+      </ul>
+    </nav>
+    <p>
+      <small>© 2026 Кав'ярня.</small>
+    </p>
+  </footer>
+</body>
+
+</html>
