@@ -1,0 +1,11 @@
+W3C CSS Validator — css/main.css
+Checked by: https://jigsaw.w3.org/css-validator/
+Date: 2026-10-29
+Profile: CSS level 3
+Warnings filter: no
+Result: No Error Found. This document validates as CSS level 3.
+
+W3C Nu Html Checker — index.html, about.html, details.html, admin.html, admin-edit.html
+Checked by: https://validator.w3.org/nu/
+Date: 2026-10-29
+Result: 0 messages on each page.

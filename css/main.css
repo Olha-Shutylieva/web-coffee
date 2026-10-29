@@ -334,7 +334,7 @@
     opacity: 1;
   }
 
-  /* Кнопки: основна дія і другорядна. */}
+  /* Кнопки: основна дія і другорядна. */
   .button {
     display: inline-block;
     margin: 0;
@@ -708,7 +708,7 @@
   }
 
   .faq__item[open] > .faq__question::before {
-    content: "\2212";
+    content: "-";
   }
 
   .video-figure {
