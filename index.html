@@ -12,214 +12,214 @@
 </head>
 
 <body>
-  <a href="#content">Перейти до вмісту</a>
+  <a class="skip-link" href="#content">Перейти до вмісту</a>
 
-  <header>
-    <p>
-      <a href="index.html">
+  <header class="site-header">
+    <p class="site-header__brand">
+      <a class="site-header__logo" href="index.html">
         <img src="images/logo.svg" width="40" height="40" alt="">
         Кав'ярня
       </a>
     </p>
 
-    <nav aria-label="Основна навігація">
-      <ul>
-        <li><a href="index.html" aria-current="page">Меню</a></li>
-        <li><a href="about.html">Про кав'ярню</a></li>
+    <nav class="site-nav" aria-label="Основна навігація">
+      <ul class="site-nav__list">
+        <li class="site-nav__item"><a class="site-nav__link" href="index.html" aria-current="page">Меню</a></li>
+        <li class="site-nav__item"><a class="site-nav__link" href="about.html">Про кав'ярню</a></li>
       </ul>
     </nav>
 
-    <search>
-      <form action="index.html" method="get" role="search">
-        <label for="search">Пошук напою</label>
-        <input id="search" name="q" type="search" placeholder="Пошук напою..." maxlength="80">
-        <button type="submit">Знайти</button>
+    <search class="site-search">
+      <form class="site-search__form" action="index.html" method="get" role="search">
+        <label class="site-search__label" for="search">Пошук напою</label>
+        <input class="site-search__input" id="search" name="q" type="search" placeholder="Пошук напою..." maxlength="80">
+        <button class="button button--primary" type="submit">Знайти</button>
       </form>
     </search>
   </header>
 
-  <main id="content">
-    <section id="menu" aria-labelledby="menu-title">
+  <main class="page" id="content">
+    <section class="catalog" id="menu" aria-labelledby="menu-title">
       <h1 id="menu-title">Меню кав'ярні</h1>
 
-      <nav aria-label="Категорії меню">
-        <ul>
-          <li><a href="#menu">Кава</a></li>
-          <li><a href="#menu">Чай</a></li>
-          <li><a href="#menu">Десерт</a></li>
-          <li><a href="#menu">Сезонне</a></li>
+      <nav class="catalog-filters" aria-label="Категорії меню">
+        <ul class="catalog-filters__list">
+          <li class="catalog-filters__item"><a class="catalog-filters__link" href="#menu">Кава</a></li>
+          <li class="catalog-filters__item"><a class="catalog-filters__link" href="#menu">Чай</a></li>
+          <li class="catalog-filters__item"><a class="catalog-filters__link" href="#menu">Десерт</a></li>
+          <li class="catalog-filters__item"><a class="catalog-filters__link" href="#menu">Сезонне</a></li>
         </ul>
       </nav>
 
-      <form action="#menu" method="get">
-        <label for="sort">Сортувати</label>
-        <select id="sort" name="sort">
+      <form class="catalog-sort" action="#menu" method="get">
+        <label class="catalog-sort__label" for="sort">Сортувати</label>
+        <select class="catalog-sort__select" id="sort" name="sort">
           <option value="name" selected>за назвою</option>
           <option value="price-asc">за ціною: спочатку дешевші</option>
           <option value="price-desc">за ціною: спочатку дорожчі</option>
         </select>
-        <button type="submit">Застосувати</button>
+        <button class="button button--primary" type="submit">Застосувати</button>
       </form>
 
-      <ul>
-        <li>
-          <article>
-            <h2>
-              <a href="details.html">Еспресо</a>
+      <ul class="catalog__list">
+        <li class="catalog__item">
+          <article class="card">
+            <h2 class="card__title">
+              <a class="card__title-link" href="details.html">Еспресо</a>
             </h2>
-            <p>
+            <p class="card__media">
               <img src="images/espresso.svg" width="320" height="210" loading="lazy" alt="Чашка чорного еспресо на дерев'яному столі">
             </p>
-            <p>Кава</p>
-            <p>є в наявності</p>
-            <p>Класичний еспресо з насиченим смаком та щільною кремою.</p>
-            <p>
-              <data value="45">45 ₴</data>
-              <data value="40">40 мл</data>
+            <p class="card__badge">Кава</p>
+            <p class="status status--available">є в наявності</p>
+            <p class="card__description">Класичний еспресо з насиченим смаком та щільною кремою.</p>
+            <p class="card__meta">
+              <data class="card__price" value="45">45 ₴</data>
+              <data class="card__volume" value="40">40 мл</data>
             </p>
-            <p>
-              <button type="button">Додати Еспресо в обране</button>
+            <p class="card__actions">
+              <button class="button button--secondary" type="button">Додати Еспресо в обране</button>
             </p>
           </article>
         </li>
-        <li>
-          <article>
-            <h2>
-              <a href="details.html">Капучино</a>
+        <li class="catalog__item">
+          <article class="card">
+            <h2 class="card__title">
+              <a class="card__title-link" href="details.html">Капучино</a>
             </h2>
-            <p>
+            <p class="card__media">
               <img src="images/cappuccino.svg" width="320" height="210" loading="lazy" alt="Капучино з малюнком латте-арт у чашці">
             </p>
-            <p>Кава</p>
-            <p>є в наявності</p>
-            <p>Еспресо з ніжною молочною пінкою та легкою солодкістю.</p>
-            <p>
-              <data value="75">75 ₴</data>
-              <data value="300">300 мл</data>
+            <p class="card__badge">Кава</p>
+            <p class="status status--available">є в наявності</p>
+            <p class="card__description">Еспресо з ніжною молочною пінкою та легкою солодкістю.</p>
+            <p class="card__meta">
+              <data class="card__price" value="75">75 ₴</data>
+              <data class="card__volume" value="300">300 мл</data>
             </p>
-            <p>
-              <button type="button">Додати Капучино в обране</button>
+            <p class="card__actions">
+              <button class="button button--secondary" type="button">Додати Капучино в обране</button>
             </p>
           </article>
         </li>
-        <li>
-          <article>
-            <h2>
-              <a href="details.html">Лате</a>
+        <li class="catalog__item">
+          <article class="card">
+            <h2 class="card__title">
+              <a class="card__title-link" href="details.html">Лате</a>
             </h2>
-            <p>
+            <p class="card__media">
               <img src="images/latte.svg" width="320" height="210" loading="lazy" alt="Висока склянка лате зі спіненим молоком">
             </p>
-            <p>Кава</p>
-            <p>є в наявності</p>
-            <p>М'який кавовий напій з великою порцією спіненого молока.</p>
-            <p>
-              <data value="80">80 ₴</data>
-              <data value="350">350 мл</data>
+            <p class="card__badge">Кава</p>
+            <p class="status status--available">є в наявності</p>
+            <p class="card__description">М'який кавовий напій з великою порцією спіненого молока.</p>
+            <p class="card__meta">
+              <data class="card__price" value="80">80 ₴</data>
+              <data class="card__volume" value="350">350 мл</data>
             </p>
-            <p>
-              <button type="button">Додати Лате в обране</button>
+            <p class="card__actions">
+              <button class="button button--secondary" type="button">Додати Лате в обране</button>
             </p>
           </article>
         </li>
-        <li>
-          <article>
-            <h2>
-              <a href="details.html">Матча Лате</a>
+        <li class="catalog__item">
+          <article class="card">
+            <h2 class="card__title">
+              <a class="card__title-link" href="details.html">Матча Лате</a>
             </h2>
-            <p>
+            <p class="card__media">
               <img src="images/matcha-latte.svg" width="320" height="210" loading="lazy"
                 alt="Матча лате з зеленим візерунком на пінці">
             </p>
-            <p>Чай</p>
-            <p>є в наявності</p>
-            <p>Японський зелений чай матча з вершковим молоком.</p>
-            <p>
-              <data value="95">95 ₴</data>
-              <data value="300">300 мл</data>
+            <p class="card__badge">Чай</p>
+            <p class="status status--available">є в наявності</p>
+            <p class="card__description">Японський зелений чай матча з вершковим молоком.</p>
+            <p class="card__meta">
+              <data class="card__price" value="95">95 ₴</data>
+              <data class="card__volume" value="300">300 мл</data>
             </p>
-            <p>
-              <button type="button">Додати Матча Лате в обране</button>
+            <p class="card__actions">
+              <button class="button button--secondary" type="button">Додати Матча Лате в обране</button>
             </p>
           </article>
         </li>
-        <li>
-          <article>
-            <h2>
-              <a href="details.html">Чізкейк Нью-Йорк</a>
+        <li class="catalog__item">
+          <article class="card">
+            <h2 class="card__title">
+              <a class="card__title-link" href="details.html">Чізкейк Нью-Йорк</a>
             </h2>
-            <p>
+            <p class="card__media">
               <img src="images/cheesecake.svg" width="320" height="210" loading="lazy" alt="Шматочок чізкейка Нью-Йорк з ягодами">
             </p>
-            <p>Десерт</p>
-            <p>є в наявності</p>
-            <p>Класичний вершковий чізкейк із хрусткою піщаною основою.</p>
-            <p>
-              <data value="120">120 ₴</data>
-              <data value="150">150 г</data>
+            <p class="card__badge">Десерт</p>
+            <p class="status status--available">є в наявності</p>
+            <p class="card__description">Класичний вершковий чізкейк із хрусткою піщаною основою.</p>
+            <p class="card__meta">
+              <data class="card__price" value="120">120 ₴</data>
+              <data class="card__volume" value="150">150 г</data>
             </p>
-            <p>
-              <button type="button">Додати чізкейк Нью-Йорк в обране</button>
+            <p class="card__actions">
+              <button class="button button--secondary" type="button">Додати чізкейк Нью-Йорк в обране</button>
             </p>
           </article>
         </li>
-        <li>
-          <article>
-            <h2>
-              <a href="details.html">Сезонний гарбузовий лате</a>
+        <li class="catalog__item">
+          <article class="card">
+            <h2 class="card__title">
+              <a class="card__title-link" href="details.html">Сезонний гарбузовий лате</a>
             </h2>
-            <p>
+            <p class="card__media">
               <img src="images/pumpkin-latte.svg" width="320" height="210" loading="lazy" alt="Гарбузовий лате зі збитими вершками">
             </p>
-            <p>Сезонне</p>
-            <p>є в наявності</p>
-            <p>Лате з гарбузовим пюре, корицею та мускатним горіхом.</p>
-            <p>
-              <data value="110">110 ₴</data>
-              <data value="450">450 мл</data>
+            <p class="card__badge">Сезонне</p>
+            <p class="status status--available">є в наявності</p>
+            <p class="card__description">Лате з гарбузовим пюре, корицею та мускатним горіхом.</p>
+            <p class="card__meta">
+              <data class="card__price" value="110">110 ₴</data>
+              <data class="card__volume" value="450">450 мл</data>
             </p>
-            <p>
-              <button type="button">Додати сезонний гарбузовий лате в обране</button>
+            <p class="card__actions">
+              <button class="button button--secondary" type="button">Додати сезонний гарбузовий лате в обране</button>
             </p>
           </article>
         </li>
-        <li>
-          <article>
-            <h2>
-              <a href="details.html">Ромашковий чай</a>
+        <li class="catalog__item">
+          <article class="card">
+            <h2 class="card__title">
+              <a class="card__title-link" href="details.html">Ромашковий чай</a>
             </h2>
-            <p>
+            <p class="card__media">
               <img src="images/chamomile.svg" width="320" height="210" loading="lazy" alt="Чашка ромашкового чаю з квітами ромашки">
             </p>
-            <p>Чай</p>
-            <p>немає в наявності</p>
-            <p>Ніжний трав'яний чай з квітів ромашки для спокою.</p>
-            <p>
-              <data value="55">55 ₴</data>
-              <data value="250">250 мл</data>
+            <p class="card__badge">Чай</p>
+            <p class="status status--unavailable">немає в наявності</p>
+            <p class="card__description">Ніжний трав'яний чай з квітів ромашки для спокою.</p>
+            <p class="card__meta">
+              <data class="card__price" value="55">55 ₴</data>
+              <data class="card__volume" value="250">250 мл</data>
             </p>
-            <p>
-              <button type="button">Додати ромашковий чай в обране</button>
+            <p class="card__actions">
+              <button class="button button--secondary" type="button">Додати ромашковий чай в обране</button>
             </p>
           </article>
         </li>
-        <li>
-          <article>
-            <h2>
-              <a href="details.html">Tiramisu</a>
+        <li class="catalog__item">
+          <article class="card">
+            <h2 class="card__title">
+              <a class="card__title-link" href="details.html">Tiramisu</a>
             </h2>
-            <p>
+            <p class="card__media">
               <img src="images/tiramisu.svg" width="320" height="210" loading="lazy" alt="Десерт тірамісу з какао в прозорій склянці">
             </p>
-            <p>Десерт</p>
-            <p>є в наявності</p>
-            <p>Італійський десерт з маскарпоне, кавою та какао.</p>
-            <p>
-              <data value="115">115 ₴</data>
-              <data value="180">180 г</data>
+            <p class="card__badge">Десерт</p>
+            <p class="status status--available">є в наявності</p>
+            <p class="card__description">Італійський десерт з маскарпоне, кавою та какао.</p>
+            <p class="card__meta">
+              <data class="card__price" value="115">115 ₴</data>
+              <data class="card__volume" value="180">180 г</data>
             </p>
-            <p>
-              <button type="button">Додати Tiramisu в обране</button>
+            <p class="card__actions">
+              <button class="button button--secondary" type="button">Додати Tiramisu в обране</button>
             </p>
           </article>
         </li>
@@ -308,16 +308,16 @@
     </section>
   </main>
 
-  <footer>
-    <p>Кав'ярня</p>
-    <nav aria-label="Навігація в підвалі">
-      <ul>
-        <li><a href="index.html" aria-current="page">Меню</a></li>
-        <li><a href="about.html">Про кав'ярню</a></li>
-        <li><a href="admin.html">Адміністрування</a></li>
+  <footer class="site-footer">
+    <p class="site-footer__title">Кав'ярня</p>
+    <nav class="site-footer__nav" aria-label="Навігація в підвалі">
+      <ul class="site-footer__list">
+        <li class="site-footer__item"><a class="site-footer__link" href="index.html" aria-current="page">Меню</a></li>
+        <li class="site-footer__item"><a class="site-footer__link" href="about.html">Про кав'ярню</a></li>
+        <li class="site-footer__item"><a class="site-footer__link" href="admin.html">Адміністрування</a></li>
       </ul>
     </nav>
-    <p>
+    <p class="site-footer__copy">
       <small>© 2026 Кав'ярня.</small>
     </p>
   </footer>

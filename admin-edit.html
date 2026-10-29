@@ -12,37 +12,37 @@
 </head>
 
 <body>
-  <a href="#content">Перейти до вмісту</a>
+  <a class="skip-link" href="#content">Перейти до вмісту</a>
 
-  <header>
-    <p>
-      <a href="index.html">
+  <header class="site-header">
+    <p class="site-header__brand">
+      <a class="site-header__logo" href="index.html">
         <img src="images/logo.svg" width="40" height="40" alt="">
         Кав'ярня
       </a>
     </p>
 
-    <nav aria-label="Основна навігація">
-      <ul>
-        <li><a href="index.html">Меню</a></li>
-        <li><a href="about.html">Про кав'ярню</a></li>
+    <nav class="site-nav" aria-label="Основна навігація">
+      <ul class="site-nav__list">
+        <li class="site-nav__item"><a class="site-nav__link" href="index.html">Меню</a></li>
+        <li class="site-nav__item"><a class="site-nav__link" href="about.html">Про кав'ярню</a></li>
       </ul>
     </nav>
 
-    <search>
-      <form action="index.html" method="get" role="search">
-        <label for="search">Пошук напою</label>
-        <input id="search" name="q" type="search" placeholder="Пошук напою..." maxlength="80">
-        <button type="submit">Знайти</button>
+    <search class="site-search">
+      <form class="site-search__form" action="index.html" method="get" role="search">
+        <label class="site-search__label" for="search">Пошук напою</label>
+        <input class="site-search__input" id="search" name="q" type="search" placeholder="Пошук напою..." maxlength="80">
+        <button class="button button--primary" type="submit">Знайти</button>
       </form>
     </search>
   </header>
 
-  <main id="content">
-    <nav aria-label="Навігаційний ланцюжок">
-      <ol>
-        <li><a href="admin.html">Адміністрування</a></li>
-        <li><a href="admin-edit.html" aria-current="page">Редагування: Капучино</a></li>
+  <main class="page" id="content">
+    <nav class="breadcrumbs" aria-label="Навігаційний ланцюжок">
+      <ol class="breadcrumbs__list">
+        <li class="breadcrumbs__item"><a href="admin.html">Адміністрування</a></li>
+        <li class="breadcrumbs__item"><a href="admin-edit.html" aria-current="page">Редагування: Капучино</a></li>
       </ol>
     </nav>
 
@@ -133,16 +133,16 @@
     </form>
   </main>
 
-  <footer>
-    <p>Кав'ярня</p>
-    <nav aria-label="Навігація в підвалі">
-      <ul>
-        <li><a href="index.html">Меню</a></li>
-        <li><a href="about.html">Про кав'ярню</a></li>
-        <li><a href="admin.html">Адміністрування</a></li>
+  <footer class="site-footer">
+    <p class="site-footer__title">Кав'ярня</p>
+    <nav class="site-footer__nav" aria-label="Навігація в підвалі">
+      <ul class="site-footer__list">
+        <li class="site-footer__item"><a class="site-footer__link" href="index.html">Меню</a></li>
+        <li class="site-footer__item"><a class="site-footer__link" href="about.html">Про кав'ярню</a></li>
+        <li class="site-footer__item"><a class="site-footer__link" href="admin.html">Адміністрування</a></li>
       </ul>
     </nav>
-    <p>
+    <p class="site-footer__copy">
       <small>© 2026 Кав'ярня.</small>
     </p>
   </footer>

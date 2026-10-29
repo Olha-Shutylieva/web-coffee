@@ -12,44 +12,44 @@
 </head>
 
 <body>
-  <a href="#content">Перейти до вмісту</a>
+  <a class="skip-link" href="#content">Перейти до вмісту</a>
 
-  <header>
-    <p>
-      <a href="index.html">
+  <header class="site-header">
+    <p class="site-header__brand">
+      <a class="site-header__logo" href="index.html">
         <img src="images/logo.svg" width="40" height="40" alt="">
         Кав'ярня
       </a>
     </p>
 
-    <nav aria-label="Основна навігація">
-      <ul>
-        <li><a href="index.html">Меню</a></li>
-        <li><a href="about.html">Про кав'ярню</a></li>
+    <nav class="site-nav" aria-label="Основна навігація">
+      <ul class="site-nav__list">
+        <li class="site-nav__item"><a class="site-nav__link" href="index.html">Меню</a></li>
+        <li class="site-nav__item"><a class="site-nav__link" href="about.html">Про кав'ярню</a></li>
       </ul>
     </nav>
 
-    <search>
-      <form action="index.html" method="get" role="search">
-        <label for="search">Пошук напою</label>
-        <input id="search" name="q" type="search" placeholder="Пошук напою..." maxlength="80">
-        <button type="submit">Знайти</button>
+    <search class="site-search">
+      <form class="site-search__form" action="index.html" method="get" role="search">
+        <label class="site-search__label" for="search">Пошук напою</label>
+        <input class="site-search__input" id="search" name="q" type="search" placeholder="Пошук напою..." maxlength="80">
+        <button class="button button--primary" type="submit">Знайти</button>
       </form>
     </search>
   </header>
 
-  <main id="content">
-    <nav aria-label="Навігаційний ланцюжок">
-      <ol>
-        <li><a href="index.html">Меню</a></li>
-        <li><a href="details.html" aria-current="page">Капучино</a></li>
+  <main class="page page--reading" id="content">
+    <nav class="breadcrumbs" aria-label="Навігаційний ланцюжок">
+      <ol class="breadcrumbs__list">
+        <li class="breadcrumbs__item"><a href="index.html">Меню</a></li>
+        <li class="breadcrumbs__item"><a href="details.html" aria-current="page">Капучино</a></li>
       </ol>
     </nav>
 
-    <article>
+    <article class="item">
       <h1>Капучино</h1>
 
-      <nav aria-label="На цій сторінці">
+      <nav class="toc" aria-label="На цій сторінці">
         <h2>На цій сторінці</h2>
         <ul>
           <li><a href="#photo">Фото</a></li>
@@ -60,7 +60,7 @@
         </ul>
       </nav>
 
-      <section id="photo" aria-labelledby="photo-title">
+      <section class="item-photo" id="photo" aria-labelledby="photo-title">
         <h2 id="photo-title">Фото</h2>
         <figure>
           <picture>
@@ -93,50 +93,50 @@
 
       <section id="specs" aria-labelledby="specs-title">
         <h2 id="specs-title">Характеристики</h2>
-        <dl>
-          <dt>Категорія</dt>
-          <dd>Кава</dd>
-          <dt>Ціна</dt>
-          <dd><data value="75">75 ₴</data></dd>
-          <dt>Об'єм</dt>
-          <dd><data value="300">300 мл</data></dd>
-          <dt>Дата додавання</dt>
-          <dd><time datetime="2026-03-12">12 березня 2026</time></dd>
-          <dt>Наявність</dt>
-          <dd>є в наявності</dd>
+        <dl class="specs">
+          <dt class="specs__term">Категорія</dt>
+          <dd class="specs__value">Кава</dd>
+          <dt class="specs__term">Ціна</dt>
+          <dd class="specs__value"><data value="75">75 ₴</data></dd>
+          <dt class="specs__term">Об'єм</dt>
+          <dd class="specs__value"><data value="300">300 мл</data></dd>
+          <dt class="specs__term">Дата додавання</dt>
+          <dd class="specs__value"><time datetime="2026-03-12">12 березня 2026</time></dd>
+          <dt class="specs__term">Наявність</dt>
+          <dd class="specs__value status status--available">є в наявності</dd>
         </dl>
       </section>
 
       <section id="portions" aria-labelledby="portions-title">
         <h2 id="portions-title">Порції та ціни</h2>
-        <table>
+        <table class="data-table">
           <caption>Порції капучино в меню кав'ярні</caption>
           <thead>
             <tr>
               <th scope="col">Порція</th>
-              <th scope="col">Об'єм</th>
-              <th scope="col">Ціна</th>
-              <th scope="col">Калорійність</th>
+              <th class="data-table__number" scope="col">Об'єм</th>
+              <th class="data-table__number" scope="col">Ціна</th>
+              <th class="data-table__number" scope="col">Калорійність</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <th scope="row">Мала</th>
-              <td>200 мл</td>
-              <td>60 ₴</td>
-              <td>90 ккал</td>
+              <td class="data-table__number">200 мл</td>
+              <td class="data-table__number">60 ₴</td>
+              <td class="data-table__number">90 ккал</td>
             </tr>
             <tr>
               <th scope="row">Середня</th>
-              <td>300 мл</td>
-              <td>75 ₴</td>
-              <td>120 ккал</td>
+              <td class="data-table__number">300 мл</td>
+              <td class="data-table__number">75 ₴</td>
+              <td class="data-table__number">120 ккал</td>
             </tr>
             <tr>
               <th scope="row">Велика</th>
-              <td>400 мл</td>
-              <td>95 ₴</td>
-              <td>160 ккал</td>
+              <td class="data-table__number">400 мл</td>
+              <td class="data-table__number">95 ₴</td>
+              <td class="data-table__number">160 ккал</td>
             </tr>
           </tbody>
         </table>
@@ -215,16 +215,16 @@
     </section>
   </main>
 
-  <footer>
-    <p>Кав'ярня</p>
-    <nav aria-label="Навігація в підвалі">
-      <ul>
-        <li><a href="index.html">Меню</a></li>
-        <li><a href="about.html">Про кав'ярню</a></li>
-        <li><a href="admin.html">Адміністрування</a></li>
+  <footer class="site-footer">
+    <p class="site-footer__title">Кав'ярня</p>
+    <nav class="site-footer__nav" aria-label="Навігація в підвалі">
+      <ul class="site-footer__list">
+        <li class="site-footer__item"><a class="site-footer__link" href="index.html">Меню</a></li>
+        <li class="site-footer__item"><a class="site-footer__link" href="about.html">Про кав'ярню</a></li>
+        <li class="site-footer__item"><a class="site-footer__link" href="admin.html">Адміністрування</a></li>
       </ul>
     </nav>
-    <p>
+    <p class="site-footer__copy">
       <small>© 2026 Кав'ярня.</small>
     </p>
   </footer>

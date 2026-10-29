@@ -12,33 +12,33 @@
 </head>
 
 <body>
-  <a href="#content">Перейти до вмісту</a>
+  <a class="skip-link" href="#content">Перейти до вмісту</a>
 
-  <header>
-    <p>
-      <a href="index.html">
+  <header class="site-header">
+    <p class="site-header__brand">
+      <a class="site-header__logo" href="index.html">
         <img src="images/logo.svg" width="40" height="40" alt="">
         Кав'ярня
       </a>
     </p>
 
-    <nav aria-label="Основна навігація">
-      <ul>
-        <li><a href="index.html">Меню</a></li>
-        <li><a href="about.html">Про кав'ярню</a></li>
+    <nav class="site-nav" aria-label="Основна навігація">
+      <ul class="site-nav__list">
+        <li class="site-nav__item"><a class="site-nav__link" href="index.html">Меню</a></li>
+        <li class="site-nav__item"><a class="site-nav__link" href="about.html">Про кав'ярню</a></li>
       </ul>
     </nav>
 
-    <search>
-      <form action="index.html" method="get" role="search">
-        <label for="search">Пошук напою</label>
-        <input id="search" name="q" type="search" placeholder="Пошук напою..." maxlength="80">
-        <button type="submit">Знайти</button>
+    <search class="site-search">
+      <form class="site-search__form" action="index.html" method="get" role="search">
+        <label class="site-search__label" for="search">Пошук напою</label>
+        <input class="site-search__input" id="search" name="q" type="search" placeholder="Пошук напою..." maxlength="80">
+        <button class="button button--primary" type="submit">Знайти</button>
       </form>
     </search>
   </header>
 
-  <main id="content">
+  <main class="page" id="content">
     <h1>Адміністрування меню</h1>
     <p>
       Ця сторінка — навчальна імітація адміністративного інтерфейсу.
@@ -49,13 +49,13 @@
     <section aria-labelledby="items-title">
       <h2 id="items-title">Позиції каталогу</h2>
       <p>На цьому етапі кожне посилання «Редагувати» відкриває одну навчальну форму — для капучино.</p>
-      <table>
+      <table class="data-table">
         <caption>Позиції меню кав'ярні</caption>
         <thead>
           <tr>
             <th scope="col">Назва</th>
             <th scope="col">Категорія</th>
-            <th scope="col">Ціна, ₴</th>
+            <th class="data-table__number" scope="col">Ціна, ₴</th>
             <th scope="col">Наявність</th>
             <th scope="col">Дії</th>
           </tr>
@@ -64,57 +64,57 @@
           <tr>
             <th scope="row">Еспресо</th>
             <td>Кава</td>
-            <td><data value="45">45</data></td>
-            <td>є в наявності</td>
+            <td class="data-table__number"><data value="45">45</data></td>
+            <td class="status status--available">є в наявності</td>
             <td><a href="admin-edit.html">Редагувати Еспресо</a></td>
           </tr>
           <tr>
             <th scope="row">Капучино</th>
             <td>Кава</td>
-            <td><data value="75">75</data></td>
-            <td>є в наявності</td>
+            <td class="data-table__number"><data value="75">75</data></td>
+            <td class="status status--available">є в наявності</td>
             <td><a href="admin-edit.html">Редагувати Капучино</a></td>
           </tr>
           <tr>
             <th scope="row">Лате</th>
             <td>Кава</td>
-            <td><data value="80">80</data></td>
-            <td>є в наявності</td>
+            <td class="data-table__number"><data value="80">80</data></td>
+            <td class="status status--available">є в наявності</td>
             <td><a href="admin-edit.html">Редагувати Лате</a></td>
           </tr>
           <tr>
             <th scope="row">Матча Лате</th>
             <td>Чай</td>
-            <td><data value="95">95</data></td>
-            <td>є в наявності</td>
+            <td class="data-table__number"><data value="95">95</data></td>
+            <td class="status status--available">є в наявності</td>
             <td><a href="admin-edit.html">Редагувати Матча Лате</a></td>
           </tr>
           <tr>
             <th scope="row">Чізкейк Нью-Йорк</th>
             <td>Десерт</td>
-            <td><data value="120">120</data></td>
-            <td>є в наявності</td>
+            <td class="data-table__number"><data value="120">120</data></td>
+            <td class="status status--available">є в наявності</td>
             <td><a href="admin-edit.html">Редагувати Чізкейк Нью-Йорк</a></td>
           </tr>
           <tr>
             <th scope="row">Сезонний гарбузовий лате</th>
             <td>Сезонне</td>
-            <td><data value="110">110</data></td>
-            <td>є в наявності</td>
+            <td class="data-table__number"><data value="110">110</data></td>
+            <td class="status status--available">є в наявності</td>
             <td><a href="admin-edit.html">Редагувати сезонний гарбузовий лате</a></td>
           </tr>
           <tr>
             <th scope="row">Ромашковий чай</th>
             <td>Чай</td>
-            <td><data value="55">55</data></td>
-            <td>немає в наявності</td>
+            <td class="data-table__number"><data value="55">55</data></td>
+            <td class="status status--unavailable">немає в наявності</td>
             <td><a href="admin-edit.html">Редагувати ромашковий чай</a></td>
           </tr>
           <tr>
             <th scope="row">Tiramisu</th>
             <td>Десерт</td>
-            <td><data value="115">115</data></td>
-            <td>є в наявності</td>
+            <td class="data-table__number"><data value="115">115</data></td>
+            <td class="status status--available">є в наявності</td>
             <td><a href="admin-edit.html">Редагувати Tiramisu</a></td>
           </tr>
         </tbody>
@@ -201,16 +201,16 @@
     </section>
   </main>
 
-  <footer>
-    <p>Кав'ярня</p>
-    <nav aria-label="Навігація в підвалі">
-      <ul>
-        <li><a href="index.html">Меню</a></li>
-        <li><a href="about.html">Про кав'ярню</a></li>
-        <li><a href="admin.html" aria-current="page">Адміністрування</a></li>
+  <footer class="site-footer">
+    <p class="site-footer__title">Кав'ярня</p>
+    <nav class="site-footer__nav" aria-label="Навігація в підвалі">
+      <ul class="site-footer__list">
+        <li class="site-footer__item"><a class="site-footer__link" href="index.html">Меню</a></li>
+        <li class="site-footer__item"><a class="site-footer__link" href="about.html">Про кав'ярню</a></li>
+        <li class="site-footer__item"><a class="site-footer__link" href="admin.html" aria-current="page">Адміністрування</a></li>
       </ul>
     </nav>
-    <p>
+    <p class="site-footer__copy">
       <small>© 2026 Кав'ярня.</small>
     </p>
   </footer>

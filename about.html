@@ -12,33 +12,33 @@
 </head>
 
 <body>
-  <a href="#content">Перейти до вмісту</a>
+  <a class="skip-link" href="#content">Перейти до вмісту</a>
 
-  <header>
-    <p>
-      <a href="index.html">
+  <header class="site-header">
+    <p class="site-header__brand">
+      <a class="site-header__logo" href="index.html">
         <img src="images/logo.svg" width="40" height="40" alt="">
         Кав'ярня
       </a>
     </p>
 
-    <nav aria-label="Основна навігація">
-      <ul>
-        <li><a href="index.html">Меню</a></li>
-        <li><a href="about.html" aria-current="page">Про кав'ярню</a></li>
+    <nav class="site-nav" aria-label="Основна навігація">
+      <ul class="site-nav__list">
+        <li class="site-nav__item"><a class="site-nav__link" href="index.html">Меню</a></li>
+        <li class="site-nav__item"><a class="site-nav__link" href="about.html" aria-current="page">Про кав'ярню</a></li>
       </ul>
     </nav>
 
-    <search>
-      <form action="index.html" method="get" role="search">
-        <label for="search">Пошук напою</label>
-        <input id="search" name="q" type="search" placeholder="Пошук напою..." maxlength="80">
-        <button type="submit">Знайти</button>
+    <search class="site-search">
+      <form class="site-search__form" action="index.html" method="get" role="search">
+        <label class="site-search__label" for="search">Пошук напою</label>
+        <input class="site-search__input" id="search" name="q" type="search" placeholder="Пошук напою..." maxlength="80">
+        <button class="button button--primary" type="submit">Знайти</button>
       </form>
     </search>
   </header>
 
-  <main id="content">
+  <main class="page page--reading" id="content">
     <h1>Про кав'ярню</h1>
     <p>
       Цей проєкт збирає каталог напоїв і десертів кав'ярні: каву, чай, десерти та сезонні позиції.
@@ -69,7 +69,7 @@
 
     <section aria-labelledby="video-title">
       <h2 id="video-title">Відео про сезонне меню</h2>
-      <figure>
+      <figure class="video-figure">
         <video controls preload="metadata" width="640" height="360" poster="images/pumpkin-latte.svg">
           <source src="media/seasonal-menu.webm" type="video/webm">
           <source src="media/seasonal-menu.mp4" type="video/mp4">
@@ -95,27 +95,27 @@
       </p>
     </section>
 
-    <section aria-labelledby="faq-title">
+    <section class="faq" aria-labelledby="faq-title">
       <h2 id="faq-title">Часті запитання</h2>
-      <details name="faq">
-        <summary>Як відкрити опис позиції?</summary>
+      <details class="faq__item" name="faq">
+        <summary class="faq__question">Як відкрити опис позиції?</summary>
         <p>На сторінці меню натисніть назву напою або десерту в картці. Відкриється сторінка з фото, описом і таблицею порцій.</p>
       </details>
-      <details name="faq">
-        <summary>Чому зараз усі картки ведуть на один опис?</summary>
+      <details class="faq__item" name="faq">
+        <summary class="faq__question">Чому зараз усі картки ведуть на один опис?</summary>
         <p>На цьому етапі сторінка деталей спільна для каталогу. У наступній роботі з JavaScript її вміст підставлятиметься для кожної позиції окремо.</p>
       </details>
-      <details name="faq">
-        <summary>Чи можна додати власну позицію?</summary>
+      <details class="faq__item" name="faq">
+        <summary class="faq__question">Чи можна додати власну позицію?</summary>
         <p>Так. Унизу сторінки меню є форма «Додати нову позицію». Заповніть назву, категорію, ціну, об'єм і опис.</p>
       </details>
-      <details name="faq">
-        <summary>Коли з'явиться оформлення?</summary>
+      <details class="faq__item" name="faq">
+        <summary class="faq__question">Коли з'явиться оформлення?</summary>
         <p>Стилі підключать у наступних роботах. Зараз сторінки містять лише семантичну розмітку, щоб структура лишалася доступною без оформлення.</p>
       </details>
     </section>
 
-    <section aria-labelledby="contact-title">
+    <section class="contact" aria-labelledby="contact-title">
       <h2 id="contact-title">Контакт</h2>
       <address>
         <p>Автор проєкту:Olha Shutylieva </p>
@@ -127,16 +127,16 @@
     </section>
   </main>
 
-  <footer>
-    <p>Кав'ярня</p>
-    <nav aria-label="Навігація в підвалі">
-      <ul>
-        <li><a href="index.html">Меню</a></li>
-        <li><a href="about.html" aria-current="page">Про кав'ярню</a></li>
-        <li><a href="admin.html">Адміністрування</a></li>
+  <footer class="site-footer">
+    <p class="site-footer__title">Кав'ярня</p>
+    <nav class="site-footer__nav" aria-label="Навігація в підвалі">
+      <ul class="site-footer__list">
+        <li class="site-footer__item"><a class="site-footer__link" href="index.html">Меню</a></li>
+        <li class="site-footer__item"><a class="site-footer__link" href="about.html" aria-current="page">Про кав'ярню</a></li>
+        <li class="site-footer__item"><a class="site-footer__link" href="admin.html">Адміністрування</a></li>
       </ul>
     </nav>
-    <p>
+    <p class="site-footer__copy">
       <small>© 2026 Кав'ярня.</small>
     </p>
   </footer>
