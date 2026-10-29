@@ -56,7 +56,7 @@
     --color-text-muted: #5c4a40;
 
     /* Акцент: посилання, основна кнопка, ціна, поточний пункт меню. */
-    --color-accent: #c24d0a;
+    --color-accent: #c24117;
 
     /* Акцент у стані наведення. */
     --color-accent-hover: #9a3b08;
@@ -186,6 +186,27 @@
 
   address {
     font-style: normal;
+  }
+
+  /*
+    Темна тема. Ті самі токени, що й у світлій темі.
+    Перемикання лише за системним налаштуванням prefers-color-scheme.
+  */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-bg: #171310;
+      --color-surface: #2a221c;
+      --color-text: #f7f2eb;
+      --color-text-muted: #d8c8b8;
+      --color-accent: #ff9b52;
+      --color-accent-hover: #ffc49a;
+      --color-on-accent: #1a120c;
+      --color-border: #a08472;
+      --color-focus: #b7dcff;
+      --color-error: #ffb4a8;
+      --color-row: #332820;
+      --shadow-card: 0 0.35rem 1rem rgb(0 0 0 / 0.45);
+    }
   }
 }
 
