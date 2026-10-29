@@ -96,6 +96,97 @@
     /* Тінь картки каталогу. */
     --shadow-card: 0 0.35rem 1rem rgb(36 25 16 / 0.12);
   }
+
+  /* Типографіка документа. */
+  body {
+    min-block-size: 100vh;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.25;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin-block: 0 var(--space-m);
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    margin-block: var(--space-l) var(--space-s);
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    margin-block: var(--space-m) var(--space-s);
+  }
+
+  p {
+    margin-block: 0 var(--space-m);
+  }
+
+  a {
+    color: var(--color-accent);
+  }
+
+  a:visited {
+    color: var(--color-accent);
+  }
+
+  a:hover {
+    color: var(--color-accent-hover);
+  }
+
+  :focus-visible {
+    outline: 0.1875rem solid var(--color-focus);
+    outline-offset: 0.125rem;
+  }
+
+  ul,
+  ol {
+    margin-block: 0 var(--space-m);
+    padding-inline-start: var(--space-l);
+  }
+
+  /* Базова таблиця: межі й вирівнювання. Чергування рядків — у компоненті. */
+  table {
+    border-collapse: collapse;
+    inline-size: 100%;
+  }
+
+  caption {
+    margin-block-end: var(--space-s);
+    font-weight: 700;
+    text-align: start;
+  }
+
+  th,
+  td {
+    padding: var(--space-s);
+    border-bottom: 1px solid var(--color-border);
+    text-align: start;
+    vertical-align: top;
+  }
+
+  figcaption {
+    margin-block-start: var(--space-xs);
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+  }
+
+  address {
+    font-style: normal;
+  }
 }
 
 /* ==========================================================================
