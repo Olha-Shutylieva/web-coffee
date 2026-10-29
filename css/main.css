@@ -699,6 +699,125 @@
     border-radius: var(--radius-m);
     background: var(--color-text);
   }
+
+  /* Форми адміністратора і відвідувача. */
+  .form {
+    display: grid;
+    gap: var(--space-m);
+    max-inline-size: 36rem;
+  }
+
+  .form__group {
+    display: grid;
+    gap: var(--space-m);
+    margin: 0;
+    padding: var(--space-m);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-m);
+  }
+
+  .form__legend {
+    padding-inline: var(--space-xs);
+    font-family: var(--font-heading);
+    font-size: 1.125rem;
+    font-weight: 700;
+  }
+
+  .form__field {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-xs);
+    margin: 0;
+  }
+
+  .form__label {
+    font-weight: 700;
+  }
+
+  .form__hint,
+  .form__note {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+  }
+
+  .form input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="hidden"]),
+  .form select,
+  .form textarea {
+    inline-size: 100%;
+    min-block-size: 2.5rem;
+    padding: var(--space-s);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-s);
+    background: var(--color-surface);
+    color: var(--color-text);
+  }
+
+  .form textarea {
+    min-block-size: 6rem;
+    resize: vertical;
+  }
+
+  .form input::placeholder,
+  .form textarea::placeholder {
+    color: var(--color-text-muted);
+    opacity: 1;
+  }
+
+  .form input[type="checkbox"],
+  .form input[type="radio"],
+  .form input[type="range"] {
+    accent-color: var(--color-accent);
+  }
+
+  .form input[type="range"] {
+    inline-size: 100%;
+    padding: 0;
+  }
+
+  .form__field--choice {
+    flex-direction: row;
+  }
+
+  .form__field--choice .form__label {
+    display: flex;
+    align-items: center;
+    gap: var(--space-s);
+    font-weight: 400;
+  }
+
+  .form__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-s);
+    margin: 0;
+  }
+
+  /*
+    Некоректне значення: колір рамки і товщина рамки.
+    Знак оклику на підписі не залежить від кольору.
+  */
+  .form input:user-invalid:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+  .form select:user-invalid,
+  .form textarea:user-invalid {
+    border-color: var(--color-error);
+    border-width: 0.1875rem;
+  }
+
+  .form input[type="checkbox"]:user-invalid,
+  .form input[type="radio"]:user-invalid {
+    outline: 0.1875rem solid var(--color-error);
+    outline-offset: 0.125rem;
+  }
+
+  .form__field:not(.form__field--choice):has(:user-invalid) > .form__label::after,
+  .form__field--choice:has(input[type="checkbox"]:user-invalid) > .form__label::after,
+  .form__group:has(input[type="radio"]:user-invalid) > .form__legend::after {
+    content: " !";
+    font-weight: 700;
+  }
 }
 
 /* ==========================================================================

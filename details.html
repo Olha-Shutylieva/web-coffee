@@ -150,66 +150,66 @@
     <section id="review" aria-labelledby="review-title">
       <h2 id="review-title">Відгук</h2>
       <p>Розкажіть, яким був капучино. Форма надсилається методом get, тож відповіді видно в адресному рядку.</p>
-      <form id="review-form" action="details.html#review" method="get">
-        <p>
-          <label for="review-author">Ім'я</label>
+      <form class="form" id="review-form" action="details.html#review" method="get">
+        <p class="form__field">
+          <label class="form__label" for="review-author">Ім'я</label>
           <input id="review-author" name="authorName" type="text" autocomplete="name" minlength="2" maxlength="80">
         </p>
 
-        <p>
-          <label for="review-email">Електронна пошта</label>
+        <p class="form__field">
+          <label class="form__label" for="review-email">Електронна пошта</label>
           <input id="review-email" name="email" type="email" autocomplete="email" required maxlength="80">
         </p>
 
-        <p>
-          <label for="review-phone">Телефон</label>
+        <p class="form__field">
+          <label class="form__label" for="review-phone">Телефон</label>
           <input id="review-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="13"
             pattern="^\+380\d{9}$" aria-describedby="phone-hint">
         </p>
-        <p id="phone-hint">Необов'язково. Формат: +380 і 9 цифр, наприклад +380501112233.</p>
+        <p class="form__hint" id="phone-hint">Необов'язково. Формат: +380 і 9 цифр, наприклад +380501112233.</p>
 
-        <fieldset>
-          <legend>Оцінка</legend>
-          <p>
-            <label><input type="radio" name="rating" value="1" required> 1</label>
+        <fieldset class="form__group">
+          <legend class="form__legend">Оцінка</legend>
+          <p class="form__field form__field--choice">
+            <label class="form__label"><input type="radio" name="rating" value="1" required> 1</label>
           </p>
-          <p>
-            <label><input type="radio" name="rating" value="2"> 2</label>
+          <p class="form__field form__field--choice">
+            <label class="form__label"><input type="radio" name="rating" value="2"> 2</label>
           </p>
-          <p>
-            <label><input type="radio" name="rating" value="3"> 3</label>
+          <p class="form__field form__field--choice">
+            <label class="form__label"><input type="radio" name="rating" value="3"> 3</label>
           </p>
-          <p>
-            <label><input type="radio" name="rating" value="4"> 4</label>
+          <p class="form__field form__field--choice">
+            <label class="form__label"><input type="radio" name="rating" value="4"> 4</label>
           </p>
-          <p>
-            <label><input type="radio" name="rating" value="5"> 5</label>
+          <p class="form__field form__field--choice">
+            <label class="form__label"><input type="radio" name="rating" value="5"> 5</label>
           </p>
         </fieldset>
 
-        <p>
-          <label for="sweetness">Солодкість</label>
+        <p class="form__field">
+          <label class="form__label" for="sweetness">Солодкість</label>
           <input id="sweetness" name="sweetness" type="range" min="0" max="5" step="1" value="2"
             aria-describedby="sweetness-hint">
         </p>
-        <p id="sweetness-hint">Від 0 (без цукру) до 5 (дуже солодко). Повзунок завжди передає число.</p>
+        <p class="form__hint" id="sweetness-hint">Від 0 (без цукру) до 5 (дуже солодко). Повзунок завжди передає число.</p>
 
-        <p>
-          <label for="review-comment">Коментар</label>
+        <p class="form__field">
+          <label class="form__label" for="review-comment">Коментар</label>
           <textarea id="review-comment" name="comment" minlength="10" maxlength="500" rows="4"
             aria-describedby="comment-hint"></textarea>
         </p>
-        <p id="comment-hint">Необов'язково. Якщо пишете коментар, залиште від 10 до 500 символів.</p>
+        <p class="form__hint" id="comment-hint">Необов'язково. Якщо пишете коментар, залиште від 10 до 500 символів.</p>
 
-        <p>
-          <label>
+        <p class="form__field form__field--choice">
+          <label class="form__label">
             <input id="review-consent" name="consent" type="checkbox" value="yes" required>
             Погоджуюся з правилами публікації відгуку
           </label>
         </p>
 
-        <p>
-          <button type="submit">Надіслати відгук</button>
+        <p class="form__actions">
+          <button class="button button--primary" type="submit">Надіслати відгук</button>
         </p>
       </form>
     </section>

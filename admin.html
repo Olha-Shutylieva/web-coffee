@@ -123,24 +123,24 @@
 
     <section aria-labelledby="add-title">
       <h2 id="add-title">Додати позицію</h2>
-      <form id="add-item" action="admin.html" method="get">
-        <fieldset>
-          <legend>Основні дані</legend>
+      <form class="form" id="add-item" action="admin.html" method="get">
+        <fieldset class="form__group">
+          <legend class="form__legend">Основні дані</legend>
 
-          <p>
-            <label for="title">Назва</label>
+          <p class="form__field">
+            <label class="form__label" for="title">Назва</label>
             <input id="title" name="title" type="text" required minlength="2" maxlength="80" autocomplete="off">
           </p>
 
-          <p>
-            <label for="sku">Артикул</label>
+          <p class="form__field">
+            <label class="form__label" for="sku">Артикул</label>
             <input id="sku" name="sku" type="text" required maxlength="6" pattern="^[A-Z]{2}-\d{3}$"
               aria-describedby="sku-hint" title="Дві великі латинські літери, дефіс і три цифри" autocomplete="off">
           </p>
-          <p id="sku-hint">Формат: дві великі латинські літери, дефіс і три цифри, наприклад CF-014.</p>
+          <p class="form__hint" id="sku-hint">Формат: дві великі латинські літери, дефіс і три цифри, наприклад CF-014.</p>
 
-          <p>
-            <label for="category">Категорія</label>
+          <p class="form__field">
+            <label class="form__label" for="category">Категорія</label>
             <select id="category" name="category" required>
               <option value="">Оберіть категорію</option>
               <option value="coffee">Кава</option>
@@ -150,52 +150,52 @@
             </select>
           </p>
 
-          <p>
-            <label for="price">Ціна, ₴</label>
+          <p class="form__field">
+            <label class="form__label" for="price">Ціна, ₴</label>
             <input id="price" name="price" type="number" required min="1" max="9999" step="1" inputmode="numeric">
           </p>
 
-          <p>
-            <label for="volume">Об'єм або вага</label>
+          <p class="form__field">
+            <label class="form__label" for="volume">Об'єм або вага</label>
             <input id="volume" name="volume" type="number" required min="1" max="1000" step="1" inputmode="numeric"
               aria-describedby="volume-hint">
           </p>
-          <p id="volume-hint">Ціле число без одиниць: мілілітри для напоїв або грами для десертів.</p>
+          <p class="form__hint" id="volume-hint">Ціле число без одиниць: мілілітри для напоїв або грами для десертів.</p>
 
-          <p>
-            <label for="addedAt">Дата додавання</label>
+          <p class="form__field">
+            <label class="form__label" for="addedAt">Дата додавання</label>
             <input id="addedAt" name="addedAt" type="date" required min="2024-01-01" max="2027-12-31"
               aria-describedby="added-at-hint">
           </p>
-          <p id="added-at-hint">Дата від 2024-01-01 до 2027-12-31.</p>
+          <p class="form__hint" id="added-at-hint">Дата від 2024-01-01 до 2027-12-31.</p>
         </fieldset>
 
-        <fieldset>
-          <legend>Опис і наявність</legend>
+        <fieldset class="form__group">
+          <legend class="form__legend">Опис і наявність</legend>
 
-          <p>
-            <label for="image">Зображення</label>
+          <p class="form__field">
+            <label class="form__label" for="image">Зображення</label>
             <input id="image" name="image" type="file" accept="image/svg+xml,image/webp,image/png"
               aria-describedby="image-hint">
           </p>
-          <p id="image-hint">Файл SVG, WebP або PNG. Поле не обов'язкове.</p>
+          <p class="form__hint" id="image-hint">Файл SVG, WebP або PNG. Поле не обов'язкове.</p>
 
-          <p>
-            <label for="description">Опис</label>
+          <p class="form__field">
+            <label class="form__label" for="description">Опис</label>
             <textarea id="description" name="description" required maxlength="300" rows="4"></textarea>
           </p>
 
-          <p>
-            <label>
+          <p class="form__field form__field--choice">
+            <label class="form__label">
               <input id="inStock" name="inStock" type="checkbox" value="true">
               Є в наявності
             </label>
           </p>
         </fieldset>
 
-        <p>
-          <button type="submit">Додати</button>
-          <button type="reset">Очистити</button>
+        <p class="form__actions">
+          <button class="button button--primary" type="submit">Додати</button>
+          <button class="button button--secondary" type="reset">Очистити</button>
         </p>
       </form>
     </section>
