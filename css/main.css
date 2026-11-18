@@ -17,7 +17,8 @@
     margin: 0;
   }
 
-  img {
+  img,
+  video {
     max-inline-size: 100%;
     block-size: auto;
   }
@@ -245,12 +246,16 @@
     color: var(--color-on-accent);
   }
 
-  /* Шапка: логотип, навігація і пошук на всіх сторінках. */
+  /*
+    Шапка — гнучкий рядок: назва на початку, навігація поруч,
+    пошук притиснутий до кінця головної осі автоматичним відступом.
+    На вузькому екрані частини переносяться, без зворотного порядку.
+  */
   .site-header {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: var(--space-m) var(--space-l);
+    gap: var(--space-m);
     padding: var(--space-m) var(--space-l);
     border-bottom: 1px solid var(--color-border);
     background: var(--color-surface);
@@ -288,8 +293,10 @@
     color: var(--color-text);
   }
 
-  .site-nav {
-    margin-inline-end: auto;
+  .site-search {
+    margin-inline-start: auto;
+    min-inline-size: 0;
+    max-inline-size: 100%;
   }
 
   .site-nav__list,
@@ -338,20 +345,23 @@
     color: var(--color-on-accent);
   }
 
+  /* Рядок «поле — дія»: підпис на всю ширину, поле росте, кнопка лишається за вмістом. */
   .site-search__form {
-    display: grid;
-    grid-template-columns: minmax(12rem, 16rem) auto;
-    gap: var(--space-xs) var(--space-s);
+    display: flex;
+    flex-wrap: wrap;
     align-items: center;
+    gap: var(--space-xs) var(--space-s);
   }
 
   .site-search__label {
-    grid-column: 1 / -1;
+    flex: 1 0 100%;
     font-size: 0.875rem;
     font-weight: 700;
   }
 
   .site-search__input {
+    flex: 1 1 10rem;
+    min-inline-size: 0;
     min-block-size: 2.5rem;
     padding: var(--space-xs) var(--space-m);
     border: 1px solid var(--color-border);
@@ -368,6 +378,10 @@
   .site-search__input::placeholder {
     color: var(--color-text-muted);
     opacity: 0.9;
+  }
+
+  .site-search__form .button {
+    flex: none;
   }
 
   /* Кнопки: основна дія і другорядна. */
@@ -443,10 +457,13 @@
     max-inline-size: 65ch;
   }
 
-  /* Підвал. */
+  /* Підвал: блоки інформації в ряд і переносяться, коли ширини бракує. */
   .site-footer {
-    display: grid;
-    gap: var(--space-s);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-m) var(--space-l);
     padding: var(--space-l);
     border-top: 1px solid var(--color-border);
     background: var(--color-surface);
@@ -486,10 +503,13 @@
     font-size: 0.9375rem;
   }
 
+  /* Пункт і його роздільник — один гнучкий елемент, тож «›» не переноситься окремо. */
   .breadcrumbs__item {
     display: flex;
+    flex-wrap: nowrap;
     align-items: center;
     gap: var(--space-xs);
+    white-space: nowrap;
   }
 
   .breadcrumbs__item + .breadcrumbs__item::before {
