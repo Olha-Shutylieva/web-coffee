@@ -184,21 +184,23 @@
 
         <fieldset class="form__group">
           <legend class="form__legend">Оцінка</legend>
-          <p class="form__field form__field--choice">
-            <label class="form__label"><input type="radio" name="rating" value="1" required> 1</label>
-          </p>
-          <p class="form__field form__field--choice">
-            <label class="form__label"><input type="radio" name="rating" value="2"> 2</label>
-          </p>
-          <p class="form__field form__field--choice">
-            <label class="form__label"><input type="radio" name="rating" value="3"> 3</label>
-          </p>
-          <p class="form__field form__field--choice">
-            <label class="form__label"><input type="radio" name="rating" value="4"> 4</label>
-          </p>
-          <p class="form__field form__field--choice">
-            <label class="form__label"><input type="radio" name="rating" value="5"> 5</label>
-          </p>
+          <div class="form__choices">
+            <p class="form__field form__field--choice">
+              <label class="form__label"><input type="radio" name="rating" value="1" required> 1</label>
+            </p>
+            <p class="form__field form__field--choice">
+              <label class="form__label"><input type="radio" name="rating" value="2"> 2</label>
+            </p>
+            <p class="form__field form__field--choice">
+              <label class="form__label"><input type="radio" name="rating" value="3"> 3</label>
+            </p>
+            <p class="form__field form__field--choice">
+              <label class="form__label"><input type="radio" name="rating" value="4"> 4</label>
+            </p>
+            <p class="form__field form__field--choice">
+              <label class="form__label"><input type="radio" name="rating" value="5"> 5</label>
+            </p>
+          </div>
         </fieldset>
 
         <p class="form__field">
@@ -224,6 +226,7 @@
 
         <p class="form__actions">
           <button class="button button--primary" type="submit">Надіслати відгук</button>
+          <button class="button button--secondary" type="reset">Очистити</button>
         </p>
       </form>
     </section>

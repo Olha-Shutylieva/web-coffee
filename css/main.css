@@ -441,6 +441,7 @@
   /* Основна колонка сторінки. */
   .page {
     inline-size: min(74rem, 100%);
+    min-inline-size: 0;
     margin-inline: auto;
     padding: var(--space-l);
   }
@@ -619,8 +620,11 @@
   /* Поле лишається в дереві доступності: його не ховають через display: none. */
   .chip__input {
     position: absolute;
-    opacity: 0;
+    inset: 0;
+    inline-size: 100%;
+    block-size: 100%;
     margin: 0;
+    opacity: 0;
   }
 
   .chip:has(.chip__input:checked) {
@@ -970,6 +974,13 @@
     white-space: nowrap;
   }
 
+  .data-table__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-s);
+  }
+
   /* Часті запитання. Власний маркер summary через ::before. */
   .faq__item {
     margin-block-end: var(--space-s);
@@ -1036,7 +1047,8 @@
 
   /* Форми адміністратора і відвідувача. */
   .form {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: var(--space-m);
     max-inline-size: 38rem;
     padding: var(--space-l);
@@ -1047,13 +1059,22 @@
   }
 
   .form__group {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: var(--space-m);
     margin: 0;
+    min-inline-size: 0;
     padding: var(--space-m);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-m);
     background: var(--color-bg);
+  }
+
+  .form__choices {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-s) var(--space-m);
   }
 
   .form__legend {
@@ -1068,6 +1089,7 @@
     flex-direction: column;
     align-items: stretch;
     gap: var(--space-xs);
+    min-inline-size: 0;
     margin: 0;
   }
 
@@ -1087,6 +1109,8 @@
   .form select,
   .form textarea {
     inline-size: 100%;
+    min-inline-size: 0;
+    max-inline-size: 100%;
     min-block-size: 2.625rem;
     padding: var(--space-xs) var(--space-s);
     border: 1px solid var(--color-border);
@@ -1128,7 +1152,6 @@
     gap: var(--space-s);
     font-weight: 500;
     cursor: pointer;
-    white-space: nowrap;
   }
 
   .form__actions {
@@ -1141,7 +1164,7 @@
   }
 
   .form__actions .button {
-    white-space: nowrap;
+    min-inline-size: 0;
   }
 
   /*
