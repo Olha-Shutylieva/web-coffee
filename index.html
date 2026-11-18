@@ -42,23 +42,47 @@
     <section class="catalog" id="menu" aria-labelledby="menu-title">
       <h1 id="menu-title">Меню кав'ярні</h1>
 
-      <nav class="catalog-filters" aria-label="Категорії меню">
-        <ul class="catalog-filters__list">
-          <li class="catalog-filters__item"><a class="catalog-filters__link" href="#menu">Кава</a></li>
-          <li class="catalog-filters__item"><a class="catalog-filters__link" href="#menu">Чай</a></li>
-          <li class="catalog-filters__item"><a class="catalog-filters__link" href="#menu">Десерт</a></li>
-          <li class="catalog-filters__item"><a class="catalog-filters__link" href="#menu">Сезонне</a></li>
-        </ul>
-      </nav>
+      <form class="filters" action="index.html#menu" method="get">
+        <p class="filters__field">
+          <label class="filters__label" for="catalog-q">Пошук у меню</label>
+          <input class="filters__control" id="catalog-q" name="q" type="search" placeholder="Назва напою або десерту" maxlength="80">
+        </p>
 
-      <form class="catalog-sort" action="#menu" method="get">
-        <label class="catalog-sort__label" for="sort">Сортувати</label>
-        <select class="catalog-sort__select" id="sort" name="sort">
-          <option value="name" selected>за назвою</option>
-          <option value="price-asc">за ціною: спочатку дешевші</option>
-          <option value="price-desc">за ціною: спочатку дорожчі</option>
-        </select>
-        <button class="button button--primary" type="submit">Застосувати</button>
+        <p class="filters__field filters__field--action">
+          <label class="filters__label" for="sort">Сортувати</label>
+          <select class="filters__control" id="sort" name="sort">
+            <option value="name" selected>за назвою</option>
+            <option value="price-asc">за ціною: спочатку дешевші</option>
+            <option value="price-desc">за ціною: спочатку дорожчі</option>
+          </select>
+          <button class="button button--primary" type="submit">Застосувати</button>
+        </p>
+
+        <fieldset class="filters__categories">
+          <legend class="filters__legend">Категорія</legend>
+          <div class="chips">
+            <label class="chip">
+              <input class="chip__input" type="radio" name="category" value="" checked>
+              Усі
+            </label>
+            <label class="chip">
+              <input class="chip__input" type="radio" name="category" value="coffee">
+              Кава
+            </label>
+            <label class="chip">
+              <input class="chip__input" type="radio" name="category" value="tea">
+              Чай
+            </label>
+            <label class="chip">
+              <input class="chip__input" type="radio" name="category" value="dessert">
+              Десерт
+            </label>
+            <label class="chip">
+              <input class="chip__input" type="radio" name="category" value="seasonal">
+              Сезонне
+            </label>
+          </div>
+        </fieldset>
       </form>
 
       <ul class="catalog__list">
