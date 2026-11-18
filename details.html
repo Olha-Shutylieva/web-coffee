@@ -51,15 +51,16 @@
 
       <nav class="toc" aria-label="На цій сторінці">
         <h2>На цій сторінці</h2>
-        <ul>
+        <ul class="toc__list">
           <li><a href="#photo">Фото</a></li>
-          <li><a href="#description">Опис</a></li>
           <li><a href="#specs">Характеристики</a></li>
+          <li><a href="#description">Опис</a></li>
           <li><a href="#portions">Порції та ціни</a></li>
           <li><a href="#review">Відгук</a></li>
         </ul>
       </nav>
 
+      <div class="item-layout">
       <section class="item-photo" id="photo" aria-labelledby="photo-title">
         <h2 id="photo-title">Фото</h2>
         <figure>
@@ -71,6 +72,33 @@
           <figcaption>Капучино подають із щільною молочною пінкою.</figcaption>
         </figure>
       </section>
+
+      <section class="item-specs" id="specs" aria-labelledby="specs-title">
+        <h2 id="specs-title">Характеристики</h2>
+        <dl class="specs">
+          <div class="specs__pair">
+            <dt class="specs__term">Категорія</dt>
+            <dd class="specs__value">Кава</dd>
+          </div>
+          <div class="specs__pair">
+            <dt class="specs__term">Ціна</dt>
+            <dd class="specs__value"><data value="75">75 ₴</data></dd>
+          </div>
+          <div class="specs__pair">
+            <dt class="specs__term">Об'єм</dt>
+            <dd class="specs__value"><data value="300">300 мл</data></dd>
+          </div>
+          <div class="specs__pair">
+            <dt class="specs__term">Дата додавання</dt>
+            <dd class="specs__value"><time datetime="2026-03-12">12 березня 2026</time></dd>
+          </div>
+          <div class="specs__pair">
+            <dt class="specs__term">Наявність</dt>
+            <dd class="specs__value status status--available">є в наявності</dd>
+          </div>
+        </dl>
+      </section>
+      </div>
 
       <section id="description" aria-labelledby="description-title">
         <h2 id="description-title">Опис</h2>
@@ -91,24 +119,9 @@
         </p>
       </section>
 
-      <section id="specs" aria-labelledby="specs-title">
-        <h2 id="specs-title">Характеристики</h2>
-        <dl class="specs">
-          <dt class="specs__term">Категорія</dt>
-          <dd class="specs__value">Кава</dd>
-          <dt class="specs__term">Ціна</dt>
-          <dd class="specs__value"><data value="75">75 ₴</data></dd>
-          <dt class="specs__term">Об'єм</dt>
-          <dd class="specs__value"><data value="300">300 мл</data></dd>
-          <dt class="specs__term">Дата додавання</dt>
-          <dd class="specs__value"><time datetime="2026-03-12">12 березня 2026</time></dd>
-          <dt class="specs__term">Наявність</dt>
-          <dd class="specs__value status status--available">є в наявності</dd>
-        </dl>
-      </section>
-
       <section id="portions" aria-labelledby="portions-title">
         <h2 id="portions-title">Порції та ціни</h2>
+        <div class="table-scroll">
         <table class="data-table">
           <caption>Порції капучино в меню кав'ярні</caption>
           <thead>
@@ -140,6 +153,7 @@
             </tr>
           </tbody>
         </table>
+        </div>
       </section>
 
       <p>

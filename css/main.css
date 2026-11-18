@@ -864,8 +864,28 @@
     font-size: 1.25rem;
   }
 
-  .item-photo {
+  .toc__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-s) var(--space-m);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  /* Фото і характеристики стоять поруч і складаються в стовпчик, коли місця бракує. */
+  .item-layout {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: var(--space-l);
     margin-block: var(--space-l);
+  }
+
+  .item-photo,
+  .item-specs {
+    flex: 1 1 18rem;
+    min-inline-size: 0;
   }
 
   .item-photo figure {
@@ -874,14 +894,19 @@
 
   .item-photo img {
     border-radius: var(--radius-m);
-    max-inline-size: 40rem;
     box-shadow: var(--shadow-card);
   }
 
+  .item-specs h2,
+  .item-photo h2 {
+    margin-block-start: 0;
+  }
+
+  /* Список визначень лишається списком: гнучкий лише кожен рядок пари. */
   .specs {
-    display: grid;
-    grid-template-columns: minmax(8rem, 14rem) minmax(0, 1fr);
-    gap: var(--space-s) var(--space-m);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-s);
     margin: 0;
     padding: var(--space-m);
     border: 1px solid var(--color-border);
@@ -889,15 +914,29 @@
     background: var(--color-surface);
   }
 
+  .specs__pair {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--space-xs) var(--space-m);
+  }
+
   .specs__term {
+    flex: 0 0 9rem;
     margin: 0;
     color: var(--color-text-muted);
     font-weight: 700;
-    white-space: nowrap;
   }
 
   .specs__value {
+    flex: 1 1 8rem;
+    min-inline-size: 0;
     margin: 0;
+  }
+
+  .table-scroll {
+    max-inline-size: 100%;
+    overflow-x: auto;
   }
 
   /* Таблиця даних. */
