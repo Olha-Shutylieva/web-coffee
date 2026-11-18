@@ -248,9 +248,11 @@
   }
 
   /*
-    Шапка — гнучкий рядок: назва на початку, навігація поруч,
-    пошук притиснутий до кінця головної осі автоматичним відступом.
-    На вузькому екрані частини переносяться, без зворотного порядку.
+    Шапка. display: flex вмикає гнучкий контейнер: прямі діти стають
+    елементами одного ряду (flex-direction лишається row).
+    flex-wrap: wrap переносить їх на наступний рядок, коли ширини бракує.
+    align-items: center вирівнює їх по центру поперечної осі (вертикально).
+    gap задає відстань лише між елементами, без зовнішнього поля по краях.
   */
   .site-header {
     display: flex;
@@ -267,6 +269,7 @@
     margin: 0;
   }
 
+  /* Логотип і назва в один ряд: центр поперечної осі, відстань через gap. */
   .site-header__logo {
     display: flex;
     align-items: center;
@@ -294,6 +297,10 @@
     color: var(--color-text);
   }
 
+  /*
+    auto на початку головної осі забирає весь вільний простір ліворуч,
+    тож пошук притискається до кінця рядка, а назва й меню лишаються на початку.
+  */
   .site-search {
     margin-inline-start: auto;
     min-inline-size: 0;
@@ -309,6 +316,7 @@
     list-style: none;
   }
 
+  /* Пункти меню в ряд; wrap переносить їх, gap замінює margin між пунктами. */
   .site-nav__list {
     display: flex;
     flex-wrap: wrap;
@@ -345,7 +353,12 @@
     color: var(--color-on-accent);
   }
 
-  /* Рядок «поле — дія»: підпис на всю ширину, поле росте, кнопка лишається за вмістом. */
+  /*
+    Форма пошуку — рядок «поле — дія».
+    flex-wrap переносить підпис, поле і кнопку.
+    align-items: center тримає поле і кнопку на одній висоті.
+    gap: два значення — рядковий відступ і відступ між колонками.
+  */
   .site-search__form {
     display: flex;
     flex-wrap: wrap;
@@ -353,12 +366,20 @@
     gap: var(--space-xs) var(--space-s);
   }
 
+  /*
+    flex: 1 0 100% — grow 1, shrink 0, basis 100%.
+    База на всю ширину переносить підпис на власний рядок; він не стискається.
+  */
   .site-search__label {
     flex: 1 0 100%;
     font-size: 0.875rem;
     font-weight: 700;
   }
 
+  /*
+    flex: 1 1 10rem — поле росте, стискається і стартує з бази 10rem.
+    min-inline-size: 0 дозволяє стиснутись нижче ширини найдовшого слова.
+  */
   .site-search__input {
     flex: 1 1 10rem;
     min-inline-size: 0;
@@ -380,11 +401,15 @@
     opacity: 0.9;
   }
 
+  /* flex: none — це 0 0 auto: кнопка не росте і не стискається, ширина за текстом. */
   .site-search__form .button {
     flex: none;
   }
 
-  /* Кнопки: основна дія і другорядна. */
+  /*
+    Кнопка. inline-flex лишає її в рядку тексту, а вміст компонує як flex.
+    align-items і justify-content центрують підпис по обох осях.
+  */
   .button {
     display: inline-flex;
     align-items: center;
@@ -458,7 +483,12 @@
     max-inline-size: 65ch;
   }
 
-  /* Підвал: блоки інформації в ряд і переносяться, коли ширини бракує. */
+  /*
+    Підвал. justify-content: space-between притискає перший і останній блоки
+    до країв головної осі і ділить вільне місце між ними.
+    align-items: center вирівнює блоки по центру поперечної осі.
+    flex-wrap: wrap переносить блоки на вузькому екрані.
+  */
   .site-footer {
     display: flex;
     flex-wrap: wrap;
@@ -481,6 +511,7 @@
     font-size: 1.25rem;
   }
 
+  /* Посилання підвалу в ряд із перенесенням; відстань лише через gap. */
   .site-footer__list {
     display: flex;
     flex-wrap: wrap;
@@ -497,6 +528,7 @@
     margin-block-end: var(--space-m);
   }
 
+  /* Крихти в ряд. wrap переносить цілі пункти, gap тримає між ними відстань. */
   .breadcrumbs__list {
     display: flex;
     flex-wrap: wrap;
@@ -504,7 +536,11 @@
     font-size: 0.9375rem;
   }
 
-  /* Пункт і його роздільник — один гнучкий елемент, тож «›» не переноситься окремо. */
+  /*
+    Пункт і роздільник «›» — один елемент зовнішнього ряду.
+    flex-wrap: nowrap не дає роздільнику перенестись окремо від посилання.
+    align-items: center ставить «›» і текст на одну вертикаль.
+  */
   .breadcrumbs__item {
     display: flex;
     flex-wrap: nowrap;
@@ -527,8 +563,9 @@
   }
 
   /*
-    Панель фільтрів каталогу: пошук, сортування і чипи категорій
-    в одному гнучкому рядку з перенесенням. Форма працює без скриптів.
+    Панель фільтрів. align-items: flex-end вирівнює поля по нижньому краю
+    поперечної осі, тож підписи різної висоти не зсувають контроли.
+    flex-wrap: wrap складає пошук, сортування і категорії в кілька рядів.
   */
   .filters {
     display: flex;
@@ -542,6 +579,10 @@
     background: var(--color-surface);
   }
 
+  /*
+    flex: 1 1 16rem — група росте і стискається, бажана ширина 16rem.
+    Разом із flex-wrap батька поле переходить на новий ряд, коли вже не вміщається.
+  */
   .filters__field {
     display: flex;
     flex-wrap: wrap;
@@ -558,10 +599,12 @@
     font-size: 0.9375rem;
   }
 
+  /* Підпис на всю ширину свого рядка: база 100%, без стискання. */
   .filters__label {
     flex: 1 0 100%;
   }
 
+  /* Поле росте і стискається від бази 8rem, тож ділить рядок із кнопкою. */
   .filters__control {
     flex: 1 1 8rem;
     min-inline-size: 0;
@@ -573,10 +616,12 @@
     color: var(--color-text);
   }
 
+  /* Кнопка «Застосувати» не забирає вільне місце і не стискає свій текст. */
   .filters__field--action .button {
     flex: none;
   }
 
+  /* Група категорій займає власний ряд: база 100%, росте і стискається. */
   .filters__categories {
     flex: 1 1 100%;
     min-inline-size: 0;
@@ -590,6 +635,7 @@
     margin-block-end: var(--space-s);
   }
 
+  /* Чипи в ряд. wrap складає їх, align-items: center рівняє чипи різної висоти. */
   .chips {
     display: flex;
     flex-wrap: wrap;
@@ -597,6 +643,7 @@
     gap: var(--space-s);
   }
 
+  /* inline-flex: чип завширшки вмісту, текст усередині по центру поперечної осі. */
   .chip {
     position: relative;
     display: inline-flex;
@@ -650,8 +697,10 @@
   }
 
   /*
-    Тимчасові ряди карток. Останній неповний ряд розтягує елементи —
-    це відоме обмеження Flexbox, його замінить сітка Grid у лабораторній №7.
+    Ряди карток. align-items: stretch (типове для flex) розтягує картки ряду
+    на висоту найвищої, тож нижні блоки можна вирівняти margin: auto.
+    flex-wrap: wrap переносить картки без медіазапитів.
+    Останній неповний ряд розтягується через flex-grow — це закриє Grid у лабораторній №7.
   */
   .catalog__list {
     display: flex;
@@ -660,13 +709,21 @@
     gap: var(--space-l);
   }
 
+  /*
+    flex: 1 1 18rem — картка росте, стискається, бажана ширина 18rem.
+    Кількість карток у ряду змінюється сама, коли вікно вужчає за цю базу.
+  */
   .catalog__item {
     display: flex;
     flex: 1 1 18rem;
     min-inline-size: 0;
   }
 
-  /* Картка — стовпчик: вільний простір забирає нижній блок, а не опис. */
+  /*
+    Картка — стовпчик: flex-direction: column робить головну вісь вертикальною.
+    gap розділяє назву, фото, опис і низ.
+    flex: 1 1 auto розтягує картку на всю висоту пункту списку (поперечна вісь пункту).
+  */
   .card {
     display: flex;
     flex-direction: column;
@@ -697,6 +754,7 @@
     transform: none;
   }
 
+  /* Зображення по центру обох осей усередині медіаблока. */
   .card__media {
     margin: 0;
     overflow: hidden;
@@ -748,6 +806,11 @@
     line-height: 1.5;
   }
 
+  /*
+    Низ картки — теж стовпчик. margin-block-start: auto забирає вільне місце
+    над блоком уздовж головної осі картки, тож ціна й наявність притискаються
+    донизу і в сусідніх картках різної висоти стоять на одному рівні.
+  */
   .card__footer {
     display: flex;
     flex-direction: column;
@@ -755,6 +818,7 @@
     margin-block-start: auto;
   }
 
+  /* Бейдж і позначка наявності в один ряд, по центру поперечної осі, з перенесенням. */
   .card__tags {
     display: flex;
     flex-wrap: wrap;
@@ -775,6 +839,10 @@
     white-space: nowrap;
   }
 
+  /*
+    Ціна і об'єм. space-between розносить їх по краях рядка.
+    align-items: baseline рівняє цифри за базовою лінією тексту, не за верхом рамок.
+  */
   .card__meta {
     display: flex;
     justify-content: space-between;
@@ -811,6 +879,7 @@
   }
 
   /* Позначка стану. Форма маркера не зводиться лише до кольору. */
+  /* Маркер і текст стану в ряд, по центру поперечної осі. */
   .status {
     margin: 0;
     font-size: 0.875rem;
@@ -832,7 +901,7 @@
     block-size: 0.625rem;
     margin-inline-end: var(--space-xs);
     vertical-align: middle;
-    flex-shrink: 0;
+    flex-shrink: 0; /* кружок або квадрат маркера не стискається */
   }
 
   .status--available {
@@ -869,6 +938,7 @@
     font-size: 1.25rem;
   }
 
+  /* Посилання змісту в ряд; два значення gap — між рядами і між пунктами. */
   .toc__list {
     display: flex;
     flex-wrap: wrap;
@@ -878,7 +948,10 @@
     list-style: none;
   }
 
-  /* Фото і характеристики стоять поруч і складаються в стовпчик, коли місця бракує. */
+  /*
+    Фото і характеристики поруч. align-items: flex-start не розтягує коротший
+    блок на висоту сусіда. flex-wrap складає їх один під одним, коли бази не вміщаються.
+  */
   .item-layout {
     display: flex;
     flex-wrap: wrap;
@@ -887,6 +960,7 @@
     margin-block: var(--space-l);
   }
 
+  /* Обидва блоки ростуть порівну від бази 18rem і можуть стиснутись. */
   .item-photo,
   .item-specs {
     flex: 1 1 18rem;
@@ -907,7 +981,7 @@
     margin-block-start: 0;
   }
 
-  /* Список визначень лишається списком: гнучкий лише кожен рядок пари. */
+  /* Список лишається dl. column ставить пари одна під одною, не ламаючи семантику. */
   .specs {
     display: flex;
     flex-direction: column;
@@ -919,6 +993,10 @@
     background: var(--color-surface);
   }
 
+  /*
+    Пара «назва — значення» в ряд. baseline рівняє текст назви і значення.
+    wrap переносить значення під назву, якщо ряд завузький.
+  */
   .specs__pair {
     display: flex;
     flex-wrap: wrap;
@@ -926,6 +1004,7 @@
     gap: var(--space-xs) var(--space-m);
   }
 
+  /* flex: 0 0 9rem — назва не росте і не стискається, усі назви однієї ширини. */
   .specs__term {
     flex: 0 0 9rem;
     margin: 0;
@@ -933,6 +1012,7 @@
     font-weight: 700;
   }
 
+  /* Значення забирає решту рядка: росте і стискається від бази 8rem. */
   .specs__value {
     flex: 1 1 8rem;
     min-inline-size: 0;
@@ -975,6 +1055,7 @@
     white-space: nowrap;
   }
 
+  /* Дії в клітинці таблиці в ряд; сама таблиця flex-контейнером не стає. */
   .data-table__actions {
     display: flex;
     flex-wrap: wrap;
@@ -997,6 +1078,7 @@
     box-shadow: var(--shadow-card);
   }
 
+  /* Питання FAQ: маркер і текст у ряд, по центру поперечної осі. */
   .faq__question {
     display: flex;
     align-items: center;
@@ -1024,7 +1106,7 @@
     font-family: var(--font-body);
     font-weight: 700;
     line-height: 1;
-    flex-shrink: 0;
+    flex-shrink: 0; /* квадрат «+» лишається 1.5rem і не стискається */
     transition: transform 0.2s ease, background-color 0.2s ease;
   }
 
@@ -1046,7 +1128,7 @@
     box-shadow: var(--shadow-card);
   }
 
-  /* Форми адміністратора і відвідувача. */
+  /* Форма — стовпчик полів. column робить justify-content вертикальним, gap — між полями. */
   .form {
     display: flex;
     flex-direction: column;
@@ -1059,6 +1141,7 @@
     box-shadow: var(--shadow-card);
   }
 
+  /* Група fieldset теж стовпчик: легенда, поля і підказки йдуть згори вниз. */
   .form__group {
     display: flex;
     flex-direction: column;
@@ -1071,6 +1154,7 @@
     background: var(--color-bg);
   }
 
+  /* Оцінки-перемикачі в ряд. wrap переносить їх, center рівняє підписи по центру. */
   .form__choices {
     display: flex;
     flex-wrap: wrap;
@@ -1085,6 +1169,10 @@
     font-weight: 700;
   }
 
+  /*
+    Поле форми — стовпчик: підпис згори, контроль знизу.
+    align-items: stretch розтягує контроль на всю поперечну вісь (ширину).
+  */
   .form__field {
     display: flex;
     flex-direction: column;
@@ -1143,10 +1231,12 @@
     padding: 0;
   }
 
+  /* Прапорець: row повертає головну вісь у горизонталь, тож позначка стоїть біля тексту. */
   .form__field--choice {
     flex-direction: row;
   }
 
+  /* Підпис прапорця: центр поперечної осі вирівнює квадрат і текст. */
   .form__field--choice .form__label {
     display: flex;
     align-items: center;
@@ -1155,6 +1245,11 @@
     cursor: pointer;
   }
 
+  /*
+    Група кнопок. wrap ставить основну і другорядну дію поруч,
+    а на вузькому екрані переносить кожну кнопку на свій ряд.
+    align-items: center рівняє кнопки різної висоти по центру.
+  */
   .form__actions {
     display: flex;
     flex-wrap: wrap;
