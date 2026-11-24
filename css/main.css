@@ -730,26 +730,31 @@
   }
 
   /*
-    Ряди карток. align-items: stretch (типове для flex) розтягує картки ряду
-    на висоту найвищої, тож нижні блоки можна вирівняти margin: auto.
-    flex-wrap: wrap переносить картки без медіазапитів.
-    Останній неповний ряд розтягується через flex-grow — це закриє Grid у лабораторній №7.
+    Сітка каталогу. auto-fill створює стільки стовпців, скільки вміщається,
+    і не згортає порожні: картка неповного ряду лишається тієї ж ширини, що й у повному.
+    min(100%, 18rem) не дає мінімуму перевищити ширину контейнера на вузькому вікні.
   */
   .catalog__list {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: stretch;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr));
     gap: var(--space-l);
   }
 
-  /*
-    flex: 1 1 18rem — картка росте, стискається, бажана ширина 18rem.
-    Кількість карток у ряду змінюється сама, коли вікно вужчає за цю базу.
-  */
   .catalog__item {
     display: flex;
-    flex: 1 1 18rem;
     min-inline-size: 0;
+  }
+
+  /* Порожній стан на всю ширину сітки. У лабораторній №8 його додає JavaScript. */
+  .catalog__empty {
+    grid-column: 1 / -1;
+    margin: 0;
+    padding: var(--space-l);
+    border: 1px dashed var(--color-border);
+    border-radius: var(--radius-m);
+    background: var(--color-surface);
+    color: var(--color-text-muted);
+    text-align: center;
   }
 
   /*
@@ -787,22 +792,19 @@
     transform: none;
   }
 
-  /* Зображення по центру обох осей усередині медіаблока. */
+  /* Однакове співвідношення сторін у всіх картках; cover обрізає, а не розтягує. */
   .card__media {
     margin: 0;
     overflow: hidden;
     border-radius: var(--radius-s);
     background: var(--color-row);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    aspect-ratio: 320 / 210;
   }
 
   .card__media img {
     display: block;
     inline-size: 100%;
-    max-inline-size: 20rem;
-    max-block-size: 12rem;
+    block-size: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
   }
