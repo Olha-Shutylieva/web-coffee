@@ -891,8 +891,12 @@
     min-inline-size: 0;
   }
 
-  /* Порожній стан на всю ширину сітки. У лабораторній №8 його додає JavaScript. */
+  /* Порожній стан на всю ширину сітки. Текст і кнопку збирає JavaScript. */
   .catalog__empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-m);
     grid-column: 1 / -1;
     margin: 0;
     padding: var(--space-l);
@@ -901,6 +905,10 @@
     background: var(--color-surface);
     color: var(--color-text-muted);
     text-align: center;
+  }
+
+  .catalog__empty p {
+    margin: 0;
   }
 
   /*
@@ -995,6 +1003,13 @@
   .card__title-link:hover {
     color: var(--color-accent);
     text-decoration: underline;
+  }
+
+  /* Збіг пошуку. Темний текст на жовтому тлі лишається контрастним і в темній темі. */
+  .card__title mark {
+    background-color: #f3c14b;
+    color: #1b120c;
+    border-radius: 0.15em;
   }
 
   .card__description {
