@@ -35,37 +35,116 @@
    Шар base
    Дизайн-токени та стилі документа.
    Токени узгоджені з макетом «Кав'ярня» у Figma:
-   тепла кремова гама кав'ярні, фірмовий помаранчевий акцент логотипа #e86a17
-   та глибокі відтінки обсмаженої кави.
+   кремове тло, темно-синій текст, Inter для інтерфейсу
+   та помаранчевий акцент кнопок.
    ========================================================================== */
 
 @layer base {
+  @font-face {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("../fonts/inter-cyrillic-400.woff2") format("woff2");
+    unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+  }
+
+  @font-face {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("../fonts/inter-latin-400.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+
+  @font-face {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url("../fonts/inter-cyrillic-600.woff2") format("woff2");
+    unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+  }
+
+  @font-face {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url("../fonts/inter-latin-600.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+
+  @font-face {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url("../fonts/inter-cyrillic-700.woff2") format("woff2");
+    unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+  }
+
+  @font-face {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url("../fonts/inter-latin-700.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+
+  @font-face {
+    font-family: Literata;
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url("../fonts/literata-cyrillic-700.woff2") format("woff2");
+    unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+  }
+
+  @font-face {
+    font-family: Literata;
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url("../fonts/literata-latin-700.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+
   :root {
     color-scheme: light dark;
 
-    /* Колір тла сторінки (теплий кремовий відтінок). */
-    --color-bg: #faf7f2;
+    /* Тло сторінки, як кремове поле пошуку в макеті. */
+    --color-bg: #f5f1e8;
 
     /* Колір тла карток, шапки, полів і панелей. */
     --color-surface: #ffffff;
 
-    /* Основний колір тексту (глибокий відтінок кавових зерен). */
-    --color-text: #261911;
+    /* Основний текст: темно-синій з макета. */
+    --color-text: #1b2a4a;
 
-    /* Приглушений текст: підказки, описи, другорядні дані. */
-    --color-text-muted: #5e4c41;
+    /* Описи карток і другорядний текст. */
+    --color-text-muted: #3a4c6f;
 
-    /* Акцент: посилання, основна кнопка, ціна, поточний пункт меню. */
-    --color-accent: #c24117;
+    /* Об'єм, плейсхолдер. Світліший за опис, але читається на білому й кремовому. */
+    --color-faint: #6f675c;
+
+    /*
+      Акцент кнопок, ціни й посилань.
+      У макеті заливка #e8732a; тут на крок темніше, бо білий підпис 14px
+      і помаранчева ціна мають контраст щонайменше 4.5:1.
+    */
+    --color-accent: #b85412;
 
     /* Акцент у стані наведення. */
-    --color-accent-hover: #9e320d;
+    --color-accent-hover: #9a460e;
 
     /* Текст і значки поверх акцентного тла. */
     --color-on-accent: #ffffff;
 
-    /* Рамки карток, полів, груп форми та таблиць (контраст > 3:1). */
-    --color-border: #735d4f;
+    /* Рамки полів і карток. Світліші за попередні, контраст із білим понад 3:1. */
+    --color-border: #8a8174;
 
     /* Кільце фокуса клавіатури. */
     --color-focus: #0c4a8a;
@@ -73,14 +152,20 @@
     /* Рамка й позначка некоректного поля. */
     --color-error: #a11d16;
 
-    /* Чергування рядків таблиці й ніжне тло бейджів. */
-    --color-row: #f2e9df;
+    /* «Є в наявності»: зелений з макета. */
+    --color-success: #2e7d32;
 
-    /* Основний шрифт інтерфейсу із сучасними запасними гарнітурами. */
-    --font-body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    /* Тло бейджів, поля пошуку й зебри таблиці. */
+    --color-row: #f5f1e8;
 
-    /* Шрифт заголовків: виразна антиква під атмосферу затишної кав'ярні. */
-    --font-heading: "Playfair Display", Georgia, "Palatino Linotype", "Times New Roman", serif;
+    /* Інтерфейс: Inter, як у макеті. */
+    --font-body: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+    /*
+      Заголовки. Newsreader з макета не містить кирилиці,
+      тож стоїть Literata – близька антиква з українськими літерами.
+    */
+    --font-heading: Literata, Georgia, "Palatino Linotype", "Times New Roman", serif;
 
     /* Шкала відступів. */
     --space-xs: 0.25rem;
@@ -88,13 +173,16 @@
     --space-m: 1rem;
     --space-l: 2rem;
 
+    /* Спільна висота полів, списків і кнопок в одному ряду. */
+    --control-size: 2.75rem;
+
     /* Радіуси заокруглення. */
     --radius-s: 0.5rem;
     --radius-m: 1rem;
     --radius-l: 2rem;
 
     /* Тіні карток та елементів інтерфейсу. */
-    --shadow-card: 0 4px 18px -2px rgb(38 25 17 / 0.08), 0 2px 6px -1px rgb(38 25 17 / 0.04);
+    --shadow-card: 0 8px 24px rgb(36 32 27 / 0.07);
   }
 
   /* Типографіка документа. */
@@ -165,7 +253,7 @@
     padding-inline-start: var(--space-l);
   }
 
-  /* Базова таблиця: межі й вирівнювання. Чергування рядків — у компоненті. */
+  /* Базова таблиця: межі й вирівнювання. Чергування рядків – у компоненті. */
   table {
     border-collapse: collapse;
     inline-size: 100%;
@@ -203,18 +291,20 @@
   */
   @media (prefers-color-scheme: dark) {
     :root {
-      --color-bg: #140f0c;
-      --color-surface: #221b16;
-      --color-text: #f7f2eb;
-      --color-text-muted: #d8c8b8;
-      --color-accent: #ff9d5c;
-      --color-accent-hover: #ffbe8f;
-      --color-on-accent: #170f0a;
-      --color-border: #a48b7a;
+      --color-bg: #121820;
+      --color-surface: #1c2636;
+      --color-text: #f3f6fb;
+      --color-text-muted: #c5d0e4;
+      --color-faint: #a8b4c8;
+      --color-accent: #f0a36a;
+      --color-accent-hover: #ffc89a;
+      --color-on-accent: #1b120c;
+      --color-border: #9aa6ba;
       --color-focus: #b7dcff;
       --color-error: #ffb4a8;
-      --color-row: #2e241e;
-      --shadow-card: 0 6px 20px -2px rgb(0 0 0 / 0.55), 0 2px 6px -1px rgb(0 0 0 / 0.35);
+      --color-success: #8fd49a;
+      --color-row: #243044;
+      --shadow-card: 0 8px 24px rgb(0 0 0 / 0.35);
     }
   }
 }
@@ -294,7 +384,6 @@
     padding: var(--space-m) var(--space-l);
     border-bottom: 1px solid var(--color-border);
     background: var(--color-surface);
-    box-shadow: 0 2px 10px rgb(38 25 17 / 0.04);
   }
 
   .site-header__brand {
@@ -305,10 +394,10 @@
   .site-header__logo {
     display: flex;
     align-items: center;
-    gap: var(--space-s);
+    gap: 0.75rem;
     color: var(--color-text);
     font-family: var(--font-heading);
-    font-size: 1.375rem;
+    font-size: 1.5rem;
     font-weight: 700;
     text-decoration: none;
     letter-spacing: -0.01em;
@@ -316,7 +405,7 @@
   }
 
   .site-header__logo img {
-    border-radius: var(--radius-s);
+    border-radius: 50%;
     transition: transform 0.25s ease;
   }
 
@@ -358,8 +447,12 @@
   .site-nav__link,
   .site-footer__link {
     display: inline-block;
-    padding: var(--space-xs) var(--space-m);
+    padding: 0.625rem 1rem;
+    border: 1px solid var(--color-border);
     border-radius: var(--radius-l);
+    background: var(--color-surface);
+    color: var(--color-text);
+    font-size: 0.875rem;
     font-weight: 600;
     text-decoration: none;
     white-space: nowrap;
@@ -373,10 +466,10 @@
 
   .site-nav__link[aria-current="page"],
   .site-footer__link[aria-current="page"] {
+    border-color: var(--color-accent);
     background: var(--color-accent);
     color: var(--color-on-accent);
-    font-weight: 700;
-    box-shadow: 0 2px 8px rgb(194 65 23 / 0.3);
+    font-weight: 600;
   }
 
   .site-nav__link[aria-current="page"]:hover,
@@ -386,20 +479,20 @@
   }
 
   /*
-    Форма пошуку — рядок «поле — дія».
+    Форма пошуку – рядок «поле – дія».
     flex-wrap переносить підпис, поле і кнопку.
-    align-items: center тримає поле і кнопку на одній висоті.
-    gap: два значення — рядковий відступ і відступ між колонками.
+    align-items: end садить поле і кнопку на один нижній край.
+    gap: два значення – рядковий відступ і відступ між колонками.
   */
   .site-search__form {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: end;
     gap: var(--space-xs) var(--space-s);
   }
 
   /*
-    flex: 1 0 100% — grow 1, shrink 0, basis 100%.
+    flex: 1 0 100% – grow 1, shrink 0, basis 100%.
     База на всю ширину переносить підпис на власний рядок; він не стискається.
   */
   .site-search__label {
@@ -409,31 +502,35 @@
   }
 
   /*
-    flex: 1 1 10rem — поле росте, стискається і стартує з бази 10rem.
+    flex: 1 1 10rem – поле росте, стискається і стартує з бази 10rem.
     min-inline-size: 0 дозволяє стиснутись нижче ширини найдовшого слова.
   */
   .site-search__input {
     flex: 1 1 10rem;
     min-inline-size: 0;
-    min-block-size: 2.5rem;
-    padding: var(--space-xs) var(--space-m);
+    block-size: var(--control-size);
+    padding: 0 1rem 0 2.5rem;
     border: 1px solid var(--color-border);
     border-radius: var(--radius-l);
-    background: var(--color-bg);
+    background-color: var(--color-row);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%236f675c' stroke-width='2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='M20 20l-3.5-3.5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: 1rem center;
+    background-size: 1.125rem;
     color: var(--color-text);
     transition: border-color 0.15s ease, background-color 0.15s ease;
   }
 
   .site-search__input:focus {
-    background: var(--color-surface);
+    background-color: var(--color-surface);
   }
 
   .site-search__input::placeholder {
-    color: var(--color-text-muted);
-    opacity: 0.9;
+    color: var(--color-faint);
+    opacity: 1;
   }
 
-  /* flex: none — це 0 0 auto: кнопка не росте і не стискається, ширина за текстом. */
+  /* flex: none – це 0 0 auto: кнопка не росте і не стискається, ширина за текстом. */
   .site-search__form .button {
     flex: none;
   }
@@ -447,10 +544,13 @@
     align-items: center;
     justify-content: center;
     margin: 0;
-    padding: var(--space-s) var(--space-m);
-    border: 2px solid transparent;
-    border-radius: var(--radius-l);
-    font-weight: 700;
+    block-size: var(--control-size);
+    padding: 0 1.25rem;
+    border: 1px solid transparent;
+    border-radius: var(--radius-s);
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    font-weight: 600;
     line-height: 1.25;
     text-align: center;
     text-decoration: none;
@@ -466,14 +566,12 @@
     border-color: var(--color-accent);
     background: var(--color-accent);
     color: var(--color-on-accent);
-    box-shadow: 0 2px 8px rgb(194 65 23 / 0.25);
   }
 
   .button--primary:hover {
     border-color: var(--color-accent-hover);
     background: var(--color-accent-hover);
     color: var(--color-on-accent);
-    box-shadow: 0 4px 12px rgb(194 65 23 / 0.35);
   }
 
   .button--primary:visited {
@@ -483,7 +581,7 @@
   .button--secondary {
     border-color: var(--color-border);
     background: var(--color-surface);
-    color: var(--color-text);
+    color: var(--color-text-muted);
   }
 
   .button--secondary:hover,
@@ -570,7 +668,7 @@
   }
 
   /*
-    Пункт і роздільник «›» — один елемент зовнішнього ряду.
+    Пункт і роздільник «›» – один елемент зовнішнього ряду.
     flex-wrap: nowrap не дає роздільнику перенестись окремо від посилання.
     align-items: center ставить «›» і текст на одну вертикаль.
   */
@@ -613,13 +711,13 @@
   }
 
   /*
-    flex: 1 1 16rem — група росте і стискається, бажана ширина 16rem.
+    flex: 1 1 16rem – група росте і стискається, бажана ширина 16rem.
     Разом із flex-wrap батька поле переходить на новий ряд, коли вже не вміщається.
   */
   .filters__field {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: end;
     gap: var(--space-s);
     flex: 1 1 16rem;
     min-inline-size: 0;
@@ -640,18 +738,20 @@
   /* Поле росте і стискається від бази 8rem, тож ділить рядок із кнопкою. */
   .filters__control {
     flex: 1 1 8rem;
+    align-self: end;
     min-inline-size: 0;
-    min-block-size: 2.5rem;
-    padding: var(--space-xs) var(--space-s);
+    block-size: var(--control-size);
+    padding: 0 0.75rem;
     border: 1px solid var(--color-border);
     border-radius: var(--radius-s);
     background: var(--color-bg);
     color: var(--color-text);
   }
 
-  /* Кнопка «Застосувати» не забирає вільне місце і не стискає свій текст. */
+  /* Кнопка «Застосувати» тієї ж висоти, що й список, і не забирає вільну ширину. */
   .filters__field--action .button {
     flex: none;
+    align-self: end;
   }
 
   /* Група категорій займає власний ряд: база 100%, росте і стискається. */
@@ -682,11 +782,12 @@
     display: inline-flex;
     align-items: center;
     margin: 0;
-    padding: var(--space-xs) var(--space-m);
+    padding: 0.625rem 1rem;
     border: 1px solid var(--color-border);
     border-radius: var(--radius-l);
     background: var(--color-surface);
     color: var(--color-text);
+    font-size: 0.875rem;
     font-weight: 600;
     white-space: nowrap;
     cursor: pointer;
@@ -760,9 +861,9 @@
   }
 
   /*
-    Картка — підсітка рядків пункту списку. span 5 дорівнює числу змістових
-    дітей: назва, фото, опис, дія, низ. Смуга ::before вирвана з потоку,
-    тож шостою клітинкою не стає і рядки сусідніх карток не зсуває.
+    Картка – підсітка рядків пункту списку. span 5 дорівнює числу змістових
+    дітей: назва, фото, опис, дія, низ. Значок чашки стоїть на фото
+    і клітинкою сітки не стає.
   */
   .card {
     position: relative;
@@ -779,22 +880,9 @@
     transition: transform 0.25s ease, box-shadow 0.25s ease;
   }
 
-  .card::before {
-    content: "";
-    position: absolute;
-    z-index: 1;
-    inset-block-start: 0;
-    inset-inline: 0;
-    block-size: 0.35rem;
-    background: var(--color-accent);
-    border-start-start-radius: inherit;
-    border-start-end-radius: inherit;
-    pointer-events: none;
-  }
-
   .card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 10px 25px -4px rgb(38 25 17 / 0.12), 0 4px 10px -2px rgb(38 25 17 / 0.06);
+    box-shadow: 0 12px 28px rgb(36 32 27 / 0.12);
   }
 
   .card:has(.status--unavailable) {
@@ -810,11 +898,26 @@
 
   /* Однакове співвідношення сторін у всіх картках; cover обрізає, а не розтягує. */
   .card__media {
+    position: relative;
     margin: 0;
     overflow: hidden;
     border-radius: var(--radius-s);
     background: var(--color-row);
     aspect-ratio: 320 / 210;
+  }
+
+  /* Значок чашки в куті фото, як у макеті. Не займає клітинку сітки. */
+  .card__media::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    inset-block-start: 0.75rem;
+    inset-inline-end: 0.75rem;
+    inline-size: 2rem;
+    block-size: 2rem;
+    border-radius: 50%;
+    background: rgb(255 255 255 / 0.82) url("../images/icon-cup.svg") center / 1rem no-repeat;
+    pointer-events: none;
   }
 
   .card__media img {
@@ -833,7 +936,10 @@
     margin: 0;
     min-inline-size: 0;
     overflow-wrap: anywhere;
-    font-size: 1.375rem;
+    font-family: var(--font-body);
+    font-size: 1.125rem;
+    font-weight: 700;
+    letter-spacing: 0;
     line-height: 1.3;
   }
 
@@ -853,8 +959,8 @@
     min-inline-size: 0;
     overflow-wrap: anywhere;
     color: var(--color-text-muted);
-    font-size: 0.9375rem;
-    line-height: 1.5;
+    font-size: 0.8125rem;
+    line-height: 1.4;
   }
 
   /*
@@ -877,14 +983,12 @@
 
   .card__badge {
     margin: 0;
-    padding: 0.2rem 0.65rem;
+    padding: 0.25rem 0.625rem;
     border-radius: var(--radius-l);
     background: var(--color-row);
-    color: var(--color-text-muted);
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
+    color: var(--color-text);
+    font-size: 0.6875rem;
+    font-weight: 600;
     white-space: nowrap;
   }
 
@@ -898,23 +1002,23 @@
     align-items: baseline;
     gap: var(--space-s);
     margin: 0;
-    padding-block-start: var(--space-xs);
-    border-top: 1px dashed var(--color-row);
+    padding-block-start: var(--space-s);
+    border-top: 1px solid var(--color-border);
   }
 
   .card__price {
     color: var(--color-accent);
-    font-size: 1.375rem;
+    font-size: 1.125rem;
     font-weight: 700;
     font-variant-numeric: tabular-nums;
-    font-family: var(--font-heading);
+    font-family: var(--font-body);
     white-space: nowrap;
   }
 
   .card__volume {
-    color: var(--color-text-muted);
-    font-size: 0.875rem;
-    font-weight: 600;
+    color: var(--color-faint);
+    font-size: 0.8125rem;
+    font-weight: 400;
     font-variant-numeric: tabular-nums;
     white-space: nowrap;
   }
@@ -953,14 +1057,20 @@
     flex-shrink: 0; /* кружок або квадрат маркера не стискається */
   }
 
+  .card .status {
+    font-size: 0.6875rem;
+    font-weight: 400;
+  }
+
   .status--available {
-    color: var(--color-text-muted);
+    color: var(--color-success);
   }
 
   .status--available::before {
+    inline-size: 0.375rem;
+    block-size: 0.375rem;
     border-radius: 50%;
-    background: var(--color-accent);
-    box-shadow: 0 0 0 2px var(--color-row);
+    background: var(--color-success);
   }
 
   .status--unavailable {
@@ -973,7 +1083,7 @@
   }
 
   /*
-    Сторінка позиції — одна сітка. auto-fit складає фото й характеристики
+    Сторінка позиції – одна сітка. auto-fit складає фото й характеристики
     в два стовпці і ставить їх один під одним, коли стовпець вже не вміщається.
     Заголовок, зміст, опис, таблиця і посилання назад займають усю ширину.
     item-layout не створює власного боксу, тож фото й характеристики
@@ -1010,7 +1120,7 @@
     font-size: 1.25rem;
   }
 
-  /* Посилання змісту в ряд; два значення gap — між рядами і між пунктами. */
+  /* Посилання змісту в ряд; два значення gap – між рядами і між пунктами. */
   .toc__list {
     display: flex;
     flex-wrap: wrap;
@@ -1088,13 +1198,38 @@
     overflow-x: auto;
   }
 
-  /* Таблиця даних. */
+  /*
+    Таблиця даних. separate потрібен, щоб радіус рамки обрізав фон клітинок:
+    при collapse нижні кути лишаються прямими.
+  */
   .data-table {
+    border-collapse: separate;
+    border-spacing: 0;
     border: 1px solid var(--color-border);
     border-radius: var(--radius-m);
     overflow: hidden;
     background: var(--color-surface);
     box-shadow: var(--shadow-card);
+  }
+
+  .data-table thead tr:first-child > :first-child {
+    border-start-start-radius: calc(var(--radius-m) - 1px);
+  }
+
+  .data-table thead tr:first-child > :last-child {
+    border-start-end-radius: calc(var(--radius-m) - 1px);
+  }
+
+  .data-table tbody tr:last-child > :first-child {
+    border-end-start-radius: calc(var(--radius-m) - 1px);
+  }
+
+  .data-table tbody tr:last-child > :last-child {
+    border-end-end-radius: calc(var(--radius-m) - 1px);
+  }
+
+  .data-table tbody tr:last-child > * {
+    border-bottom: 0;
   }
 
   .data-table thead th {
@@ -1134,7 +1269,7 @@
     border: 1px solid var(--color-border);
     border-radius: var(--radius-m);
     background: var(--color-surface);
-    box-shadow: 0 2px 6px rgb(38 25 17 / 0.04);
+    box-shadow: var(--shadow-card);
     transition: background-color 0.2s ease, box-shadow 0.2s ease;
   }
 
@@ -1193,7 +1328,7 @@
   }
 
   /*
-    Форма — сітка полів. auto-fill ставить кілька стовпців на широкому екрані
+    Форма – сітка полів. auto-fill ставить кілька стовпців на широкому екрані
     і один на вузькому. Поле з підказкою, багаторядковий опис, прапорець,
     група і кнопки займають усю ширину, тож підказка лишається під своїм полем.
   */
@@ -1210,7 +1345,7 @@
     box-shadow: var(--shadow-card);
   }
 
-  /* Кожна група — власна сітка. Легенда лишається заголовком і йде першим рядком. */
+  /* Кожна група – власна сітка. Легенда лишається заголовком і йде першим рядком. */
   .form__group {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(min(100%, 16rem), 1fr));
@@ -1250,7 +1385,7 @@
   }
 
   /*
-    Поле форми — стовпчик: підпис згори, контроль знизу.
+    Поле форми – стовпчик: підпис згори, контроль знизу.
     align-items: stretch розтягує контроль на всю поперечну вісь (ширину).
   */
   .form__field {
@@ -1274,14 +1409,14 @@
     font-size: 0.875rem;
   }
 
-  .form input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="hidden"]),
+  .form input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]):not([type="hidden"]),
   .form select,
   .form textarea {
     inline-size: 100%;
     min-inline-size: 0;
     max-inline-size: 100%;
-    min-block-size: 2.625rem;
-    padding: var(--space-xs) var(--space-s);
+    block-size: var(--control-size);
+    padding: 0 0.75rem;
     border: 1px solid var(--color-border);
     border-radius: var(--radius-s);
     background: var(--color-surface);
@@ -1289,8 +1424,74 @@
     transition: border-color 0.15s ease, box-shadow 0.15s ease;
   }
 
+  /* Зона, куди файл можна перетягнути або обрати кліком. */
+  .dropzone {
+    position: relative;
+    display: grid;
+    justify-items: center;
+    align-content: center;
+    gap: 0.25rem;
+    inline-size: 100%;
+    min-block-size: 8.5rem;
+    margin: 0;
+    padding: var(--space-m);
+    border: 1px dashed var(--color-border);
+    border-radius: var(--radius-m);
+    background: var(--color-surface);
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .dropzone:hover,
+  .dropzone--over {
+    border-color: var(--color-accent);
+    background: var(--color-row);
+  }
+
+  .dropzone:focus-within {
+    outline: 0.1875rem solid var(--color-focus);
+    outline-offset: 0.1875rem;
+  }
+
+  .dropzone__input {
+    position: absolute;
+    inset: 0;
+    inline-size: 100%;
+    block-size: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .dropzone__title {
+    color: var(--color-text);
+    font-weight: 600;
+  }
+
+  .dropzone__note,
+  .dropzone__file {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: 0.875rem;
+  }
+
+  .dropzone--filled .dropzone__file {
+    color: var(--color-text);
+    font-weight: 600;
+  }
+
+  .dropzone--error {
+    border-color: var(--color-error);
+  }
+
+  .dropzone--error .dropzone__file {
+    color: var(--color-error);
+  }
+
   .form textarea {
+    block-size: auto;
     min-block-size: 6.5rem;
+    padding-block: var(--space-s);
     resize: vertical;
   }
 

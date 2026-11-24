@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description"
     content="Навчальна форма редагування позиції «Капучино»: ті самі поля моделі, заповнені поточними значеннями.">
-  <title>Редагування: Капучино — Кав'ярня</title>
+  <title>Редагування: Капучино – Кав'ярня</title>
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="stylesheet" href="css/main.css">
 </head>
@@ -104,11 +104,17 @@
       <fieldset class="form__group">
         <legend class="form__legend">Опис і наявність</legend>
 
-        <p class="form__note">Поточне зображення: images/cappuccino.svg. Новий файл можна обрати нижче.</p>
+        <p class="form__note">Поточне зображення: images/cappuccino.png. Новий файл можна обрати нижче.</p>
         <p class="form__field">
-          <label class="form__label" for="image">Зображення</label>
-          <input id="image" name="image" type="file" accept="image/svg+xml,image/webp,image/png"
-            aria-describedby="image-hint">
+          <label class="form__label" id="image-label" for="image">Зображення</label>
+          <label class="dropzone">
+            <input class="dropzone__input" id="image" name="image" type="file"
+              accept="image/svg+xml,image/webp,image/png,.svg,.webp,.png"
+              aria-labelledby="image-label" aria-describedby="image-hint">
+            <span class="dropzone__title">Перетягніть зображення сюди</span>
+            <span class="dropzone__note">або натисніть, щоб обрати</span>
+            <span class="dropzone__file" aria-live="polite">Файл не обрано</span>
+          </label>
         </p>
         <p class="form__hint" id="image-hint">Файл SVG, WebP або PNG. Поле файлу не зберігає попереднє значення.</p>
 
@@ -146,6 +152,7 @@
       <small>© 2026 Кав'ярня.</small>
     </p>
   </footer>
+  <script src="js/file-drop.js"></script>
 </body>
 
 </html>
