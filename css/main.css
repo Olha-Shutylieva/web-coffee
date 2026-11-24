@@ -852,7 +852,7 @@
   .catalog__item {
     display: grid;
     grid-template-rows: subgrid;
-    grid-row: span 5;
+    grid-row: span 4;
     min-inline-size: 0;
   }
 
@@ -869,15 +869,15 @@
   }
 
   /*
-    Картка – підсітка рядків пункту списку. span 5 дорівнює числу змістових
-    дітей: назва, фото, опис, дія, низ. Значок чашки стоїть на фото
-    і клітинкою сітки не стає.
+    Картка – підсітка рядків пункту списку. span 4 дорівнює числу змістових
+    дітей: назва, фото, опис, низ. Закладка й око стоять у нижньому рядку
+    біля лінії і клітинкою сітки не стають. Значок чашки стоїть на фото.
   */
   .card {
     position: relative;
     display: grid;
     grid-template-rows: subgrid;
-    grid-row: span 5;
+    grid-row: span 4;
     row-gap: var(--space-s);
     min-inline-size: 0;
     padding: var(--space-m);
@@ -1006,8 +1006,7 @@
   */
   .card__meta {
     display: flex;
-    justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
     gap: var(--space-s);
     margin: 0;
     padding-block-start: var(--space-s);
@@ -1033,25 +1032,59 @@
 
   .card__actions {
     display: flex;
-    flex-direction: column;
+    align-items: center;
     gap: var(--space-xs);
-    margin: 0;
+    margin-inline-start: auto;
   }
 
-  .card__actions .button {
-    inline-size: 100%;
+  .card__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 2.25rem;
+    block-size: 2.25rem;
+    padding: 0;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-s);
+    background: var(--color-surface);
+    color: var(--color-text-muted);
+    cursor: pointer;
   }
 
-  .card__actions .button[aria-pressed="true"] {
+  .card__icon:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+
+  .card__icon svg {
+    inline-size: 1.25rem;
+    block-size: 1.25rem;
+  }
+
+  .card__icon [data-state="on"] {
+    display: none;
+  }
+
+  .card__icon[aria-pressed="true"] {
     border-color: var(--color-accent);
     background: var(--color-accent);
     color: var(--color-on-accent);
   }
 
-  .card__actions .button[aria-expanded="true"] {
+  .card__icon[aria-expanded="true"] {
     border-color: var(--color-accent);
     background: var(--color-surface);
     color: var(--color-accent);
+  }
+
+  .card__icon[aria-pressed="true"] [data-state="off"],
+  .card__icon[aria-expanded="true"] [data-state="off"] {
+    display: none;
+  }
+
+  .card__icon[aria-pressed="true"] [data-state="on"],
+  .card__icon[aria-expanded="true"] [data-state="on"] {
+    display: block;
   }
 
   .card__added {

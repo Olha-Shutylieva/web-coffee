@@ -23,6 +23,7 @@ export function updateFavoriteCount(counter, list) {
 function toggleFavorite(button) {
   const pressed = button.getAttribute("aria-pressed") === "true";
   button.setAttribute("aria-pressed", String(!pressed));
+  button.setAttribute("aria-label", pressed ? "У вибране" : "Прибрати з вибраного");
 }
 
 function toggleDescription(button, card) {
@@ -35,5 +36,5 @@ function toggleDescription(button, card) {
   const expanded = button.getAttribute("aria-expanded") === "true";
   button.setAttribute("aria-expanded", String(!expanded));
   panel.hidden = expanded;
-  button.textContent = expanded ? "Показати опис" : "Сховати опис";
+  button.setAttribute("aria-label", expanded ? "Показати опис" : "Сховати опис");
 }

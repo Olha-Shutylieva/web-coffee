@@ -102,10 +102,6 @@
           <p class="card__description">
             <span class="card__description-text" hidden></span>
           </p>
-          <p class="card__actions">
-            <button class="button button--secondary" type="button" data-action="favorite" aria-pressed="false">У вибране</button>
-            <button class="button button--secondary" type="button" data-action="toggle-description" aria-expanded="false" aria-controls="description">Показати опис</button>
-          </p>
           <div class="card__footer">
             <div class="card__tags">
               <p class="card__badge"></p>
@@ -114,6 +110,26 @@
             <p class="card__meta">
               <data class="card__price" value=""></data>
               <data class="card__volume" value=""></data>
+              <span class="card__actions">
+                <button class="card__icon" type="button" data-action="favorite" aria-pressed="false" aria-label="У вибране">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" data-state="off">
+                    <path d="M6.5 4.5h11a1 1 0 0 1 1 1V20l-6.5-3.6L5.5 20V5.5a1 1 0 0 1 1-1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                  </svg>
+                  <svg viewBox="0 0 24 24" aria-hidden="true" data-state="on">
+                    <path d="M6.5 4.5h11a1 1 0 0 1 1 1V20l-6.5-3.6L5.5 20V5.5a1 1 0 0 1 1-1z" fill="currentColor"/>
+                  </svg>
+                </button>
+                <button class="card__icon" type="button" data-action="toggle-description" aria-expanded="false" aria-controls="description" aria-label="Показати опис">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" data-state="off">
+                    <path d="M2.5 12S6 6.5 12 6.5 21.5 12 21.5 12 18 17.5 12 17.5 2.5 12 2.5 12z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                    <circle cx="12" cy="12" r="2.6" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                  </svg>
+                  <svg viewBox="0 0 24 24" aria-hidden="true" data-state="on">
+                    <path d="M3 4.5 20 19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                    <path d="M9.2 6.7A9 9 0 0 1 12 6.5c6 0 9.5 5.5 9.5 5.5a16 16 0 0 1-3.1 3.6M6.2 7.4C4 9 2.5 12 2.5 12S6 17.5 12 17.5a9 9 0 0 0 3.6-.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+              </span>
             </p>
             <p class="card__added"><time datetime=""></time></p>
           </div>
