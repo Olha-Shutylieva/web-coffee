@@ -135,6 +135,87 @@ export const items = [
     sizes: [
       { name: "Порція", volume: 180, unit: "г", price: 115, calories: 390 }
     ]
+  },
+  {
+    id: "c9",
+    title: "Ґоджі-чай",
+    sku: "GJ-009",
+    image: "chamomile.png",
+    imageAlt: "Прозора чашка чаю з ягодами годжі",
+    category: "tea",
+    price: 70,
+    volume: 250,
+    addedAt: "2026-07-01",
+    description: "Настій ягід годжі з цедрою апельсина.",
+    inStock: true,
+    sizes: [
+      { name: "Чашка", volume: 250, unit: "мл", price: 70, calories: 20 },
+      { name: "Чайник", volume: 600, unit: "мл", price: 110, calories: 45 }
+    ]
+  },
+  {
+    id: "c10",
+    title: "Єгипетський чай",
+    sku: "EG-010",
+    image: "matcha-latte.png",
+    imageAlt: "Склянка чаю з м'ятою",
+    category: "tea",
+    price: 65,
+    volume: 250,
+    addedAt: "2026-06-11",
+    description: "Чорний чай з м'ятою.",
+    inStock: true,
+    sizes: [
+      { name: "Чашка", volume: 250, unit: "мл", price: 65, calories: 4 }
+    ]
+  },
+  {
+    id: "c11",
+    title: "Ірландська кава",
+    sku: "IR-011",
+    image: "espresso.png",
+    imageAlt: "Келих кави з шаром вершків",
+    category: "coffee",
+    price: 90,
+    volume: 200,
+    addedAt: "2026-08-19",
+    description: "Гаряча кава з вершками.",
+    inStock: true,
+    sizes: [
+      { name: "Келих", volume: 200, unit: "мл", price: 90, calories: 160 }
+    ]
+  },
+  {
+    id: "c12",
+    title: "Їжачок",
+    sku: "YZ-012",
+    image: "cheesecake.png",
+    imageAlt: "Шоколадний десерт, усипаний горіхами",
+    category: "dessert",
+    price: 85,
+    volume: 90,
+    addedAt: "2026-09-01",
+    description: "Шоколадний десерт із горіхами.",
+    inStock: true,
+    sizes: [
+      { name: "Порція", volume: 90, unit: "г", price: 85, calories: 340 }
+    ]
+  },
+  {
+    id: "c13",
+    title: "Флет вайт",
+    sku: "FW-013",
+    image: "latte.png",
+    imageAlt: "Чашка флет вайту з тонким шаром молока",
+    category: "coffee",
+    price: 75,
+    volume: 180,
+    addedAt: "2026-03-01",
+    description: "Подвійний еспресо з тонким шаром молока.",
+    inStock: true,
+    sizes: [
+      { name: "Чашка", volume: 180, unit: "мл", price: 75, calories: 80 }
+    ]
   }
 ];
 
