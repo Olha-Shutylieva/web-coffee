@@ -29,6 +29,8 @@
       </ul>
     </nav>
 
+    <p class="favorites" aria-live="polite">У вибраному 0 позицій</p>
+
     <search class="site-search">
       <form class="site-search__form" action="index.html" method="get" role="search">
         <label class="site-search__label" for="search">Пошук напою</label>
@@ -85,201 +87,40 @@
         </fieldset>
       </form>
 
-      <ul class="catalog__list">
-        <li class="catalog__item">
-          <article class="card">
-            <h2 class="card__title">
-              <a class="card__title-link" href="details.html">Еспресо</a>
-            </h2>
-            <p class="card__media">
-              <img src="images/espresso.png" width="320" height="210" loading="lazy" alt="Чашка чорного еспресо на дерев'яному столі">
+      <noscript>
+        <p>Щоб побачити меню, увімкніть JavaScript.</p>
+      </noscript>
+
+      <template id="card-template">
+        <article class="card">
+          <h2 class="card__title">
+            <a class="card__title-link" href="details.html"></a>
+          </h2>
+          <p class="card__media">
+            <img width="320" height="210" loading="lazy" alt="">
+          </p>
+          <p class="card__description">
+            <span class="card__description-text" hidden></span>
+          </p>
+          <p class="card__actions">
+            <button class="button button--secondary" type="button" data-action="favorite" aria-pressed="false">У вибране</button>
+            <button class="button button--secondary" type="button" data-action="toggle-description" aria-expanded="false" aria-controls="description">Показати опис</button>
+          </p>
+          <div class="card__footer">
+            <div class="card__tags">
+              <p class="card__badge"></p>
+              <p class="status"></p>
+            </div>
+            <p class="card__meta">
+              <data class="card__price" value=""></data>
+              <data class="card__volume" value=""></data>
             </p>
-            <p class="card__description">Щільна крема.</p>
-            <p class="card__actions">
-                <button class="button button--secondary" type="button">Додати Еспресо в обране</button>
-              </p>
-            <div class="card__footer">
-              <div class="card__tags">
-                <p class="card__badge">Кава</p>
-                <p class="status status--available">є в наявності</p>
-              </div>
-              <p class="card__meta">
-                <data class="card__price" value="45">45 ₴</data>
-                <data class="card__volume" value="40">40 мл</data>
-              </p>
-              </div>
-          </article>
-        </li>
-        <li class="catalog__item">
-          <article class="card">
-            <h2 class="card__title">
-              <a class="card__title-link" href="details.html">Капучино</a>
-            </h2>
-            <p class="card__media">
-              <img src="images/cappuccino.png" width="320" height="210" loading="lazy" alt="Капучино з малюнком латте-арт у чашці">
-            </p>
-            <p class="card__description">Еспресо з ніжною молочною пінкою та легкою солодкістю.</p>
-            <p class="card__actions">
-                <button class="button button--secondary" type="button">Додати Капучино в обране</button>
-              </p>
-            <div class="card__footer">
-              <div class="card__tags">
-                <p class="card__badge">Кава</p>
-                <p class="status status--available">є в наявності</p>
-              </div>
-              <p class="card__meta">
-                <data class="card__price" value="75">75 ₴</data>
-                <data class="card__volume" value="300">300 мл</data>
-              </p>
-              </div>
-          </article>
-        </li>
-        <li class="catalog__item">
-          <article class="card">
-            <h2 class="card__title">
-              <a class="card__title-link" href="details.html">Лате</a>
-            </h2>
-            <p class="card__media">
-              <img src="images/latte.png" width="320" height="210" loading="lazy" alt="Висока склянка лате зі спіненим молоком">
-            </p>
-            <p class="card__description">М'який кавовий напій з великою порцією спіненого молока.</p>
-            <p class="card__actions">
-                <button class="button button--secondary" type="button">Додати Лате в обране</button>
-              </p>
-            <div class="card__footer">
-              <div class="card__tags">
-                <p class="card__badge">Кава</p>
-                <p class="status status--available">є в наявності</p>
-              </div>
-              <p class="card__meta">
-                <data class="card__price" value="80">80 ₴</data>
-                <data class="card__volume" value="350">350 мл</data>
-              </p>
-              </div>
-          </article>
-        </li>
-        <li class="catalog__item">
-          <article class="card">
-            <h2 class="card__title">
-              <a class="card__title-link" href="details.html">Матча Лате</a>
-            </h2>
-            <p class="card__media">
-              <img src="images/matcha-latte.png" width="320" height="210" loading="lazy"
-                alt="Матча лате з зеленим візерунком на пінці">
-            </p>
-            <p class="card__description">Японський зелений чай матча з вершковим молоком.</p>
-            <p class="card__actions">
-                <button class="button button--secondary" type="button">Додати Матча Лате в обране</button>
-              </p>
-            <div class="card__footer">
-              <div class="card__tags">
-                <p class="card__badge">Чай</p>
-                <p class="status status--available">є в наявності</p>
-              </div>
-              <p class="card__meta">
-                <data class="card__price" value="95">95 ₴</data>
-                <data class="card__volume" value="300">300 мл</data>
-              </p>
-              </div>
-          </article>
-        </li>
-        <li class="catalog__item">
-          <article class="card">
-            <h2 class="card__title">
-              <a class="card__title-link" href="details.html">Чізкейк Нью-Йорк</a>
-            </h2>
-            <p class="card__media">
-              <img src="images/cheesecake.png" width="320" height="210" loading="lazy" alt="Шматочок чізкейка Нью-Йорк з ягодами">
-            </p>
-            <p class="card__description">Класичний вершковий чізкейк із хрусткою піщаною основою з печива, вершкового сиру, яєць і ванілі. Зверху – тонкий шар ягідного соусу, тож опис складу довший за сусідні картки, а ціна все одно стоїть на одному рівні з ними.</p>
-            <p class="card__actions">
-                <button class="button button--secondary" type="button">Додати чізкейк Нью-Йорк в обране</button>
-              </p>
-            <div class="card__footer">
-              <div class="card__tags">
-                <p class="card__badge">Десерт</p>
-                <p class="status status--available">є в наявності</p>
-              </div>
-              <p class="card__meta">
-                <data class="card__price" value="120">120 ₴</data>
-                <data class="card__volume" value="150">150 г</data>
-              </p>
-              </div>
-          </article>
-        </li>
-        <li class="catalog__item">
-          <article class="card">
-            <h2 class="card__title">
-              <a class="card__title-link" href="details.html">Сезонний гарбузовий лате</a>
-            </h2>
-            <p class="card__media">
-              <img src="images/pumpkin-latte.png" width="320" height="210" loading="lazy" alt="Гарбузовий лате зі збитими вершками">
-            </p>
-            <p class="card__description">Лате з запеченим гарбузовим пюре, еспресо, паровим молоком, корицею, мускатним горіхом і щіпкою гвоздики. Подається зі збитими вершками.</p>
-            <p class="card__actions">
-                <button class="button button--secondary" type="button">Додати сезонний гарбузовий лате в обране</button>
-              </p>
-            <div class="card__footer">
-              <div class="card__tags">
-                <p class="card__badge">Сезонне</p>
-                <p class="status status--available">є в наявності</p>
-              </div>
-              <p class="card__meta">
-                <data class="card__price" value="110">110 ₴</data>
-                <data class="card__volume" value="450">450 мл</data>
-              </p>
-              </div>
-          </article>
-        </li>
-        <li class="catalog__item">
-          <article class="card">
-            <h2 class="card__title">
-              <a class="card__title-link" href="details.html">Ромашковий чай</a>
-            </h2>
-            <p class="card__media">
-              <img src="images/chamomile.png" width="320" height="210" loading="lazy" alt="Чашка ромашкового чаю з квітами ромашки">
-            </p>
-            <p class="card__description">Квіти ромашки.</p>
-            <p class="card__actions">
-                <button class="button button--secondary" type="button">Додати ромашковий чай в обране</button>
-              </p>
-            <div class="card__footer">
-              <div class="card__tags">
-                <p class="card__badge">Чай</p>
-                <p class="status status--unavailable">немає в наявності</p>
-              </div>
-              <p class="card__meta">
-                <data class="card__price" value="55">55 ₴</data>
-                <data class="card__volume" value="250">250 мл</data>
-              </p>
-              </div>
-          </article>
-        </li>
-        <li class="catalog__item">
-          <article class="card">
-            <h2 class="card__title">
-              <a class="card__title-link" href="details.html">Tiramisu</a>
-            </h2>
-            <p class="card__media">
-              <img src="images/tiramisu.png" width="320" height="210" loading="lazy" alt="Десерт тірамісу з какао в прозорій склянці">
-            </p>
-            <p class="card__description">Італійський десерт з маскарпоне, кавою та какао.</p>
-            <p class="card__actions">
-                <button class="button button--secondary" type="button">Додати Tiramisu в обране</button>
-              </p>
-            <div class="card__footer">
-              <div class="card__tags">
-                <p class="card__badge">Десерт</p>
-                <p class="status status--available">є в наявності</p>
-              </div>
-              <p class="card__meta">
-                <data class="card__price" value="115">115 ₴</data>
-                <data class="card__volume" value="180">180 г</data>
-              </p>
-              </div>
-          </article>
-        </li>
-      </ul>
+            <p class="card__added"><time datetime=""></time></p>
+          </div>
+        </article>
+      </template>
+
+      <ul class="catalog__list"></ul>
     </section>
 
     <section id="add" aria-labelledby="add-title">
@@ -384,6 +225,7 @@
     </p>
   </footer>
   <script src="js/file-drop.js"></script>
+  <script type="module" src="js/main.js"></script>
 </body>
 
 </html>

@@ -422,6 +422,14 @@
     auto на початку головної осі забирає весь вільний простір ліворуч,
     тож пошук притискається до кінця рядка, а назва й меню лишаються на початку.
   */
+  .favorites {
+    margin: 0;
+    color: var(--color-text);
+    font-size: 0.875rem;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
   .site-search {
     margin-inline-start: auto;
     min-inline-size: 0;
@@ -1024,11 +1032,32 @@
   }
 
   .card__actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
     margin: 0;
   }
 
   .card__actions .button {
     inline-size: 100%;
+  }
+
+  .card__actions .button[aria-pressed="true"] {
+    border-color: var(--color-accent);
+    background: var(--color-accent);
+    color: var(--color-on-accent);
+  }
+
+  .card__actions .button[aria-expanded="true"] {
+    border-color: var(--color-accent);
+    background: var(--color-surface);
+    color: var(--color-accent);
+  }
+
+  .card__added {
+    margin: 0;
+    color: var(--color-faint);
+    font-size: 0.75rem;
   }
 
   /* Позначка стану. Форма маркера не зводиться лише до кольору. */
@@ -1575,5 +1604,11 @@
    ========================================================================== */
 
 @layer utilities {
-  /* Порожній блок шару: окремі утиліти додаються лише за потреби. */
+  /*
+    Останній шар перекриває display, заданий раніше.
+    Без цього правила атрибут hidden не ховає елемент, якщо йому задано display.
+  */
+  [hidden] {
+    display: none;
+  }
 }
