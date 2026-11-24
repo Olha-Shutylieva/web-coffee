@@ -26,7 +26,7 @@ export const items = [
     price: 80,
     volume: 350,
     addedAt: "2026-01-20",
-    description: "М'який кавовий напій з великою порцією спіненого молока.",
+    description: "М'яка кава з великою порцією спіненого молока.",
     inStock: true,
     sizes: [
       { name: "Мала", volume: 250, unit: "мл", price: 70, calories: 140 },
@@ -130,7 +130,7 @@ export const items = [
     price: 115,
     volume: 180,
     addedAt: "2026-05-09",
-    description: "Італійський десерт з маскарпоне, кавою та какао.",
+    description: "У складі є кава, маскарпоне та какао.",
     inStock: true,
     sizes: [
       { name: "Порція", volume: 180, unit: "г", price: 115, calories: 390 }
