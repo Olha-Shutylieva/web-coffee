@@ -741,7 +741,9 @@
   }
 
   .catalog__item {
-    display: flex;
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 5;
     min-inline-size: 0;
   }
 
@@ -758,15 +760,16 @@
   }
 
   /*
-    Картка — стовпчик: flex-direction: column робить головну вісь вертикальною.
-    gap розділяє назву, фото, опис і низ.
-    flex: 1 1 auto розтягує картку на всю висоту пункту списку (поперечна вісь пункту).
+    Картка — підсітка рядків пункту списку. span 5 дорівнює числу змістових
+    дітей: назва, фото, опис, дія, низ. Смуга ::before вирвана з потоку,
+    тож шостою клітинкою не стає і рядки сусідніх карток не зсуває.
   */
   .card {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-s);
-    flex: 1 1 auto;
+    position: relative;
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 5;
+    row-gap: var(--space-s);
     min-inline-size: 0;
     padding: var(--space-m);
     border: 1px solid var(--color-border);
@@ -774,6 +777,19 @@
     background: var(--color-surface);
     box-shadow: var(--shadow-card);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .card::before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    inset-block-start: 0;
+    inset-inline: 0;
+    block-size: 0.35rem;
+    background: var(--color-accent);
+    border-start-start-radius: inherit;
+    border-start-end-radius: inherit;
+    pointer-events: none;
   }
 
   .card:hover {
@@ -842,15 +858,13 @@
   }
 
   /*
-    Низ картки — теж стовпчик. margin-block-start: auto забирає вільне місце
-    над блоком уздовж головної осі картки, тож ціна й наявність притискаються
-    донизу і в сусідніх картках різної висоти стоять на одному рівні.
+    Низ картки лишається стовпчиком Flexbox. Вирівнювання низів сусідніх карток
+    дає спільний рядок підсітки, а не margin-block-start: auto.
   */
   .card__footer {
     display: flex;
     flex-direction: column;
     gap: var(--space-s);
-    margin-block-start: auto;
   }
 
   /* Бейдж і позначка наявності в один ряд, по центру поперечної осі, з перенесенням. */
