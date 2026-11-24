@@ -5,8 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description"
-    content="Капучино в меню кав'ярні: опис смаку, склад, порції з цінами та форма відгуку відвідувача.">
-  <title>Капучино – Кав'ярня</title>
+    content="Позиція меню кав'ярні: фото, характеристики, порції з цінами та форма відгуку.">
+  <title>Позиція – Кав'ярня</title>
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="stylesheet" href="css/main.css">
 </head>
@@ -42,128 +42,19 @@
     <nav class="breadcrumbs" aria-label="Навігаційний ланцюжок">
       <ol class="breadcrumbs__list">
         <li class="breadcrumbs__item"><a href="index.html">Меню</a></li>
-        <li class="breadcrumbs__item"><a href="details.html" aria-current="page">Капучино</a></li>
+        <li class="breadcrumbs__item"><a href="details.html" aria-current="page" id="crumb-current">Позиція</a></li>
       </ol>
     </nav>
 
-    <article class="item">
-      <h1>Капучино</h1>
+    <noscript>
+      <p>Щоб побачити позицію, увімкніть JavaScript.</p>
+    </noscript>
 
-      <nav class="toc" aria-label="На цій сторінці">
-        <h2>На цій сторінці</h2>
-        <ul class="toc__list">
-          <li><a href="#photo">Фото</a></li>
-          <li><a href="#specs">Характеристики</a></li>
-          <li><a href="#description">Опис</a></li>
-          <li><a href="#portions">Порції та ціни</a></li>
-          <li><a href="#review">Відгук</a></li>
-        </ul>
-      </nav>
-
-      <div class="item-layout">
-      <section class="item-photo" id="photo" aria-labelledby="photo-title">
-        <h2 id="photo-title">Фото</h2>
-        <figure>
-          <picture>
-            <source srcset="images/cappuccino.webp" type="image/webp">
-            <img src="images/cappuccino.png" width="640" height="420" fetchpriority="high"
-              alt="Чашка капучино з молочною пінкою та латте-артом">
-          </picture>
-          <figcaption>Капучино подають із щільною молочною пінкою.</figcaption>
-        </figure>
-      </section>
-
-      <section class="item-specs" id="specs" aria-labelledby="specs-title">
-        <h2 id="specs-title">Характеристики</h2>
-        <dl class="specs">
-          <div class="specs__pair">
-            <dt class="specs__term">Категорія</dt>
-            <dd class="specs__value">Кава</dd>
-          </div>
-          <div class="specs__pair">
-            <dt class="specs__term">Ціна</dt>
-            <dd class="specs__value"><data value="75">75 ₴</data></dd>
-          </div>
-          <div class="specs__pair">
-            <dt class="specs__term">Об'єм</dt>
-            <dd class="specs__value"><data value="300">300 мл</data></dd>
-          </div>
-          <div class="specs__pair">
-            <dt class="specs__term">Дата додавання</dt>
-            <dd class="specs__value"><time datetime="2026-03-12">12 березня 2026</time></dd>
-          </div>
-          <div class="specs__pair">
-            <dt class="specs__term">Наявність</dt>
-            <dd class="specs__value status status--available">є в наявності</dd>
-          </div>
-        </dl>
-      </section>
-      </div>
-
-      <section id="description" aria-labelledby="description-title">
-        <h2 id="description-title">Опис</h2>
-        <p>
-          <dfn>Капучино</dfn> – це еспресо з гарячим молоком і високою молочною пінкою.
-          У меню кав'ярні позиція належить до категорії <strong>кава</strong>
-          і має м'який, злегка солодкий смак.
-        </p>
-        <p>
-          Напій готують із <em>класичного обсмаження</em> та збитого молока.
-          Стандартна чашка вміщує 300 <abbr title="мілілітрів">мл</abbr>,
-          тому пінка лишається щільною до останнього ковтка.
-        </p>
-        <p>
-          Бариста описують смак так:
-          <q>ніжна пінка, гіркуватий еспресо і м'яке молоко</q>.
-          Капучино зручно пити після обіду або разом із десертом із меню.
-        </p>
-      </section>
-
-      <section id="portions" aria-labelledby="portions-title">
-        <h2 id="portions-title">Порції та ціни</h2>
-        <div class="table-scroll">
-        <table class="data-table">
-          <caption>Порції капучино в меню кав'ярні</caption>
-          <thead>
-            <tr>
-              <th scope="col">Порція</th>
-              <th class="data-table__number" scope="col">Об'єм</th>
-              <th class="data-table__number" scope="col">Ціна</th>
-              <th class="data-table__number" scope="col">Калорійність</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">Мала</th>
-              <td class="data-table__number">200 мл</td>
-              <td class="data-table__number">60 ₴</td>
-              <td class="data-table__number">90 ккал</td>
-            </tr>
-            <tr>
-              <th scope="row">Середня</th>
-              <td class="data-table__number">300 мл</td>
-              <td class="data-table__number">75 ₴</td>
-              <td class="data-table__number">120 ккал</td>
-            </tr>
-            <tr>
-              <th scope="row">Велика</th>
-              <td class="data-table__number">400 мл</td>
-              <td class="data-table__number">95 ₴</td>
-              <td class="data-table__number">160 ккал</td>
-            </tr>
-          </tbody>
-        </table>
-        </div>
-      </section>
-
-      <p>
-        <a href="index.html">Назад до меню</a>
-      </p>
-    </article>
+    <div id="item"></div>
 
     <section id="review" aria-labelledby="review-title">
       <h2 id="review-title">Відгук</h2>
-      <p>Розкажіть, яким був капучино. Форма надсилається методом get, тож відповіді видно в адресному рядку.</p>
+      <p>Розкажіть, якою була позиція. Форма надсилається методом get, тож відповіді видно в адресному рядку.</p>
       <form class="form" id="review-form" action="details.html#review" method="get">
         <p class="form__field">
           <label class="form__label" for="review-author">Ім'я</label>
@@ -245,6 +136,7 @@
       <small>© 2026 Кав'ярня.</small>
     </p>
   </footer>
+  <script type="module" src="js/details-page.js"></script>
 </body>
 
 </html>
