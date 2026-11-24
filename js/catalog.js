@@ -34,11 +34,24 @@ export function renderCatalog(list, items, template, pageHref, view = {}) {
   return cards.length;
 }
 
+function emptyFilterMessage(view) {
+  const query = (view.query ?? "").trim();
+  const category = view.category ?? "all";
+  const label = view.categoryLabel ?? "";
+  if (query === "") {
+    return `У категорії «${label}» немає позицій.`;
+  }
+  if (category === "all") {
+    return `За запитом «${query}» нічого не знайдено.`;
+  }
+  return `За запитом «${query}» у категорії «${label}» нічого не знайдено.`;
+}
+
 function createFilteredEmptyState(view) {
   const item = document.createElement("li");
   item.className = "catalog__empty";
   const message = document.createElement("p");
-  message.textContent = `За запитом «${view.query}» у категорії «${view.categoryLabel}» нічого не знайдено.`;
+  message.textContent = emptyFilterMessage(view);
   const reset = document.createElement("button");
   reset.className = "button button--secondary";
   reset.type = "reset";

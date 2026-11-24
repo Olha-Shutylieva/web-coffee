@@ -51,7 +51,10 @@
         </p>
 
         <p class="filters__field filters__field--action">
-          <label class="filters__label" for="sort">Сортувати</label>
+          <span class="filters__heading">
+            <label class="filters__label" for="sort">Сортувати</label>
+            <button class="filters__reset" type="button" data-action="reset-sort" hidden>Скинути</button>
+          </span>
           <select class="filters__control" id="sort" name="sort">
             <option value="title-asc" selected>за назвою</option>
             <option value="price-asc">за ціною: спочатку дешевші</option>
@@ -92,10 +95,7 @@
         </fieldset>
       </form>
 
-      <div class="catalog__summary">
-        <p class="catalog__count" aria-live="polite"></p>
-        <dl class="stats" aria-label="Статистика відібраних позицій"></dl>
-      </div>
+      <p class="catalog__count visually-hidden" aria-live="polite"></p>
 
       <noscript>
         <p>Щоб побачити меню, увімкніть JavaScript.</p>

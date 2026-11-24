@@ -570,6 +570,11 @@
     transform: translateY(1px);
   }
 
+  .button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+
   .button--primary {
     border-color: var(--color-accent);
     background: var(--color-accent);
@@ -743,6 +748,45 @@
     flex: 1 0 100%;
   }
 
+  /* Підпис сортування і тихе «Скинути» ділять один рядок. */
+  .filters__heading {
+    display: flex;
+    flex: 1 0 100%;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-s);
+    min-inline-size: 0;
+  }
+
+  .filters__heading .filters__label {
+    flex: 1 1 auto;
+  }
+
+  .filters__reset {
+    flex: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--color-accent);
+    font: inherit;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.25;
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+    cursor: pointer;
+  }
+
+  .filters__reset:hover {
+    color: var(--color-accent-hover);
+  }
+
+  .filters__reset:focus-visible {
+    outline: 0.1875rem solid var(--color-focus);
+    outline-offset: 0.1875rem;
+  }
+
   /* Поле росте і стискається від бази 8rem, тож ділить рядок із кнопкою. */
   .filters__control {
     flex: 1 1 8rem;
@@ -843,24 +887,22 @@
     і не згортає порожні: картка неповного ряду лишається тієї ж ширини, що й у повному.
     min(100%, 18rem) не дає мінімуму перевищити ширину контейнера на вузькому вікні.
   */
-  .catalog__summary {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: end;
-    justify-content: space-between;
-    gap: var(--space-m);
+  .stats-panel {
     margin-block-end: var(--space-l);
+    padding: var(--space-m);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-m);
+    background: var(--color-surface);
   }
 
-  .catalog__count {
-    margin: 0;
-    font-weight: 700;
+  .stats-panel h2 {
+    margin-block-start: 0;
   }
 
   .stats {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-s) var(--space-l);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
+    gap: var(--space-m);
     margin: 0;
   }
 
@@ -875,6 +917,7 @@
 
   .stats dd {
     margin: 0;
+    font-size: 1.125rem;
     font-weight: 700;
   }
 
@@ -1693,5 +1736,17 @@
   */
   [hidden] {
     display: none;
+  }
+
+  .visually-hidden {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
   }
 }
