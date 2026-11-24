@@ -248,6 +248,37 @@
   }
 
   /*
+    Каркас сторінки. Області названі в порядку розмітки: header, main, footer.
+    Рядки auto 1fr auto віддають вільну висоту вмісту, тож на короткій сторінці
+    підвал стоїть біля нижнього краю вікна. Стовпець minmax(0, 1fr) може
+    стиснутись до нуля: довге слово не розсуває сторінку на ширину вікна.
+    Посилання «Перейти до вмісту» вирване з потоку (position: fixed), тож
+    клітинки сітки не займає.
+  */
+  body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "header"
+      "main"
+      "footer";
+    min-block-size: 100dvh;
+  }
+
+  .site-header {
+    grid-area: header;
+  }
+
+  .page {
+    grid-area: main;
+  }
+
+  .site-footer {
+    grid-area: footer;
+  }
+
+  /*
     Шапка. display: flex вмикає гнучкий контейнер: прямі діти стають
     елементами одного ряду (flex-direction лишається row).
     flex-wrap: wrap переносить їх на наступний рядок, коли ширини бракує.
@@ -258,6 +289,7 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    min-inline-size: 0;
     gap: var(--space-m);
     padding: var(--space-m) var(--space-l);
     border-bottom: 1px solid var(--color-border);
@@ -494,6 +526,7 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
+    min-inline-size: 0;
     gap: var(--space-m) var(--space-l);
     padding: var(--space-l);
     border-top: 1px solid var(--color-border);
