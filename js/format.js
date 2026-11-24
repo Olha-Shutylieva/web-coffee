@@ -16,7 +16,8 @@ const categoryLabels = {
   coffee: "Кава",
   tea: "Чай",
   dessert: "Десерт",
-  seasonal: "Сезонне"
+  seasonal: "Сезонне",
+  snacks: "Снеки"
 };
 
 const itemForms = {
@@ -50,8 +51,23 @@ export function pluralize(count, forms) {
   return forms[pluralRules.select(count)];
 }
 
+const foundForms = {
+  one: "позицію",
+  few: "позиції",
+  many: "позицій",
+  other: "позиції"
+};
+
 export function formatFavoriteCount(count) {
   return `У вибраному ${quantityFormat.format(count)} ${pluralize(count, itemForms)}`;
+}
+
+export function formatFoundCount(count) {
+  return `Знайдено ${quantityFormat.format(count)} ${pluralize(count, foundForms)}`;
+}
+
+export function formatFilterCategory(category) {
+  return category === "all" ? "Усі" : formatCategory(category);
 }
 
 export function volumeUnit(category) {

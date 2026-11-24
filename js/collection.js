@@ -51,3 +51,29 @@ export function applyFilters(items, state) {
   return filterByCategory(filterByQuery(items, state.query), state.category)
     .toSorted(getComparator(state.sort));
 }
+
+export function calculateStats(items) {
+  const initial = { count: 0, total: 0, min: Infinity, max: -Infinity, inStock: 0 };
+  const acc = items.reduce((result, item) => ({
+    count: result.count + 1,
+    total: result.total + item.price,
+    min: Math.min(result.min, item.price),
+    max: Math.max(result.max, item.price),
+    inStock: result.inStock + (item.inStock ? 1 : 0)
+  }), initial);
+
+  return {
+    count: acc.count,
+    average: acc.count === 0 ? null : acc.total / acc.count,
+    min: acc.count === 0 ? null : acc.min,
+    max: acc.count === 0 ? null : acc.max,
+    inStock: acc.inStock
+  };
+}
+
+export function countByCategory(items) {
+  return items.reduce((result, item) => ({
+    ...result,
+    [item.category]: (result[item.category] ?? 0) + 1
+  }), {});
+}

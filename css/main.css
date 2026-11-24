@@ -843,6 +843,41 @@
     і не згортає порожні: картка неповного ряду лишається тієї ж ширини, що й у повному.
     min(100%, 18rem) не дає мінімуму перевищити ширину контейнера на вузькому вікні.
   */
+  .catalog__summary {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    justify-content: space-between;
+    gap: var(--space-m);
+    margin-block-end: var(--space-l);
+  }
+
+  .catalog__count {
+    margin: 0;
+    font-weight: 700;
+  }
+
+  .stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-s) var(--space-l);
+    margin: 0;
+  }
+
+  .stats div {
+    margin: 0;
+  }
+
+  .stats dt {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+  }
+
+  .stats dd {
+    margin: 0;
+    font-weight: 700;
+  }
+
   .catalog__list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr));
