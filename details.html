@@ -55,43 +55,53 @@
     <section id="review" aria-labelledby="review-title">
       <h2 id="review-title">Відгук</h2>
       <p>Розкажіть, якою була позиція. Форма надсилається методом get, тож відповіді видно в адресному рядку.</p>
+      <p id="review-status" class="form__status" aria-live="polite"></p>
+      <div id="review-errors" class="form-errors" tabindex="-1" hidden></div>
       <form class="form" id="review-form" action="details.html#review" method="get">
-        <p class="form__field">
+        <div class="form__field">
           <label class="form__label" for="review-author">Ім'я</label>
-          <input id="review-author" name="authorName" type="text" autocomplete="name" minlength="2" maxlength="80">
-        </p>
+          <input id="review-author" name="authorName" type="text" autocomplete="name" minlength="2" maxlength="80"
+            aria-describedby="author-error">
+          <p id="author-error" class="form__error"></p>
+        </div>
 
-        <p class="form__field">
+        <div class="form__field">
           <label class="form__label" for="review-email">Електронна пошта</label>
-          <input id="review-email" name="email" type="email" autocomplete="email" required maxlength="80">
-        </p>
+          <input id="review-email" name="email" type="email" autocomplete="email" required maxlength="80"
+            data-value-missing="Вкажіть електронну пошту" aria-describedby="email-error">
+          <p id="email-error" class="form__error"></p>
+        </div>
 
-        <p class="form__field">
+        <div class="form__field">
           <label class="form__label" for="review-phone">Телефон</label>
           <input id="review-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="13"
-            pattern="^\+380\d{9}$" aria-describedby="phone-hint">
-        </p>
+            pattern="^\+380\d{9}$"
+            data-pattern-message="Введіть телефон у форматі +380 і 9 цифр, наприклад +380501112233"
+            aria-describedby="phone-hint phone-error">
+          <p id="phone-error" class="form__error"></p>
+        </div>
         <p class="form__hint" id="phone-hint">Необов'язково. Формат: +380 і 9 цифр, наприклад +380501112233.</p>
 
-        <fieldset class="form__group">
+        <fieldset class="form__group" aria-describedby="rating-error">
           <legend class="form__legend">Оцінка</legend>
           <div class="form__choices">
             <p class="form__field form__field--choice">
-              <label class="form__label"><input type="radio" name="rating" value="1" required> 1</label>
+              <label class="form__label"><input id="rating-1" type="radio" name="rating" value="1" required data-value-missing="Оберіть оцінку" aria-describedby="rating-error"> 1</label>
             </p>
             <p class="form__field form__field--choice">
-              <label class="form__label"><input type="radio" name="rating" value="2"> 2</label>
+              <label class="form__label"><input id="rating-2" type="radio" name="rating" value="2" aria-describedby="rating-error"> 2</label>
             </p>
             <p class="form__field form__field--choice">
-              <label class="form__label"><input type="radio" name="rating" value="3"> 3</label>
+              <label class="form__label"><input id="rating-3" type="radio" name="rating" value="3" aria-describedby="rating-error"> 3</label>
             </p>
             <p class="form__field form__field--choice">
-              <label class="form__label"><input type="radio" name="rating" value="4"> 4</label>
+              <label class="form__label"><input id="rating-4" type="radio" name="rating" value="4" aria-describedby="rating-error"> 4</label>
             </p>
             <p class="form__field form__field--choice">
-              <label class="form__label"><input type="radio" name="rating" value="5"> 5</label>
+              <label class="form__label"><input id="rating-5" type="radio" name="rating" value="5" aria-describedby="rating-error"> 5</label>
             </p>
           </div>
+          <p id="rating-error" class="form__error"></p>
         </fieldset>
 
         <p class="form__field">
@@ -101,19 +111,23 @@
         </p>
         <p class="form__hint" id="sweetness-hint">Від 0 (без цукру) до 5 (дуже солодко). Повзунок завжди передає число.</p>
 
-        <p class="form__field">
+        <div class="form__field">
           <label class="form__label" for="review-comment">Коментар</label>
           <textarea id="review-comment" name="comment" minlength="10" maxlength="500" rows="4"
-            aria-describedby="comment-hint"></textarea>
-        </p>
-        <p class="form__hint" id="comment-hint">Необов'язково. Якщо пишете коментар, залиште від 10 до 500 символів.</p>
+            aria-describedby="comment-hint comment-error"></textarea>
+          <p id="comment-error" class="form__error"></p>
+        </div>
+        <p class="form__hint" id="comment-hint">Необов'язково. Якщо пишете коментар, залиште від 10 до 500 символів без пробілів на краях.</p>
 
-        <p class="form__field form__field--choice">
+        <div class="form__field form__field--choice">
           <label class="form__label">
-            <input id="review-consent" name="consent" type="checkbox" value="yes" required>
+            <input id="review-consent" name="consent" type="checkbox" value="yes" required
+              data-value-missing="Підтвердьте згоду з правилами публікації відгуку"
+              aria-describedby="consent-error">
             Погоджуюся з правилами публікації відгуку
           </label>
-        </p>
+          <p id="consent-error" class="form__error"></p>
+        </div>
 
         <p class="form__actions">
           <button class="button button--primary" type="submit">Надіслати відгук</button>
@@ -137,6 +151,7 @@
     </p>
   </footer>
   <script type="module" src="js/details-page.js"></script>
+  <script type="module" src="js/feedback.js"></script>
 </body>
 
 </html>
