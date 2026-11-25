@@ -1518,6 +1518,8 @@
   .form__note,
   .form__hint,
   .form__actions,
+  .form__choices,
+  .form__error,
   .form__field:has(textarea),
   .form__field--choice,
   .form__field:has(+ .form__hint) {
@@ -1721,6 +1723,87 @@
   .form__group:has(input[type="radio"]:user-invalid) > .form__legend::after {
     content: " !";
     font-weight: 700;
+  }
+
+  .form [aria-invalid="true"]:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+  .form select[aria-invalid="true"],
+  .form textarea[aria-invalid="true"] {
+    border-color: var(--color-error);
+    border-width: 0.1875rem;
+  }
+
+  .form input[type="checkbox"][aria-invalid="true"],
+  .form input[type="radio"][aria-invalid="true"] {
+    outline: 0.1875rem solid var(--color-error);
+    outline-offset: 0.125rem;
+  }
+
+  .form__field:not(.form__field--choice):has([aria-invalid="true"]) > .form__label::after,
+  .form__field--choice:has(input[type="checkbox"][aria-invalid="true"]) > .form__label::after,
+  .form__group:has(input[type="radio"][aria-invalid="true"]) > .form__legend::after {
+    content: " !";
+    font-weight: 700;
+  }
+
+  .form__field--choice:has(.form__error) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .form__error {
+    margin: 0;
+    color: var(--color-error);
+    font-size: 0.875rem;
+    font-weight: 700;
+  }
+
+  .form__error:empty {
+    display: none;
+  }
+
+  .form__status {
+    margin: 0 0 var(--space-m);
+    font-weight: 700;
+  }
+
+  .form-errors {
+    margin-block-end: var(--space-m);
+    padding: var(--space-m);
+    border: 0.1875rem solid var(--color-error);
+    border-radius: var(--radius-m);
+    background: var(--color-surface);
+  }
+
+  .form-errors:focus {
+    outline: 0.1875rem solid var(--color-focus);
+    outline-offset: 0.1875rem;
+  }
+
+  .form-errors__title {
+    margin: 0 0 var(--space-s);
+    color: var(--color-error);
+    font-size: 1.125rem;
+  }
+
+  .form-errors__list {
+    margin: 0;
+    padding-inline-start: 1.25rem;
+  }
+
+  .preview {
+    display: grid;
+    gap: var(--space-m);
+    margin-block-start: var(--space-l);
+  }
+
+  .preview__json {
+    overflow: auto;
+    margin: 0;
+    padding: var(--space-m);
+    border-radius: var(--radius-m);
+    background: var(--color-bg);
+    color: var(--color-text);
+    white-space: pre-wrap;
   }
 }
 
