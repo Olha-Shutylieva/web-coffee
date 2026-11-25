@@ -53,7 +53,7 @@
 
     <section aria-labelledby="items-title">
       <h2 id="items-title">Позиції каталогу</h2>
-      <p>На цьому етапі кожне посилання «Редагувати» відкриває одну навчальну форму – для капучино.</p>
+      <p>Посилання «Редагувати» відкриває форму з даними цієї позиції.</p>
       <div class="table-scroll">
       <table class="data-table">
         <caption>Позиції меню кав'ярні</caption>
@@ -72,56 +72,56 @@
             <td>Кава</td>
             <td class="data-table__number"><data value="45">45</data></td>
             <td class="status status--available">є в наявності</td>
-            <td><span class="data-table__actions"><a href="admin-edit.html">Редагувати Еспресо</a></span></td>
+            <td><span class="data-table__actions"><a href="admin-edit.html?id=c1">Редагувати Еспресо</a></span></td>
           </tr>
           <tr>
             <th scope="row">Капучино</th>
             <td>Кава</td>
             <td class="data-table__number"><data value="75">75</data></td>
             <td class="status status--available">є в наявності</td>
-            <td><span class="data-table__actions"><a href="admin-edit.html">Редагувати Капучино</a></span></td>
+            <td><span class="data-table__actions"><a href="admin-edit.html?id=c3">Редагувати Капучино</a></span></td>
           </tr>
           <tr>
             <th scope="row">Лате</th>
             <td>Кава</td>
             <td class="data-table__number"><data value="80">80</data></td>
             <td class="status status--available">є в наявності</td>
-            <td><span class="data-table__actions"><a href="admin-edit.html">Редагувати Лате</a></span></td>
+            <td><span class="data-table__actions"><a href="admin-edit.html?id=c2">Редагувати Лате</a></span></td>
           </tr>
           <tr>
             <th scope="row">Матча Лате</th>
             <td>Чай</td>
             <td class="data-table__number"><data value="95">95</data></td>
             <td class="status status--available">є в наявності</td>
-            <td><span class="data-table__actions"><a href="admin-edit.html">Редагувати Матча Лате</a></span></td>
+            <td><span class="data-table__actions"><a href="admin-edit.html?id=c4">Редагувати Матча Лате</a></span></td>
           </tr>
           <tr>
             <th scope="row">Чізкейк Нью-Йорк</th>
             <td>Десерт</td>
             <td class="data-table__number"><data value="120">120</data></td>
             <td class="status status--available">є в наявності</td>
-            <td><span class="data-table__actions"><a href="admin-edit.html">Редагувати Чізкейк Нью-Йорк</a></span></td>
+            <td><span class="data-table__actions"><a href="admin-edit.html?id=c5">Редагувати Чізкейк Нью-Йорк</a></span></td>
           </tr>
           <tr>
             <th scope="row">Сезонний гарбузовий лате</th>
             <td>Сезонне</td>
             <td class="data-table__number"><data value="110">110</data></td>
             <td class="status status--available">є в наявності</td>
-            <td><span class="data-table__actions"><a href="admin-edit.html">Редагувати сезонний гарбузовий лате</a></span></td>
+            <td><span class="data-table__actions"><a href="admin-edit.html?id=c6">Редагувати сезонний гарбузовий лате</a></span></td>
           </tr>
           <tr>
             <th scope="row">Ромашковий чай</th>
             <td>Чай</td>
             <td class="data-table__number"><data value="55">55</data></td>
             <td class="status status--unavailable">немає в наявності</td>
-            <td><span class="data-table__actions"><a href="admin-edit.html">Редагувати ромашковий чай</a></span></td>
+            <td><span class="data-table__actions"><a href="admin-edit.html?id=c7">Редагувати ромашковий чай</a></span></td>
           </tr>
           <tr>
             <th scope="row">Tiramisu</th>
             <td>Десерт</td>
             <td class="data-table__number"><data value="115">115</data></td>
             <td class="status status--available">є в наявності</td>
-            <td><span class="data-table__actions"><a href="admin-edit.html">Редагувати Tiramisu</a></span></td>
+            <td><span class="data-table__actions"><a href="admin-edit.html?id=c8">Редагувати Tiramisu</a></span></td>
           </tr>
         </tbody>
       </table>
@@ -130,51 +130,65 @@
 
     <section aria-labelledby="add-title">
       <h2 id="add-title">Додати позицію</h2>
+      <div id="add-errors" class="form-errors" tabindex="-1" hidden></div>
       <form class="form" id="add-item" action="admin.html" method="get">
         <fieldset class="form__group">
           <legend class="form__legend">Основні дані</legend>
 
-          <p class="form__field">
+          <div class="form__field">
             <label class="form__label" for="title">Назва</label>
-            <input id="title" name="title" type="text" required minlength="2" maxlength="80" autocomplete="off">
-          </p>
+            <input id="title" name="title" type="text" required minlength="2" maxlength="80" autocomplete="off"
+              data-value-missing="Заповніть назву" aria-describedby="title-error">
+            <p id="title-error" class="form__error"></p>
+          </div>
 
-          <p class="form__field">
+          <div class="form__field">
             <label class="form__label" for="sku">Артикул</label>
             <input id="sku" name="sku" type="text" required maxlength="6" pattern="^[A-Z]{2}-\d{3}$"
-              aria-describedby="sku-hint" title="Дві великі латинські літери, дефіс і три цифри" autocomplete="off">
-          </p>
+              data-value-missing="Вкажіть артикул"
+              data-pattern-message="Дві великі латинські літери, дефіс і три цифри, наприклад CF-012"
+              aria-describedby="sku-hint sku-error" title="Дві великі латинські літери, дефіс і три цифри"
+              autocomplete="off">
+            <p id="sku-error" class="form__error"></p>
+          </div>
           <p class="form__hint" id="sku-hint">Формат: дві великі латинські літери, дефіс і три цифри, наприклад CF-014.</p>
 
-          <p class="form__field">
+          <div class="form__field">
             <label class="form__label" for="category">Категорія</label>
-            <select id="category" name="category" required>
+            <select id="category" name="category" required data-value-missing="Оберіть категорію"
+              aria-describedby="category-error">
               <option value="">Оберіть категорію</option>
               <option value="coffee">Кава</option>
               <option value="tea">Чай</option>
               <option value="dessert">Десерт</option>
               <option value="seasonal">Сезонне</option>
             </select>
-          </p>
+            <p id="category-error" class="form__error"></p>
+          </div>
 
-          <p class="form__field">
+          <div class="form__field">
             <label class="form__label" for="price">Ціна, ₴</label>
-            <input id="price" name="price" type="number" required min="1" max="9999" step="1" inputmode="numeric">
-          </p>
+            <input id="price" name="price" type="number" required min="1" max="9999" step="1" inputmode="numeric"
+              data-value-missing="Вкажіть ціну" aria-describedby="price-hint price-error">
+            <p id="price-error" class="form__error"></p>
+          </div>
+          <p class="form__hint" id="price-hint">Від 1 до 9999 грн.</p>
 
-          <p class="form__field">
+          <div class="form__field">
             <label class="form__label" for="volume">Об'єм або вага</label>
-            <input id="volume" name="volume" type="number" required min="1" max="1000" step="1" inputmode="numeric"
-              aria-describedby="volume-hint">
-          </p>
-          <p class="form__hint" id="volume-hint">Ціле число без одиниць: мілілітри для напоїв або грами для десертів.</p>
+            <input id="volume" name="volume" type="number" min="1" max="1000" step="1" inputmode="numeric"
+              aria-describedby="volume-hint volume-error">
+            <p id="volume-error" class="form__error"></p>
+          </div>
+          <p class="form__hint" id="volume-hint">Для кави, чаю й сезонного меню вкажіть ціле число. Для десерту залиште поле порожнім.</p>
 
-          <p class="form__field">
+          <div class="form__field">
             <label class="form__label" for="addedAt">Дата додавання</label>
             <input id="addedAt" name="addedAt" type="date" required min="2024-01-01" max="2027-12-31"
-              aria-describedby="added-at-hint">
-          </p>
-          <p class="form__hint" id="added-at-hint">Дата від 2024-01-01 до 2027-12-31.</p>
+              data-value-missing="Вкажіть дату додавання" aria-describedby="added-at-hint addedAt-error">
+            <p id="addedAt-error" class="form__error"></p>
+          </div>
+          <p class="form__hint" id="added-at-hint">Дата від 2024-01-01 до 2027-12-31, не пізніше за сьогодні.</p>
         </fieldset>
 
         <fieldset class="form__group">
@@ -193,10 +207,12 @@
           </p>
           <p class="form__hint" id="image-hint">Файл SVG, WebP або PNG. Поле не обов'язкове.</p>
 
-          <p class="form__field">
+          <div class="form__field">
             <label class="form__label" for="description">Опис</label>
-            <textarea id="description" name="description" required maxlength="300" rows="4"></textarea>
-          </p>
+            <textarea id="description" name="description" required maxlength="300" rows="4"
+              data-value-missing="Заповніть опис" aria-describedby="description-error"></textarea>
+            <p id="description-error" class="form__error"></p>
+          </div>
 
           <p class="form__field form__field--choice">
             <label class="form__label">
@@ -211,6 +227,57 @@
           <button class="button button--secondary" type="reset">Очистити</button>
         </p>
       </form>
+
+      <section id="add-preview" class="preview" hidden aria-labelledby="add-preview-title">
+        <h3 id="add-preview-title">Попередній перегляд</h3>
+        <ul id="add-preview-list" class="catalog__list"></ul>
+        <pre id="add-preview-json" class="preview__json"></pre>
+      </section>
+
+      <template id="card-template">
+        <article class="card">
+          <h2 class="card__title">
+            <a class="card__title-link" href="details.html"></a>
+          </h2>
+          <p class="card__media">
+            <img width="320" height="210" loading="lazy" alt="">
+          </p>
+          <p class="card__description">
+            <span class="card__description-text" hidden></span>
+          </p>
+          <div class="card__footer">
+            <div class="card__tags">
+              <p class="card__badge"></p>
+              <p class="status"></p>
+            </div>
+            <p class="card__meta">
+              <data class="card__price" value=""></data>
+              <data class="card__volume" value=""></data>
+              <span class="card__actions">
+                <button class="card__icon" type="button" data-action="favorite" aria-pressed="false" aria-label="У вибране">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" data-state="off">
+                    <path d="M6.5 4.5h11a1 1 0 0 1 1 1V20l-6.5-3.6L5.5 20V5.5a1 1 0 0 1 1-1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                  </svg>
+                  <svg viewBox="0 0 24 24" aria-hidden="true" data-state="on">
+                    <path d="M6.5 4.5h11a1 1 0 0 1 1 1V20l-6.5-3.6L5.5 20V5.5a1 1 0 0 1 1-1z" fill="currentColor"/>
+                  </svg>
+                </button>
+                <button class="card__icon" type="button" data-action="toggle-description" aria-expanded="false" aria-controls="description" aria-label="Показати опис">
+                  <svg viewBox="0 0 24 24" aria-hidden="true" data-state="off">
+                    <path d="M2.5 12S6 6.5 12 6.5 21.5 12 21.5 12 18 17.5 12 17.5 2.5 12 2.5 12z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                    <circle cx="12" cy="12" r="2.6" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                  </svg>
+                  <svg viewBox="0 0 24 24" aria-hidden="true" data-state="on">
+                    <path d="M3 4.5 20 19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                    <path d="M9.2 6.7A9 9 0 0 1 12 6.5c6 0 9.5 5.5 9.5 5.5a16 16 0 0 1-3.1 3.6M6.2 7.4C4 9 2.5 12 2.5 12S6 17.5 12 17.5a9 9 0 0 0 3.6-.8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </button>
+              </span>
+            </p>
+            <p class="card__added"><time datetime=""></time></p>
+          </div>
+        </article>
+      </template>
     </section>
   </main>
 
@@ -228,7 +295,7 @@
     </p>
   </footer>
   <script src="js/file-drop.js"></script>
-  <script type="module" src="js/admin.js"></script>
+  <script type="module" src="js/admin-page.js"></script>
 </body>
 
 </html>
