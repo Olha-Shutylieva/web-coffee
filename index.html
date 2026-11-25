@@ -152,52 +152,66 @@
     <section id="add" aria-labelledby="add-title">
       <h2 id="add-title">Додати нову позицію</h2>
       <p>Заповніть поля, щоб додати напій або десерт до меню кав'ярні.</p>
+      <div id="catalog-add-errors" class="form-errors" tabindex="-1" hidden></div>
 
       <form class="form" id="catalog-add" action="index.html#add" method="get">
         <fieldset class="form__group">
           <legend class="form__legend">Основні дані</legend>
 
-          <p class="form__field">
+          <div class="form__field">
             <label class="form__label" for="title">Назва</label>
-            <input id="title" name="title" type="text" required minlength="2" maxlength="80" autocomplete="off">
-          </p>
+            <input id="title" name="title" type="text" required minlength="2" maxlength="80" autocomplete="off"
+              data-value-missing="Заповніть назву" aria-describedby="title-error">
+            <p id="title-error" class="form__error"></p>
+          </div>
 
-          <p class="form__field">
+          <div class="form__field">
             <label class="form__label" for="sku">Артикул</label>
             <input id="sku" name="sku" type="text" required maxlength="6" pattern="^[A-Z]{2}-\d{3}$"
-              aria-describedby="sku-hint" title="Дві великі латинські літери, дефіс і три цифри" autocomplete="off">
-          </p>
+              data-value-missing="Вкажіть артикул"
+              data-pattern-message="Дві великі латинські літери, дефіс і три цифри, наприклад CF-012"
+              aria-describedby="sku-hint sku-error" title="Дві великі латинські літери, дефіс і три цифри"
+              autocomplete="off">
+            <p id="sku-error" class="form__error"></p>
+          </div>
           <p class="form__hint" id="sku-hint">Формат: дві великі латинські літери, дефіс і три цифри, наприклад CF-014.</p>
 
-          <p class="form__field">
+          <div class="form__field">
             <label class="form__label" for="category">Категорія</label>
-            <select id="category" name="category" required>
+            <select id="category" name="category" required data-value-missing="Оберіть категорію"
+              aria-describedby="category-error">
               <option value="">Оберіть категорію</option>
               <option value="coffee">Кава</option>
               <option value="tea">Чай</option>
               <option value="dessert">Десерт</option>
               <option value="seasonal">Сезонне</option>
             </select>
-          </p>
+            <p id="category-error" class="form__error"></p>
+          </div>
 
-          <p class="form__field">
+          <div class="form__field">
             <label class="form__label" for="price">Ціна, ₴</label>
-            <input id="price" name="price" type="number" required min="1" max="9999" step="1" inputmode="numeric">
-          </p>
+            <input id="price" name="price" type="number" required min="1" max="9999" step="1" inputmode="numeric"
+              data-value-missing="Вкажіть ціну" aria-describedby="price-hint price-error">
+            <p id="price-error" class="form__error"></p>
+          </div>
+          <p class="form__hint" id="price-hint">Від 1 до 9999 грн.</p>
 
-          <p class="form__field">
+          <div class="form__field">
             <label class="form__label" for="volume">Об'єм або вага</label>
-            <input id="volume" name="volume" type="number" required min="1" max="1000" step="1" inputmode="numeric"
-              aria-describedby="volume-hint">
-          </p>
-          <p class="form__hint" id="volume-hint">Ціле число без одиниць: мілілітри для напоїв або грами для десертів.</p>
+            <input id="volume" name="volume" type="number" min="1" max="1000" step="1" inputmode="numeric"
+              aria-describedby="volume-hint volume-error">
+            <p id="volume-error" class="form__error"></p>
+          </div>
+          <p class="form__hint" id="volume-hint">Для кави, чаю й сезонного меню вкажіть ціле число. Для десерту залиште поле порожнім.</p>
 
-          <p class="form__field">
+          <div class="form__field">
             <label class="form__label" for="addedAt">Дата додавання</label>
             <input id="addedAt" name="addedAt" type="date" required min="2024-01-01" max="2027-12-31"
-              aria-describedby="added-at-hint">
-          </p>
-          <p class="form__hint" id="added-at-hint">Дата від 2024-01-01 до 2027-12-31.</p>
+              data-value-missing="Вкажіть дату додавання" aria-describedby="added-at-hint addedAt-error">
+            <p id="addedAt-error" class="form__error"></p>
+          </div>
+          <p class="form__hint" id="added-at-hint">Дата від 2024-01-01 до 2027-12-31, не пізніше за сьогодні.</p>
         </fieldset>
 
         <fieldset class="form__group">
@@ -216,10 +230,12 @@
           </p>
           <p class="form__hint" id="image-hint">Файл SVG, WebP або PNG. Поле не обов'язкове.</p>
 
-          <p class="form__field">
+          <div class="form__field">
             <label class="form__label" for="description">Опис</label>
-            <textarea id="description" name="description" required maxlength="300" rows="4"></textarea>
-          </p>
+            <textarea id="description" name="description" required maxlength="300" rows="4"
+              data-value-missing="Заповніть опис" aria-describedby="description-error"></textarea>
+            <p id="description-error" class="form__error"></p>
+          </div>
 
           <p class="form__field form__field--choice">
             <label class="form__label">
@@ -234,6 +250,12 @@
           <button class="button button--secondary" type="reset">Скасувати</button>
         </p>
       </form>
+
+      <section id="catalog-add-preview" class="preview" hidden aria-labelledby="catalog-add-preview-title">
+        <h3 id="catalog-add-preview-title">Попередній перегляд</h3>
+        <ul id="catalog-add-preview-list" class="catalog__list"></ul>
+        <pre id="catalog-add-preview-json" class="preview__json"></pre>
+      </section>
     </section>
   </main>
 

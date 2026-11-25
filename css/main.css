@@ -1702,8 +1702,8 @@
   }
 
   /*
-    Некоректне значення: колір рамки і товщина рамки.
-    Знак оклику на підписі не залежить від кольору.
+    Некоректне значення: товща червона рамка.
+    Сам текст помилки стоїть під полем.
   */
   .form input:user-invalid:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
   .form select:user-invalid,
@@ -1718,13 +1718,6 @@
     outline-offset: 0.125rem;
   }
 
-  .form__field:not(.form__field--choice):has(:user-invalid) > .form__label::after,
-  .form__field--choice:has(input[type="checkbox"]:user-invalid) > .form__label::after,
-  .form__group:has(input[type="radio"]:user-invalid) > .form__legend::after {
-    content: " !";
-    font-weight: 700;
-  }
-
   .form [aria-invalid="true"]:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
   .form select[aria-invalid="true"],
   .form textarea[aria-invalid="true"] {
@@ -1736,13 +1729,6 @@
   .form input[type="radio"][aria-invalid="true"] {
     outline: 0.1875rem solid var(--color-error);
     outline-offset: 0.125rem;
-  }
-
-  .form__field:not(.form__field--choice):has([aria-invalid="true"]) > .form__label::after,
-  .form__field--choice:has(input[type="checkbox"][aria-invalid="true"]) > .form__label::after,
-  .form__group:has(input[type="radio"][aria-invalid="true"]) > .form__legend::after {
-    content: " !";
-    font-weight: 700;
   }
 
   .form__field--choice:has(.form__error) {
